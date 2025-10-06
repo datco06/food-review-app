@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      referrerpolicy="no-referrer"
+    />
+    <title>food-review-app</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <form name="spot-reviews" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="spot-reviews" />
+      <input type="text" name="name" />
+      <input type="text" name="rating" />
+      <textarea name="content"></textarea>
+      <input type="text" name="category" />
+      <input type="text" name="spotId" />
+      <input type="text" name="photoIncluded" />
+      <input type="text" name="language" />
+      <input type="text" name="timestamp" />
+      <p hidden>
+        <label>Bot field <input name="bot-field" /></label>
+      </p>
+    </form>
+    <form name="spot-clicks" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="spot-clicks" />
+      <input type="text" name="category" />
+      <input type="text" name="spotId" />
+      <input type="text" name="name" />
+      <input type="text" name="mapUrl" />
+      <input type="text" name="timestamp" />
+      <p hidden>
+        <label>Bot field <input name="bot-field" /></label>
+      </p>
+    </form>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
