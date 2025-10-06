@@ -295,7 +295,11 @@ export default function Drinks() {
                 <span className="foods-hero__eyebrow">{dish.hero.eyebrow}</span>
                 <h1 className="foods-hero__title">{dish.hero.title}</h1>
                 {dish.hero.cta && (
-                  <button type="button" className="foods-cta" onClick={() => scrollToDetails(dish.id)}>
+                  <button
+                    type="button"
+                    className="foods-cta foods-cta--compact"
+                    onClick={() => scrollToDetails(dish.id)}
+                  >
                     <i className="fa-solid fa-arrow-down" />&nbsp;{dish.hero.cta || labels.cta}
                   </button>
                 )}

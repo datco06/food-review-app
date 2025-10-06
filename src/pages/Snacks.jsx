@@ -473,7 +473,7 @@ export const SNACKS_COPY = {
           title: "BÁNH GIÒ HÀ NỘI",
           description:
             "Nhắc tới các món quà Hà Nội, bánh giò bình dị mà khó cưỡng. Bánh được gói kín trong lá chuối, mở ra tỏa mùi thơm dịu. Lớp bột mềm mỏng ôm lấy nhân thịt băm, mộc nhĩ và gia vị truyền thống, hình chóp đặc trưng gợi nhớ ký ức của nhiều thế hệ người Hà Nội. Không chỉ là món quà vặt, bánh giò còn là hương vị ký ức, đậm chất ẩm thực Thủ đô.",
-          image: null,
+          image: "/assets/banhgio/banhgio.jpg",
           imageAlt: "Bánh giò Hà Nội nóng hổi",
           cta: "Thưởng thức bánh giò",
         },
@@ -483,7 +483,7 @@ export const SNACKS_COPY = {
         },
         video: {
           type: "youtube",
-          src: "https://www.youtube.com/embed/TWd619ufADU",
+          src: "https://www.youtube.com/embed/rzN5IBXcf7Q?autoplay=1&mute=1&rel=0",
           description: "Ngắm từng lớp bột mềm, phần nhân thịt mộc nhĩ và cách gói bánh giò hình chóp.",
         },
         ingredientGallery: [],
@@ -510,7 +510,7 @@ export const SNACKS_COPY = {
             description:
               "Gần Lăng Bác, quán nhỏ lâu năm nổi tiếng vị chuẩn; chỉ mở vài giờ mỗi ngày và luôn đông khách.",
             price: "Giá: 15.000 – 35.000đ/chiếc.",
-            image: null,
+            image: "/assets/banhgio/1.jpg",
             mapUrl: "https://maps.google.com/?q=D%E1%BB%91c+H%C3%A0ng+Than+H%C3%A0+N%E1%BB%99i",
           },
           {
@@ -520,7 +520,7 @@ export const SNACKS_COPY = {
             description:
               "Hơn 10 năm phục vụ, bánh giò mềm mại ăn kèm dưa góp, chả bò, xúc xích và cốm dẹp tùy chọn.",
             price: "Giá: 10.000 – 40.000đ/suất.",
-            image: null,
+            image: "/assets/banhgio/2.png",
             mapUrl: "https://maps.google.com/?q=21+L%C6%B0%C6%A1ng+%C4%90%E1%BB%8Bnh+C%E1%BB%A7a+H%C3%A0+N%E1%BB%99i",
           },
           {
@@ -530,7 +530,7 @@ export const SNACKS_COPY = {
             description:
               "Bánh giò chuẩn vị, topping đầy đặn với chả, xúc xích và dưa góp; hương vị khó quên của người địa phương.",
             price: "Giá: 12.000 – 30.000đ/suất.",
-            image: null,
+            image: "/assets/banhgio/3.png",
             mapUrl: "https://maps.google.com/?q=3+Th%E1%BB%A5y+Khu%C3%AA+H%C3%A0+N%E1%BB%99i",
           },
         ],
@@ -543,7 +543,7 @@ export const SNACKS_COPY = {
           title: "BÁNH RÁN HÀ NỘI",
           description:
             "Bánh rán Hà Nội là món quà vặt gắn với ký ức cư dân phố cổ. Vỏ bánh làm từ bột nếp chiên vàng ruộm, bên trong có thể là nhân mặn với thịt băm, mộc nhĩ, miến hoặc nhân ngọt đậu xanh bùi béo. Khi ăn kèm nước chấm pha từ nước mắm, tỏi, ớt, giấm, vị giòn – dẻo – đậm đà hòa quyện hoàn hảo. Những chiều thu se lạnh, ghé xe bánh rán đang chiên nóng, nghe tiếng dầu xèo xèo và chia sẻ chiếc bánh nóng hổi cùng bạn bè là trải nghiệm thân thuộc của người Hà Nội.",
-          image: "/assets/banhran/banhran-hero.png",
+          image: "/assets/banhran/banhran.webp",
           imageAlt: "Đĩa bánh rán nóng hổi với nước chấm",
           cta: "Thưởng thức bánh rán",
         },
@@ -552,9 +552,9 @@ export const SNACKS_COPY = {
           body: "Ngắm nhìn từng lớp bột nếp chiên phồng và nhân bánh rán mặn ngọt phong phú.",
         },
         video: {
-          type: "local",
-          src: "/assets/banhran/banhran-video.mp4",
-          poster: "/assets/banhran/banhran-hero.png",
+          type: "youtube",
+          src: "https://www.youtube.com/embed/525ekCPnKgM?autoplay=1&mute=1&rel=0",
+          poster: "/assets/banhran/banhran.webp",
           description: "Quy trình nặn bánh, chiên giòn và pha nước chấm đặc trưng Hà Nội.",
         },
         ingredientGallery: [
@@ -600,7 +600,7 @@ export const SNACKS_COPY = {
             description:
               "Điểm hẹn của học sinh, sinh viên với cả bánh rán ngọt và mặn; nổi tiếng bánh rán lúc lắc phủ mè.",
             price: "Giá: ~3.000đ/chiếc. Mở cửa: 7:00 – 21:00.",
-            image: "/assets/banhran/gia-trinh.png",
+            image: "/assets/banhran/1.png",
             mapUrl: "https://maps.google.com/?q=16A+L%C3%BD+Nam+%C4%90%E1%BA%BF+H%C3%A0+N%E1%BB%99i",
           },
           {
@@ -610,7 +610,7 @@ export const SNACKS_COPY = {
             description:
               "Nổi tiếng với bánh rán nhân mặn vỏ dày, dẻo dai, ăn kèm nước chấm cân bằng vị mặn – chua – ngọt.",
             price: "Giá: 4.000 – 10.000đ/chiếc. Mở cửa: 14:00 – 21:00.",
-            image: "/assets/banhran/dinh-liet.png",
+            image: "/assets/banhran/2.png",
             mapUrl: "https://maps.google.com/?q=16+%C4%90inh+Li%E1%BB%87t+H%C3%A0+N%E1%BB%99i",
           },
           {
@@ -620,8 +620,136 @@ export const SNACKS_COPY = {
             description:
               "Quầy bánh rán gia truyền tại phố cổ; bánh được phục vụ nóng hổi với nhân mặn thơm tiêu, nhân ngọt đậu xanh mè rang.",
             price: "Giá: 2.000 – 5.000đ/chiếc. Mở cửa: 15:00 – 19:00.",
-            image: "/assets/banhran/hai-xe.png",
+            image: "/assets/banhran/3.png",
             mapUrl: "https://maps.google.com/?q=5+L%C6%B0%C6%A1ng+Ng%E1%BB%8Dc+Quy%E1%BA%BFn+H%C3%A0+N%E1%BB%99i",
+          },
+        ],
+      },
+      {
+        id: "roti-thai",
+        hero: {
+          eyebrow: "Hương vị Thái Lan",
+          title: "BÁNH KẾP THÁI",
+          description:
+            "Bánh kếp Thái (Roti Thái) là món ăn đường phố nổi tiếng với lớp vỏ bột mì mỏng chiên vàng giòn, bên trong là chuối, trứng, sô-cô-la hoặc sữa đặc. Khi ăn cảm nhận rõ độ giòn bên ngoài, mềm thơm bên trong, vị ngọt béo quyện cùng hương bơ hấp dẫn.",
+          image: null,
+          imageAlt: "Bánh kếp Thái cuộn nhân chuối trứng",
+          cta: "Thưởng thức bánh kếp",
+        },
+        intro: {
+          title: "VIDEO",
+          body: "Chiêm ngưỡng cách tráng bột, thêm nhân và gấp bánh kếp Thái hấp dẫn.",
+        },
+        video: {
+          type: "youtube",
+          src: "https://www.youtube.com/embed/1ypov8-t_Kk?autoplay=1&mute=1&rel=0",
+          description: "Quy trình làm roti Thái với nhân chuối trứng và topping ngọt béo.",
+        },
+        ingredientGallery: [],
+        ingredientsTitle: "Thành phần hấp dẫn",
+        ingredientsList: [
+          { iconClass: "fa-solid fa-bread-slice", text: "Bột mì cán mỏng chiên vàng giòn." },
+          { iconClass: "fa-solid fa-egg", text: "Trứng gà tạo độ mềm ẩm cho phần nhân." },
+          { iconClass: "fa-solid fa-banana", text: "Chuối chín vàng cho vị ngọt thơm tự nhiên." },
+          { iconClass: "fa-solid fa-ice-cream", text: "Sữa đặc, sô-cô-la, mật ong tùy chọn." },
+          { iconClass: "fa-solid fa-fire", text: "Chiên trên chảo bơ nóng cho hương thơm quyến rũ." },
+        ],
+        recipeTitle: "Cách cuốn bánh ngon",
+        recipeSteps: [
+          "Nhào bột với bơ và trứng, nghỉ bột rồi cán mỏng trên chảo nóng.",
+          "Thêm chuối thái lát, trứng hoặc topping yêu thích vào giữa, gập bốn cạnh tạo hình vuông.",
+          "Chiên vàng giòn hai mặt, cắt miếng và rưới sữa đặc hoặc sô-cô-la khi còn nóng.",
+        ],
+        spotsTitle: "Địa chỉ bánh kếp Thái ở Hà Nội",
+        spots: [
+          {
+            id: "roti-ta-hien",
+            name: "ROTI THÁI LAN",
+            address: "24 Tạ Hiện, Hoàn Kiếm",
+            description:
+              "Xe bánh kếp nổi tiếng phố cổ với phiên bản chuối trứng truyền thống, luôn nóng và giòn.",
+            price: "Giá: 25.000 – 40.000đ/chiếc.",
+            image: null,
+            mapUrl: "https://maps.google.com/?q=24+T%E1%BA%A1+Hi%E1%BB%87n+H%C3%A0+N%E1%BB%99i",
+          },
+          {
+            id: "roti-house",
+            name: "ROTI HOUSE",
+            address: "22 Nguyễn Hữu Huân, Hoàn Kiếm",
+            description:
+              "Cửa hàng nhỏ phục vụ nhiều loại nhân phong phú, thêm topping trái cây và sô-cô-la hấp dẫn.",
+            price: "Giá: 25.000 – 40.000đ/chiếc.",
+            image: null,
+            mapUrl: "https://maps.google.com/?q=22+Nguy%E1%BB%85n+H%E1%BB%AFu+Hu%C3%A2n+H%C3%A0+N%E1%BB%99i",
+          },
+        ],
+      },
+      {
+        id: "banh-xeo",
+        hero: {
+          eyebrow: "Giòn rụm mùi nghệ",
+          title: "BÁNH XÈO HÀ NỘI",
+          description:
+            "Bánh xèo Hà Nội vàng giòn, thơm mùi nghệ, nhân tôm thịt nóng hổi cuốn cùng rau sống tươi mát. Giữa tiết trời se lạnh, vị giòn rụm, béo nhẹ và nước mắm chua ngọt đậm đà khiến ai thưởng thức cũng khó quên.",
+          image: null,
+          imageAlt: "Đĩa bánh xèo vàng giòn với rau sống",
+          cta: "Thưởng thức bánh xèo",
+        },
+        intro: {
+          title: "VIDEO",
+          body: "Xem cách đổ bánh xèo vàng giòn và cuốn cùng rau sống, nước chấm đậm đà.",
+        },
+        video: {
+          type: "youtube",
+          src: "https://www.youtube.com/embed/Bs-VttCSeC4?autoplay=1&mute=1&rel=0",
+          description: "Đổ bánh xèo giòn rụm, nhân tôm thịt đầy đặn và cách pha nước chấm chuẩn vị Hà Nội.",
+        },
+        ingredientGallery: [],
+        ingredientsTitle: "Nguyên liệu chính",
+        ingredientsList: [
+          { iconClass: "fa-solid fa-bowl-rice", text: "Bột gạo pha cùng bột nghệ cho lớp vỏ vàng giòn." },
+          { iconClass: "fa-solid fa-shrimp", text: "Tôm tươi, thịt heo thái mỏng làm nhân ngọt." },
+          { iconClass: "fa-solid fa-leaf", text: "Rau sống, xà lách, rau thơm ăn kèm." },
+          { iconClass: "fa-solid fa-carrot", text: "Đồ chua cà rốt, đu đủ thái sợi tạo vị cân bằng." },
+          { iconClass: "fa-solid fa-mug-hot", text: "Nước mắm chua ngọt pha tỏi ớt, giấm bỗng." },
+        ],
+        recipeTitle: "Thưởng thức đúng điệu",
+        recipeSteps: [
+          "Pha bột với nước cốt dừa hoặc nước lọc, thêm bột nghệ, hành lá.",
+          "Đổ bột lên chảo nóng, thêm nhân tôm thịt, giá đỗ rồi gập đôi khi vỏ giòn.",
+          "Cuốn bánh với rau sống và chấm nước mắm chua ngọt ngay khi còn nóng giòn.",
+        ],
+        spotsTitle: "Quán bánh xèo nổi bật",
+        spots: [
+          {
+            id: "banhxeo-zon",
+            name: "BÁNH XÈO ZÒN PANCAKE",
+            address: "25 Tô Ngọc Vân, Tây Hồ",
+            description:
+              "Không gian sạch sẽ, phục vụ phong cách miền Trung với vỏ bánh giòn, nhân đầy đặn, được nhiều du khách yêu thích.",
+            price: "Giá: 30.000 – 90.000đ/suất.",
+            image: null,
+            mapUrl: "https://maps.google.com/?q=25+T%C3%B4+Ng%E1%BB%8Dc+V%C3%A2n+H%C3%A0+N%E1%BB%99i",
+          },
+          {
+            id: "banhxeo-loanbeo",
+            name: "BÁNH XÈO LOAN BÉO",
+            address: "142B Đội Cấn, Ba Đình",
+            description:
+              "Bánh xèo miền Trung đậm đà, giòn rụm, nhân tôm thịt tươi ngon, nước chấm vừa miệng.",
+            price: "Giá: 40.000 – 60.000đ/suất.",
+            image: null,
+            mapUrl: "https://maps.google.com/?q=142B+%C4%90%E1%BB%99i+C%E1%BA%A5n+H%C3%A0+N%E1%BB%99i",
+          },
+          {
+            id: "banhxeo-mrbay",
+            name: "BÁNH XÈO MR. BẢY MIỀN TÂY",
+            address: "74 Cầu Đất, Hoàn Kiếm",
+            description:
+              "Quán được Michelin Guide 2024 vinh danh với bánh xèo kiểu miền Tây, vỏ giòn, nhân đầy và nước chấm pha khéo.",
+            price: "Giá: 65.000 – 85.000đ/suất.",
+            image: null,
+            mapUrl: "https://maps.google.com/?q=74+C%E1%BA%A7u+%C4%90%E1%BA%A5t+H%C3%A0+N%E1%BB%99i",
           },
         ],
       },
@@ -1088,7 +1216,7 @@ export const SNACKS_COPY = {
           title: "BANH GIO",
           description:
             "When it comes to Hanoi’s specialties, banh gio—a pyramid-shaped rice dumpling—stands out as a humble yet irresistible treat. Wrapped neatly in banana leaves, it releases a gentle aroma once unwrapped. Silky rice batter cradles a savoury filling of minced pork, wood ear mushrooms, and warming spices. Its distinctive pyramid shape evokes generations of nostalgia, making every bite a taste of tradition and a symbol of Hanoi’s culinary heritage.",
-          image: null,
+          image: "/assets/banhgio/banhgio.jpg",
           imageAlt: "Steaming Hanoi banh gio",
           cta: "Enjoy banh gio",
         },
@@ -1098,7 +1226,7 @@ export const SNACKS_COPY = {
         },
         video: {
           type: "youtube",
-          src: "https://www.youtube.com/embed/TWd619ufADU",
+          src: "https://www.youtube.com/embed/rzN5IBXcf7Q?autoplay=1&mute=1&rel=0",
           description: "See the silky batter, savoury filling, and pyramid wrapping that define Hanoi banh gio.",
         },
         ingredientGallery: [],
@@ -1125,7 +1253,7 @@ export const SNACKS_COPY = {
             description:
               "A tiny decades-old stall near the Ho Chi Minh Mausoleum—opens for only a few hours and draws loyal regulars.",
             price: "Price: 15,000 – 35,000 VND each.",
-            image: null,
+            image: "/assets/banhgio/1.jpg",
             mapUrl: "https://maps.google.com/?q=D%E1%BB%91c+H%C3%A0ng+Than+H%C3%A0+N%E1%BB%99i",
           },
           {
@@ -1135,7 +1263,7 @@ export const SNACKS_COPY = {
             description:
               "Over a decade in business, offering customisable plates with pickles, beef sausage, pork sausage, and green rice patties.",
             price: "Price: 10,000 – 40,000 VND per serving.",
-            image: null,
+            image: "/assets/banhgio/2.png",
             mapUrl: "https://maps.google.com/?q=21+L%C6%B0%C6%A1ng+%C4%90%E1%BB%8Bnh+C%E1%BB%A7a+H%C3%A0+N%E1%BB%99i",
           },
           {
@@ -1145,7 +1273,7 @@ export const SNACKS_COPY = {
             description:
               "Local favourite pairing flavourful dumplings with sausage, pickles, and other toppings for a hearty bite.",
             price: "Price: 12,000 – 30,000 VND per portion.",
-            image: null,
+            image: "/assets/banhgio/3.png",
             mapUrl: "https://maps.google.com/?q=3+Th%E1%BB%A5y+Khu%C3%AA+H%C3%A0+N%E1%BB%99i",
           },
         ],
@@ -1158,7 +1286,7 @@ export const SNACKS_COPY = {
           title: "HANOI FRIED RICE CAKES",
           description:
             "Hanoi’s banh ran—sesame-studded fried rice cakes—capture the nostalgia of Old Quarter afternoons. Glutinous rice dough fries to a golden shell that stays crisp outside and chewy within. Fillings span savoury minced pork with wood-ear mushrooms and glass noodles to sweet mung bean paste scented with coconut. Dip each hot cake into a tangy-sweet sauce of fish sauce, garlic, chili, and vinegar for perfect balance. Sharing them fresh from the fryer is a beloved Hanoi ritual.",
-          image: "/assets/banhran/banhran-hero.png",
+          image: "/assets/banhran/banhran.webp",
           imageAlt: "Plate of Hanoi fried rice cakes with dipping sauce",
           cta: "Enjoy banh ran",
         },
@@ -1167,9 +1295,9 @@ export const SNACKS_COPY = {
           body: "See how glutinous dough puffs into crisp, chewy rice cakes.",
         },
         video: {
-          type: "local",
-          src: "/assets/banhran/banhran-video.mp4",
-          poster: "/assets/banhran/banhran-hero.png",
+          type: "youtube",
+          src: "https://www.youtube.com/embed/525ekCPnKgM?autoplay=1&mute=1&rel=0",
+          poster: "/assets/banhran/banhran.webp",
           description: "Shaping, frying, and plating Hanoi’s favourite fried rice cakes.",
         },
         ingredientGallery: [
@@ -1215,7 +1343,7 @@ export const SNACKS_COPY = {
             description:
               "Student favourite offering both sweet and savoury cakes plus bite-sized ‘shaking’ sesame balls.",
             price: "Price: about 3,000 VND each. Hours: 7:00 – 21:00.",
-            image: "/assets/banhran/gia-trinh.png",
+            image: "/assets/banhran/1.png",
             mapUrl: "https://maps.google.com/?q=16A+L%C3%BD+Nam+%C4%90%E1%BA%BF+Hanoi",
           },
           {
@@ -1225,7 +1353,7 @@ export const SNACKS_COPY = {
             description:
               "Celebrated for savoury cakes with thicker, chewier shells and a balanced dipping sauce.",
             price: "Price: 4,000 – 10,000 VND each. Hours: 14:00 – 21:00.",
-            image: "/assets/banhran/dinh-liet.png",
+            image: "/assets/banhran/2.png",
             mapUrl: "https://maps.google.com/?q=16+%C4%90inh+Li%E1%BB%87t+Hanoi",
           },
           {
@@ -1235,8 +1363,136 @@ export const SNACKS_COPY = {
             description:
               "Long-running Old Quarter stall serving piping-hot cakes with peppery savoury filling and sesame-coated sweet versions.",
             price: "Price: 2,000 – 5,000 VND each. Hours: 15:00 – 19:00.",
-            image: "/assets/banhran/hai-xe.png",
+            image: "/assets/banhran/3.png",
             mapUrl: "https://maps.google.com/?q=5+L%C6%B0%C6%A1ng+Ng%E1%BB%8Dc+Quy%E1%BA%BFn+Hanoi",
+          },
+        ],
+      },
+      {
+        id: "roti-thai",
+        hero: {
+          eyebrow: "Thai street flavors",
+          title: "THAI PANCAKE (ROTI)",
+          description:
+            "Thai roti is a beloved street food made from paper-thin dough fried until crisp, folded around fillings like banana, egg, chocolate, or condensed milk. Each bite combines buttery aroma, crisp edges, and a soft, sweet center.",
+          image: null,
+          imageAlt: "Thai roti folded with banana and egg filling",
+          cta: "Grab a roti",
+        },
+        intro: {
+          title: "VIDEO",
+          body: "Watch street vendors stretch, flip, and tuck sizzling Thai pancakes.",
+        },
+        video: {
+          type: "youtube",
+          src: "https://www.youtube.com/embed/1ypov8-t_Kk?autoplay=1&mute=1&rel=0",
+          description: "Making banana-egg Thai roti with buttery crisp layers and sweet toppings.",
+        },
+        ingredientGallery: [],
+        ingredientsTitle: "What goes inside",
+        ingredientsList: [
+          { iconClass: "fa-solid fa-bread-slice", text: "Elastic wheat dough fried until golden." },
+          { iconClass: "fa-solid fa-egg", text: "Eggs keep the center soft and custardy." },
+          { iconClass: "fa-solid fa-banana", text: "Ripe bananas for natural sweetness." },
+          { iconClass: "fa-solid fa-ice-cream", text: "Condensed milk, chocolate, or honey drizzles." },
+          { iconClass: "fa-solid fa-fire", text: "Hot griddle and butter for irresistible aroma." },
+        ],
+        recipeTitle: "How to enjoy",
+        recipeSteps: [
+          "Rest the dough, then stretch it thin over a buttered griddle.",
+          "Add banana slices, egg, or chosen fillings to the center and fold the corners.",
+          "Fry until both sides are crisp, slice, and drizzle with condensed milk while hot.",
+        ],
+        spotsTitle: "Where to try it in Hanoi",
+        spots: [
+          {
+            id: "roti-ta-hien",
+            name: "THAI ROTI CART",
+            address: "24 Ta Hien, Hoan Kiem",
+            description:
+              "Old Quarter cart famous for classic banana-egg roti made to order and served piping hot.",
+            price: "Price: 25,000 – 40,000 VND per piece.",
+            image: null,
+            mapUrl: "https://maps.google.com/?q=24+T%E1%BA%A1+Hi%E1%BB%87n+Hanoi",
+          },
+          {
+            id: "roti-house",
+            name: "ROTI HOUSE",
+            address: "22 Nguyen Huu Huan, Hoan Kiem",
+            description:
+              "Cosy shop offering creative fillings and toppings for Thai pancakes to suit every sweet tooth.",
+            price: "Price: 25,000 – 40,000 VND per piece.",
+            image: null,
+            mapUrl: "https://maps.google.com/?q=22+Nguy%E1%BB%85n+H%E1%BB%AFu+Hu%C3%A2n+Hanoi",
+          },
+        ],
+      },
+      {
+        id: "banh-xeo",
+        hero: {
+          eyebrow: "Crisp and aromatic",
+          title: "HANOI BANH XEO",
+          description:
+            "Hanoi’s take on banh xeo features turmeric-tinted crepes fried until shatteringly crisp, stuffed with sizzling shrimp and pork, and wrapped with fresh herbs. Dip in tangy fish sauce for a comforting contrast of textures and flavors.",
+          image: null,
+          imageAlt: "Vietnamese banh xeo with herbs and dipping sauce",
+          cta: "Crunch into banh xeo",
+        },
+        intro: {
+          title: "VIDEO",
+          body: "See how sizzling batter becomes crackly crepes ready to wrap with herbs.",
+        },
+        video: {
+          type: "youtube",
+          src: "https://www.youtube.com/embed/Bs-VttCSeC4?autoplay=1&mute=1&rel=0",
+          description: "Pouring turmeric batter, frying shrimp-and-pork fillings, and assembling Hanoi-style banh xeo.",
+        },
+        ingredientGallery: [],
+        ingredientsTitle: "Signature components",
+        ingredientsList: [
+          { iconClass: "fa-solid fa-bowl-rice", text: "Rice flour batter tinted with turmeric for a golden crunch." },
+          { iconClass: "fa-solid fa-shrimp", text: "Plump shrimp and sliced pork for savoury sweetness." },
+          { iconClass: "fa-solid fa-leaf", text: "Fresh lettuce and herbs to wrap each bite." },
+          { iconClass: "fa-solid fa-carrot", text: "Pickled carrot and green papaya to balance richness." },
+          { iconClass: "fa-solid fa-mug-hot", text: "Nuoc cham dipping sauce spiked with garlic, chili, and lime." },
+        ],
+        recipeTitle: "How locals eat it",
+        recipeSteps: [
+          "Whisk batter with coconut milk or water, turmeric, and scallions.",
+          "Ladle onto a hot skillet, add shrimp, pork, and bean sprouts, then fold once crisp.",
+          "Wrap pieces in herbs and lettuce, dip generously in nuoc cham, and enjoy immediately.",
+        ],
+        spotsTitle: "Popular banh xeo stops",
+        spots: [
+          {
+            id: "banhxeo-zon",
+            name: "BANH XEO ZON PANCAKE",
+            address: "25 To Ngoc Van, Tay Ho",
+            description:
+              "Bright, traveller-friendly eatery serving Central-style banh xeo with generous fillings and artful plating.",
+            price: "Price: 30,000 – 90,000 VND per serving.",
+            image: null,
+            mapUrl: "https://maps.google.com/?q=25+T%C3%B4+Ng%E1%BB%8Dc+V%C3%A2n+Hanoi",
+          },
+          {
+            id: "banhxeo-loanbeo",
+            name: "BANH XEO LOAN BEO",
+            address: "142B Doi Can, Ba Dinh",
+            description:
+              "Classic Central Vietnamese-style crepes with crisp shells, juicy fillings, and balanced dipping sauce.",
+            price: "Price: 40,000 – 60,000 VND per serving.",
+            image: null,
+            mapUrl: "https://maps.google.com/?q=142B+%C4%90%E1%BB%99i+C%E1%BA%A5n+Hanoi",
+          },
+          {
+            id: "banhxeo-mrbay",
+            name: "BANH XEO MR. BAY MIEN TAY",
+            address: "74 Cau Dat, Hoan Kiem",
+            description:
+              "Bib Gourmand-listed spot famed for Mekong-style banh xeo with airy shells and flavour-packed nuoc cham.",
+            price: "Price: 65,000 – 85,000 VND per serving.",
+            image: null,
+            mapUrl: "https://maps.google.com/?q=74+C%E1%BA%A7u+%C4%90%E1%BA%A5t+Hanoi",
           },
         ],
       },
