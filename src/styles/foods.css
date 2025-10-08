@@ -225,6 +225,9 @@
   margin: 0;
   font-size: 1.35rem;
   color: var(--color-chocolate);
+  text-transform: capitalize;
+  font-family: var(--font-body);
+  font-weight: 600;
 }
 
 .spot-card__content p {

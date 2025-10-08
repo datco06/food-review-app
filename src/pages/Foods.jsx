@@ -4,7 +4,8 @@ import useScrollReveal from "../hooks/useScrollReveal.js";
 import useAutoPlayVideos from "../hooks/useAutoPlayVideos.js";
 import { useLanguage } from "../context/LanguageContext.jsx";
 import "../styles/foods.css";
-import { recordClickEvent } from "../utils/clickTracker.js";
+import { aggregateEventCounts, recordClickEvent } from "../utils/clickTracker.js";
+import { fetchClickEvents } from "../utils/supabaseApi.js";
 
 export const FOODS_COPY = {
   vi: {
@@ -108,7 +109,7 @@ export const FOODS_COPY = {
         spots: [
           {
             id: "pho-batdan",
-            name: "PHỞ BÁT ĐÀN",
+            name: "Phở Bát Đàn",
             address: "49 Bát Đàn, quận Hoàn Kiếm, Hà Nội",
             description:
               "Phở Bát Đàn gắn liền với phố cổ nhờ nước dùng trong veo, thịt bò mềm và truyền thống xếp hàng, tự phục vụ để giữ đúng hương vị xưa.",
@@ -117,7 +118,7 @@ export const FOODS_COPY = {
           },
           {
             id: "pho-thin",
-            name: "PHỞ THÌN LÒ ĐÚC",
+            name: "Phở Thìn Lò Đúc",
             address: "13 Lò Đúc, quận Hai Bà Trưng, Hà Nội",
             description:
               "Quán nổi tiếng với bí quyết xào nhanh thịt bò trên lửa lớn trước khi chan nước dùng, tạo nên vị béo ngậy khác biệt.",
@@ -126,83 +127,80 @@ export const FOODS_COPY = {
           },
           {
             id: "pho-lyquocsu",
-            name: "PHỞ 10 LÝ QUỐC SƯ",
+            name: "Phở 10 Lý Quốc Sư",
             address: "10 Lý Quốc Sư, phường Hàng Trống, quận Hoàn Kiếm, Hà Nội",
             description:
               "Nằm gần Nhà thờ Lớn, quán phục vụ cả phở bò lẫn phở gà với hương vị ổn định, thu hút đông đảo du khách.",
             image: "/assets/pho/pho-lyquocsu.png",
             mapUrl: "https://maps.google.com/?q=Ph%E1%BB%9F+10+L%C3%BD+Qu%E1%BB%91c+S%C6%B2",
-      },
+          },
         ],
       },
-
-
-
       {
         id: "nemnuong",
         hero: {
-          eyebrow: "Central delight",
-          title: "NHA TRANG GRILLED PORK SAUSAGE",
+          eyebrow: "Đặc sản miền Trung",
+          title: "NEM NƯỚNG NHA TRANG",
           description:
-            "Nem nuong from Nha Trang features finely pounded pork grilled over charcoal until smoky and lightly crisp. Wrap the hot skewers with rice paper, herbs, pickles, and creamy peanut sauce for a sweet-savory harmony beloved across Vietnam.",
-          image: null,
-          imageAlt: "Nha Trang nem nuong with rice paper and herbs",
-          cta: "Roll your own nem nuong",
+            "Nem nướng Nha Trang được giã nhuyễn từ thịt heo, quết dẻo rồi nướng trên than hồng cho thơm lừng, mặt ngoài xém nhẹ mà bên trong vẫn mọng ngọt. Gắp miếng nem nóng, cuốn cùng bánh tráng, rau sống, đồ chua và rưới nước chấm đậu phộng béo ngậy – sự hòa quyện ngọt, mặn, bùi khiến ai thưởng thức cũng nhớ mãi.",
+          image: "/assets/nemnuong/nem.jpg",
+          imageAlt: "Nem nướng Nha Trang ăn kèm bánh tráng và rau sống",
+          cta: "Thưởng thức nem nướng",
         },
         intro: {
           title: "VIDEO",
-          body: "See how nem nuong is shaped, grilled, and wrapped with fresh greens.",
+          body: "Quy trình quết, nướng và cuốn nem nướng Nha Trang cùng rau tươi hấp dẫn.",
         },
         video: {
           type: "youtube",
           src: "https://www.youtube.com/embed/NVzRMbREV_c?autoplay=1&mute=1&rel=0",
-          description: "Skewering, grilling, and serving the iconic Nha Trang specialty with peanut dipping sauce.",
+          description: "Nem nướng được tạo hình, nướng trên than và thưởng thức cùng nước chấm đậu phộng béo thơm.",
         },
         ingredientGallery: [],
-        ingredientsTitle: "Signature components",
+        ingredientsTitle: "Thành phần tạo nên hương vị",
         ingredientsList: [
-          { iconClass: "fa-solid fa-drumstick-bite", text: "Minced pork blended with fat, garlic, and aromatics." },
-          { iconClass: "fa-solid fa-fire", text: "Charcoal heat caramelises the surface while keeping the center juicy." },
-          { iconClass: "fa-solid fa-leaf", text: "Fresh herbs, lettuce, and green mango for crunch and brightness." },
-          { iconClass: "fa-solid fa-bread-slice", text: "Soft rice paper to bundle every ingredient." },
-          { iconClass: "fa-solid fa-bowl-food", text: "Peanut-based dipping sauce with sweet-savoury depth." },
+          { iconClass: "fa-solid fa-drumstick-bite", text: "Thịt heo xay quện mỡ, tỏi và gia vị, quết tay cho thật dẻo." },
+          { iconClass: "fa-solid fa-fire", text: "Than hoa giúp mặt ngoài xém vàng, giữ phần nhân vẫn ngọt mềm." },
+          { iconClass: "fa-solid fa-leaf", text: "Rau sống, xà lách, xoài xanh tạo độ giòn và vị thanh." },
+          { iconClass: "fa-solid fa-bread-slice", text: "Bánh tráng mỏng dai để ôm trọn phần nhân và rau." },
+          { iconClass: "fa-solid fa-bowl-food", text: "Nước chấm đậu phộng béo thơm làm nên điểm nhấn khó quên." },
         ],
-        recipeTitle: "How to enjoy",
+        recipeTitle: "Cách thưởng thức trọn vị",
         recipeSteps: [
-          "Grill pork skewers over charcoal, turning until evenly golden and aromatic.",
-          "Layer rice paper with herbs, pickles, and steaming nem nuong straight from the grill.",
-          "Roll tightly, dip in peanut sauce, and enjoy the harmony of textures.",
+          "Nướng xiên nem trên bếp than, trở đều tay tới khi vàng thơm.",
+          "Trải bánh tráng, xếp rau, đồ chua rồi đặt nem nướng nóng hổi lên trên.",
+          "Cuốn chặt tay, chấm nước chấm đậu phộng và thưởng thức khi còn nóng.",
         ],
-        spotsTitle: "Where to try it in Hanoi",
+        spotsTitle: "Địa chỉ nem nướng Hà Nội nên thử",
         spots: [
           {
             id: "nemnuong-vukhanh",
-            name: "NEM NUONG NHA TRANG VU KHANH",
-            address: "90 Tran Hung Dao, Hoan Kiem",
+            name: "NEM NƯỚNG NHA TRANG VŨ KHÁNH",
+            address: "90 Trần Hưng Đạo, Hoàn Kiếm",
             description:
-              "Spacious venue serving fragrant skewers with generous herb platters and rich dipping sauce.",
-            price: "Price: 50,000 – 80,000 VND per set.",
-            image: null,
+              "Không gian rộng rãi, xiên nem nướng thơm lừng, rau sống đầy đặn và nước chấm béo ngậy.",
+            price: "Giá: 50.000 – 80.000đ/phần.",
+            image: "/assets/nemnuong/1.png",
             mapUrl: "https://maps.google.com/?q=90+Tr%E1%BA%A7n+H%C6%B0ng+%C4%90%E1%BA%A1o+Hanoi",
           },
           {
             id: "nemnuong-hangbong",
-            name: "NEM NUONG NHA TRANG",
-            address: "39 Hang Bong, Hoan Kiem",
+            name: "NEM NƯỚNG NHA TRANG",
+            address: "39 Hàng Bông, Hoàn Kiếm",
             description:
-              "Old Quarter favourite where rolls are assembled tableside and served piping hot.",
-            price: "Price: 50,000 – 80,000 VND per set.",
-            image: null,
+              "Quán phố cổ quen thuộc, nem nướng được cuốn tại bàn và phục vụ nóng hổi.",
+            price: "Giá: 50.000 – 80.000đ/phần.",
+            image: "/assets/nemnuong/2.png",
             mapUrl: "https://maps.google.com/?q=39+H%C3%A0ng+B%C3%B4ng+Hanoi",
           },
           {
             id: "nemnuong-hanh",
-            name: "NEM NUONG NHA TRANG HANH",
-            address: "23 Nguyen Thai Hoc, Ba Dinh",
+            name: "NEM NƯỚNG NHA TRANG HẠNH",
+            address: "23 Nguyễn Thái Học, Ba Đình",
             description:
-              "Beloved by locals for juicy skewers, creamy sauce, and quick, friendly service.",
-            price: "Price: 50,000 – 80,000 VND per set.",
-            image: null,
+              "Được dân địa phương yêu thích nhờ xiên nem mọng, nước chấm béo và phục vụ nhanh nhẹn.",
+            price: "Giá: 50.000 – 80.000đ/phần.",
+            image: "/assets/nemnuong/3.png",
             mapUrl: "https://maps.google.com/?q=23+Nguy%E1%BB%85n+Th%C3%A1i+H%E1%BB%8Dc+Hanoi",
           },
         ],
@@ -210,65 +208,609 @@ export const FOODS_COPY = {
       {
         id: "lau-cua-dong",
         hero: {
-          eyebrow: "Countryside warmth",
-          title: "NORTHERN CRAB HOTPOT",
+          eyebrow: "Ấm áp hương quê",
+          title: "LẨU CUA ĐỒNG MIỀN BẮC",
           description:
-            "Lau cua dong captures the soul of northern countryside cooking with a sweet field-crab broth, buttery crab roe, and a gentle tang from fermented rice vinegar. On chilly Hanoi evenings, gathering around a steaming pot with friends is the epitome of comfort.",
-          image: null,
-          imageAlt: "Steaming pot of Vietnamese field crab hotpot",
-          cta: "Gather for crab hotpot",
+            "Lẩu cua đồng mang trọn tinh túy đồng quê miền Bắc: nước dùng từ cua đồng ngọt thanh, gạch cua béo ngậy nổi óng vàng và chút chua nhẹ từ dấm bỗng. Những ngày Hà Nội se lạnh, quây quần bên nồi lẩu nghi ngút khói, nhúng thịt, rau rồi chan bún là trải nghiệm ấm lòng khó quên.",
+          image: "/assets/laucua/laucua.png",
+          imageAlt: "Nồi lẩu cua đồng Việt Nam bốc khói nghi ngút",
+          cta: "Quây quần bên nồi lẩu cua",
         },
         intro: {
           title: "VIDEO",
-          body: "A bubbling crab broth with vibrant toppings ready to be dipped and shared.",
+          body: "Nồi lẩu cua đồng sôi sùng sục với gạch cua vàng ươm và nhiều món nhúng tươi ngon.",
         },
         video: null,
         ingredientGallery: [],
-        ingredientsTitle: "Key ingredients",
+        ingredientsTitle: "Nguyên liệu nổi bật",
         ingredientsList: [
-          { iconClass: "fa-solid fa-crab", text: "Fresh field crab pounded and strained for naturally sweet broth." },
-          { iconClass: "fa-solid fa-bowl-food", text: "Golden crab roe enriching both colour and flavour." },
-          { iconClass: "fa-solid fa-mug-hot", text: "Fermented rice vinegar, tomatoes, and shrimp paste for subtle tang." },
-          { iconClass: "fa-solid fa-drumstick-bite", text: "Beef, pork, tofu, and Vietnamese ham for hearty dipping." },
-          { iconClass: "fa-solid fa-leaf", text: "Seasonal greens—water spinach, morning glory, banana blossom—for freshness." },
+          { iconClass: "fa-solid fa-crab", text: "Cua đồng tươi giã lọc thủ công cho nước dùng ngọt thanh." },
+          { iconClass: "fa-solid fa-bowl-food", text: "Gạch cua óng vàng tạo màu sắc đẹp mắt và vị béo bùi." },
+          { iconClass: "fa-solid fa-mug-hot", text: "Dấm bỗng, cà chua, mắm tôm cho vị chua dịu và đậm đà." },
+          { iconClass: "fa-solid fa-drumstick-bite", text: "Thịt bò, giò sống, đậu phụ, chả quế… sẵn sàng để nhúng." },
+          { iconClass: "fa-solid fa-leaf", text: "Rau muống, rau cần, hoa chuối thái mỏng mang lại độ tươi mát." },
         ],
-        recipeTitle: "How to enjoy",
+        recipeTitle: "Cách thưởng thức đúng điệu",
         recipeSteps: [
-          "Simmer crab broth with tomatoes and fermented rice vinegar until the roe floats on top.",
-          "Arrange meats, tofu, and fresh greens on platters for communal dipping.",
-          "Add toppings to the bubbling pot, ladle into bowls with rice vermicelli, and enjoy while hot.",
+          "Ninh nước cua cùng cà chua, dấm bỗng tới khi gạch nổi vàng mặt nước.",
+          "Bày thịt, đậu, rau ra đĩa để mọi người nhúng theo ý thích.",
+          "Thêm topping vào nồi sôi, chan cùng bún hoặc miến và thưởng thức khi còn nóng.",
         ],
-        spotsTitle: "Crab hotpot spots in Hanoi",
+        spotsTitle: "Quán lẩu cua đồng ở Hà Nội",
         spots: [
           {
             id: "laucua-685",
-            name: "LAU CUA DONG 685",
-            address: "685 Lac Long Quan, Tay Ho",
+            name: "LẨU CUA ĐỒNG 685",
+            address: "685 Lạc Long Quân, Tây Hồ",
             description:
-              "Cosy restaurant with northern decor, sweet crab broth, rich roe, and generous accompaniments.",
-            price: "Price: 250,000 – 400,000 VND per pot.",
-            image: null,
+              "Không gian ấm cúng phong cách miền Bắc, nước lẩu ngọt thanh, gạch cua nhiều và đồ nhúng phong phú.",
+            price: "Giá: 250.000 – 400.000đ/nồi.",
+            image: "/assets/laucua/1.png",
             mapUrl: "https://maps.google.com/?q=685+L%E1%BA%A1c+Long+Qu%C3%A2n+Hanoi",
           },
           {
             id: "laucua-songha",
-            name: "SONG HA CRAB HOTPOT",
-            address: "685 Lac Long Quan, Tay Ho",
+            name: "LẨU CUA ĐỒNG SÔNG HÀ",
+            address: "685 Lạc Long Quân, Tây Hồ",
             description:
-              "Authentic northern-style crab hotpot with a light, savoury broth and abundant meats and greens.",
-            price: "Price: 150,000 – 300,000 VND per person.",
-            image: null,
+              "Hương vị chuẩn Bắc với nước lẩu nhẹ nhàng, vừa miệng và phần nhúng đầy đặn.",
+            price: "Giá: 150.000 – 300.000đ/người.",
+            image: "/assets/laucua/2.png",
             mapUrl: "https://maps.google.com/?q=685+L%E1%BA%A1c+Long+Qu%C3%A2n+Hanoi",
           },
           {
             id: "laucua-chinhbeo",
-            name: "CHINH BEO CRAB HOTPOT",
-            address: "Block 20A, Van Phu Urban Area, Ha Dong",
+            name: "LẨU CUA ĐỒNG CHINH BÉO",
+            address: "Khu 20A Văn Phú, Hà Đông",
             description:
-              "Popular casual spot known for fresh ingredients, bold broth, and compact pots perfect for sharing.",
-            price: "Price: 220,000 – 350,000 VND per pot.",
-            image: null,
+              "Quán bình dân tại Hà Đông, nổi tiếng lẩu cua đậm đà, nguyên liệu tươi và nồi vừa đủ cho nhóm nhỏ.",
+            price: "Giá: 220.000 – 350.000đ/nồi.",
+            image: "/assets/laucua/3.png",
             mapUrl: "https://maps.google.com/?q=Khu+%C4%91%E1%BB%8Bnh+c%C6%B0+V%C4%83n+Ph%C3%BA+Hanoi",
+          },
+        ],
+      },
+      {
+        id: "nemnuong",
+        hero: {
+          eyebrow: "Đặc sản miền Trung",
+          title: "NEM NƯỚNG NHA TRANG",
+          description:
+            "Nem nướng Nha Trang được giã nhuyễn từ thịt heo, quết dẻo rồi nướng trên than hồng cho thơm lừng, mặt ngoài xém nhẹ mà bên trong vẫn mọng ngọt. Gắp miếng nem nóng, cuốn cùng bánh tráng, rau sống, đồ chua và rưới nước chấm đậu phộng béo ngậy – sự hòa quyện ngọt, mặn, bùi khiến ai thưởng thức cũng nhớ mãi.",
+          image: "/assets/nemnuong/nem.jpg",
+          imageAlt: "Nem nướng Nha Trang ăn kèm bánh tráng và rau sống",
+          cta: "Tự cuốn nem nướng ngon chuẩn",
+        },
+        intro: {
+          title: "VIDEO",
+          body: "Quy trình quết, nướng và cuốn nem nướng Nha Trang cùng rau tươi hấp dẫn.",
+        },
+        video: {
+          type: "youtube",
+          src: "https://www.youtube.com/embed/NVzRMbREV_c?autoplay=1&mute=1&rel=0",
+          description: "Nem nướng được tạo hình, nướng trên than và thưởng thức cùng nước chấm đậu phộng béo thơm.",
+        },
+        ingredientGallery: [],
+        ingredientsTitle: "Thành phần tạo nên hương vị",
+        ingredientsList: [
+          { iconClass: "fa-solid fa-drumstick-bite", text: "Thịt heo xay quện mỡ, tỏi và gia vị, quết tay cho thật dẻo." },
+          { iconClass: "fa-solid fa-fire", text: "Than hoa giúp mặt ngoài xém vàng, giữ phần nhân vẫn ngọt mềm." },
+          { iconClass: "fa-solid fa-leaf", text: "Rau sống, xà lách, xoài xanh tạo độ giòn và vị thanh." },
+          { iconClass: "fa-solid fa-bread-slice", text: "Bánh tráng mỏng dai để ôm trọn phần nhân và rau." },
+          { iconClass: "fa-solid fa-bowl-food", text: "Nước chấm đậu phộng béo thơm làm nên điểm nhấn khó quên." },
+        ],
+        recipeTitle: "Cách thưởng thức trọn vị",
+        recipeSteps: [
+          "Nướng xiên nem trên bếp than, trở đều tay tới khi vàng thơm.",
+          "Trải bánh tráng, xếp rau, đồ chua rồi đặt nem nướng nóng hổi lên trên.",
+          "Cuốn chặt tay, chấm nước chấm đậu phộng và thưởng thức khi còn nóng.",
+        ],
+        spotsTitle: "Địa chỉ nem nướng Hà Nội nên thử",
+        spots: [
+          {
+            id: "nemnuong-vukhanh",
+            name: "Nem nướng Nha Trang Vũ Khánh",
+            address: "90 Trần Hưng Đạo, Hoàn Kiếm",
+            description:
+              "Không gian rộng rãi, xiên nem nướng thơm lừng, rau sống đầy đặn và nước chấm béo ngậy.",
+            price: "Giá: 50.000 – 80.000đ/phần.",
+            image: "/assets/nemnuong/1.png",
+            mapUrl: "https://maps.google.com/?q=90+Tr%E1%BA%A7n+H%C6%B0ng+%C4%90%E1%BA%A1o+Hanoi",
+          },
+          {
+            id: "nemnuong-hangbong",
+            name: "Nem nướng Nha Trang Hàng Bông",
+            address: "39 Hàng Bông, Hoàn Kiếm",
+            description:
+              "Quán phố cổ quen thuộc, nem nướng được cuốn tại bàn và phục vụ nóng hổi.",
+            price: "Giá: 50.000 – 80.000đ/phần.",
+            image: "/assets/nemnuong/2.png",
+            mapUrl: "https://maps.google.com/?q=39+H%C3%A0ng+B%C3%B4ng+Hanoi",
+          },
+          {
+            id: "nemnuong-hanh",
+            name: "Nem nướng Nha Trang Hạnh",
+            address: "23 Nguyễn Thái Học, Ba Đình",
+            description:
+              "Được dân địa phương yêu thích nhờ xiên nem mọng, nước chấm béo và phục vụ nhanh nhẹn.",
+            price: "Giá: 50.000 – 80.000đ/phần.",
+            image: "/assets/nemnuong/3.png",
+            mapUrl: "https://maps.google.com/?q=23+Nguy%E1%BB%85n+Th%C3%A1i+H%E1%BB%8Dc+Hanoi",
+          },
+        ],
+      },
+      {
+        id: "lau-cua-dong",
+        hero: {
+          eyebrow: "Ấm áp hương quê",
+          title: "LẨU CUA ĐỒNG MIỀN BẮC",
+          description:
+            "Lẩu cua đồng mang trọn tinh túy đồng quê miền Bắc: nước dùng từ cua đồng ngọt thanh, gạch cua béo ngậy nổi óng vàng và chút chua nhẹ từ dấm bỗng. Những ngày Hà Nội se lạnh, quây quần bên nồi lẩu nghi ngút khói, nhúng thịt, rau rồi chan bún là trải nghiệm ấm lòng khó quên.",
+          image: "/assets/laucua/laucua.png",
+          imageAlt: "Nồi lẩu cua đồng Việt Nam bốc khói nghi ngút",
+          cta: "Quây quần bên nồi lẩu cua",
+        },
+        intro: {
+          title: "VIDEO",
+          body: "Nồi lẩu cua đồng sôi sùng sục cùng gạch cua vàng óng và nhiều món nhúng tươi ngon.",
+        },
+        video: null,
+        ingredientGallery: [],
+        ingredientsTitle: "Nguyên liệu nổi bật",
+        ingredientsList: [
+          { iconClass: "fa-solid fa-crab", text: "Cua đồng tươi giã lọc thủ công cho nước dùng ngọt tự nhiên." },
+          { iconClass: "fa-solid fa-bowl-food", text: "Gạch cua óng vàng tạo màu sắc đẹp mắt và vị béo bùi." },
+          { iconClass: "fa-solid fa-mug-hot", text: "Dấm bỗng, cà chua, mắm tôm cho vị chua dịu và đậm đà." },
+          { iconClass: "fa-solid fa-drumstick-bite", text: "Thịt bò, giò sống, đậu phụ, chả quế… sẵn sàng để nhúng." },
+          { iconClass: "fa-solid fa-leaf", text: "Rau muống, rau cần, hoa chuối thái mỏng mang lại độ tươi mát." },
+        ],
+        recipeTitle: "Cách thưởng thức đúng điệu",
+        recipeSteps: [
+          "Ninh nước cua cùng cà chua, dấm bỗng tới khi gạch nổi vàng mặt nước.",
+          "Bày thịt, đậu, rau ra đĩa để mọi người nhúng theo ý thích.",
+          "Thêm topping vào nồi sôi, chan cùng bún hoặc miến và thưởng thức khi còn nóng.",
+        ],
+        spotsTitle: "Quán lẩu cua đồng ở Hà Nội",
+        spots: [
+          {
+            id: "laucua-685",
+            name: "Lẩu cua đồng 685",
+            address: "685 Lạc Long Quân, Tây Hồ",
+            description:
+              "Không gian ấm cúng phong cách miền Bắc, nước lẩu ngọt thanh, gạch cua nhiều và đồ nhúng phong phú.",
+            price: "Giá: 250.000 – 400.000đ/nồi.",
+            image: "/assets/laucua/1.png",
+            mapUrl: "https://maps.google.com/?q=685+L%E1%BA%A1c+Long+Qu%C3%A2n+Hanoi",
+          },
+          {
+            id: "laucua-songha",
+            name: "Lẩu cua đồng Sông Hà",
+            address: "685 Lạc Long Quân, Tây Hồ",
+            description:
+              "Hương vị chuẩn Bắc với nước lẩu nhẹ nhàng, vừa miệng và phần nhúng đầy đặn.",
+            price: "Giá: 150.000 – 300.000đ/người.",
+            image: "/assets/laucua/2.png",
+            mapUrl: "https://maps.google.com/?q=685+L%E1%BA%A1c+Long+Qu%C3%A2n+Hanoi",
+          },
+          {
+            id: "laucua-chinhbeo",
+            name: "Lẩu cua đồng Chinh Béo",
+            address: "20A Khu đô thị Văn Phú, Hà Đông",
+            description:
+              "Quán bình dân tại Hà Đông, nổi tiếng lẩu cua đậm đà, nguyên liệu tươi và nồi vừa đủ cho nhóm nhỏ.",
+            price: "Giá: 220.000 – 350.000đ/nồi.",
+            image: "/assets/laucua/3.png",
+            mapUrl: "https://maps.google.com/?q=Khu+%C4%91%E1%BB%8Bnh+c%C6%B0+V%C4%83n+Ph%C3%BA+Hanoi",
+          },
+        ],
+      },
+      {
+        id: "chao-trai",
+        hero: {
+          eyebrow: "Ấm lòng trong từng muỗng",
+          title: "CHÁO TRAI HÀ NỘI",
+          description:
+            "Cháo trai là món quà bình dị của người Hà Nội: gạo xay được nấu chín cùng nước luộc trai ngọt thanh, trên mặt điểm thêm trai xào hành phi, mắm và tiêu thơm nồng. Mỗi muỗng cháo đều nhẹ nhàng, đậm đà và khiến người ăn thấy ấm bụng giữa ngày se lạnh.",
+          image: "/assets/chaotrai/chaotrai.png",
+          imageAlt: "Bát cháo trai nóng hổi",
+          cta: "Thưởng thức cháo trai",
+        },
+        intro: {
+          title: "VIDEO",
+          body: "Gạo nấu cùng nước trai ngọt mát, chan thêm trai xào và rau thơm chuẩn vị phố cổ.",
+        },
+        video: {
+          type: "youtube",
+          src: "https://www.youtube.com/embed/JQhFY7_CiSs?autoplay=1&mute=1&rel=0",
+          description: "Cách nấu cháo trai Hà Nội với trai tươi và hành phi vàng ruộm.",
+        },
+        ingredientGallery: [],
+        ingredientsTitle: "Nguyên liệu chính",
+        ingredientsList: [
+          { iconClass: "fa-solid fa-bowl-rice", text: "Gạo tẻ xay nhỏ được ninh tới khi sánh mịn." },
+          { iconClass: "fa-solid fa-water", text: "Nước luộc trai ngọt thanh làm nền." },
+          { iconClass: "fa-solid fa-fish", text: "Thịt trai xào hành, mắm, tiêu dậy mùi." },
+          { iconClass: "fa-solid fa-onion", text: "Hành phi vàng giòn thơm lừng." },
+          { iconClass: "fa-solid fa-leaf", text: "Rau răm, tía tô thái nhỏ cho vị mát." },
+        ],
+        recipeTitle: "Cách thưởng thức",
+        recipeSteps: [
+          "Luộc trai lấy nước, nhặt sạch phần thịt trai.",
+          "Ninh gạo xay với nước trai tới khi sánh mịn và nêm nhẹ.",
+          "Múc cháo ra bát, cho trai xào, hành phi, rau thơm và rắc tiêu rồi dùng nóng." ,
+        ],
+        spotsTitle: "Quán cháo trai nên ghé",
+        spots: [
+          {
+            id: "chaotrai-colan",
+            name: "Cháo Trai Cô Lan",
+            address: "34 Nguyen Van To, Hoan Kiem",
+            description:
+              "Gánh hàng chiều nổi tiếng với cháo sánh mịn và mùi rau thơm dễ chịu." ,
+            price: "Giá: 10.000 – 15.000đ/bát.",
+            image: "/assets/chaotrai/1.png",
+            mapUrl: "https://maps.google.com/?q=34+Nguy%E1%BB%85n+V%C4%83n+T%E1%BB%91+Hanoi",
+          },
+          {
+            id: "chaotrai-trankhatchan",
+            name: "Cháo Trai 321 Trần Khát Chân",
+            address: "321 Tran Khat Chan, Hai Ba Trung",
+            description:
+              "Quán ăn sáng muộn được yêu thích nhờ nước cháo đậm đà và topping đầy đặn." ,
+            price: "Giá: 20.000 – 25.000đ/bát.",
+            image: "/assets/chaotrai/2.png",
+            mapUrl: "https://maps.google.com/?q=321+Tr%E1%BA%A7n+Kh%C3%A1t+Ch%C3%A2n+Hanoi",
+          },
+          {
+            id: "chaotrai-cohang",
+            name: "Cháo Trai Cô Hằng",
+            address: "C2 Trung Tu, Dong Da",
+            description:
+              "Quán gia đình bán cả ngày với bát cháo trai nóng hổi, vừa miệng." ,
+            price: "Giá: 27.000đ/bát.",
+            image: "/assets/chaotrai/3.png",
+            mapUrl: "https://maps.google.com/?q=C2+Trung+T%E1%BB%B1+Hanoi",
+          },
+        ],
+      },
+      {
+        id: "chao-suon",
+        hero: {
+          eyebrow: "Bữa sáng kinh điển",
+          title: "CHÁO SƯỜN HÀ NỘI",
+          description:
+            "Cháo sườn là món ăn sáng quen thuộc của người Hà Nội: bột gạo được nấu cùng nước xương sườn tới khi mịn sánh, phía trên là thịt sườn mềm tách xương, hành phi thơm và quẩy giòn. Bát cháo nóng hổi mang lại cảm giác ấm áp, dễ chịu như bữa sáng ở nhà.",
+          image: "/assets/chaosuon/chaosuon.png",
+          imageAlt: "Bát cháo sườn kèm quẩy giòn",
+          cta: "Khởi đầu ngày mới với cháo sườn",
+        },
+        intro: {
+          title: "VIDEO",
+          body: "Cháo sườn sánh mịn nấu từ bột gạo và xương sườn, hoàn thiện với topping quen thuộc.",
+        },
+        video: {
+          type: "youtube",
+          src: "https://www.youtube.com/embed/ZneH5LsyYBo?autoplay=1&mute=1&rel=0",
+          description: "Cách nấu cháo sườn Hà Nội mềm mịn, đậm vị xương.",
+        },
+        ingredientGallery: [],
+        ingredientsTitle: "Nguyên liệu chính",
+        ingredientsList: [
+          { iconClass: "fa-solid fa-bone", text: "Xương sườn heo hầm lâu cho nước ngọt thanh." },
+          { iconClass: "fa-solid fa-bowl-rice", text: "Bột gạo được khuấy liên tục tới khi mịn mượt." },
+          { iconClass: "fa-solid fa-onion", text: "Hành phi thơm và tiêu xay tạo hương." },
+          { iconClass: "fa-solid fa-bread-slice", text: "Quẩy nóng giòn để ăn kèm." },
+          { iconClass: "fa-solid fa-leaf", text: "Hành lá, mùi tàu thái nhỏ rắc lên trên." },
+        ],
+        recipeTitle: "Thưởng thức tròn vị",
+        recipeSteps: [
+          "Hầm xương sườn lấy nước dùng trong và ngọt.",
+          "Khuấy bột gạo vào nồi nước xương, nấu nhỏ lửa tới khi sánh mịn.",
+          "Múc cháo ra bát, thêm thịt sườn, hành phi, quẩy và rắc tiêu rồi thưởng thức ngay." ,
+        ],
+        spotsTitle: "Địa chỉ cháo sườn nên thử",
+        spots: [
+          {
+            id: "chaosuon-cola",
+            name: "Cháo Sườn Cô La",
+            address: "2A Ly Quoc Su, Hoan Kiem",
+            description:
+              "Quán phố cổ lâu đời, cháo mịn và phục vụ cả sáng lẫn chiều." ,
+            price: "Giá: 15.000 – 25.000đ/bát.",
+            image: "/assets/chaosuon/1.png",
+            mapUrl: "https://maps.google.com/?q=2A+L%C3%BD+Qu%E1%BB%91c+S%C6%B2+Hanoi",
+          },
+          {
+            id: "chaosuon-baloi",
+            name: "Cháo Sườn Bà Lợi",
+            address: "39 Hang Dieu, Hoan Kiem",
+            description:
+              "Nổi tiếng với topping sụn giòn, phục vụ suốt cả ngày." ,
+            price: "Giá: 25.000 – 30.000đ/bát.",
+            image: "/assets/chaosuon/2.png",
+            mapUrl: "https://maps.google.com/?q=39+H%C3%A0ng+%C4%90i%E1%BA%BFu+Hanoi",
+          },
+          {
+            id: "chaosuon-dongxuan",
+            name: "Cháo Sườn Chợ Đồng Xuân",
+            address: "14 Dong Xuan, Hoan Kiem",
+            description:
+              "Quán vỉa hè tấp nập với bát cháo đầy đặn, giá phải chăng." ,
+            price: "Giá: 20.000 – 30.000đ/bát.",
+            image: "/assets/chaosuon/3.png",
+            mapUrl: "https://maps.google.com/?q=14+%C4%90%E1%BB%93ng+Xu%C3%A2n+Hanoi",
+          },
+        ],
+      },
+      {
+        id: "mien-luon",
+        hero: {
+          eyebrow: "Đậm đà vị lươn",
+          title: "MIẾN LƯƠN HÀ NỘI",
+          description:
+            "Miến lươn Hà Nội có thể ăn khô hoặc chan nước: lươn đồng được làm sạch rồi chiên giòn hoặc om mềm, ăn cùng miến dong dai sợi và bát nước dùng thơm mùi xương hầm, tôm khô. Rau giá, hành phi, rau thơm khiến mỗi miếng vừa giòn vừa ngọt, khó quên.",
+          image: "/assets/mienluon/mienluon.jpg",
+          imageAlt: "Bát miến lươn với lươn giòn",
+          cta: "Thưởng thức miến lươn",
+        },
+        intro: {
+          title: "VIDEO",
+          body: "Lươn chiên vàng và nồi nước dùng thơm ngậy cho món miến lươn chuẩn Hà Nội.",
+        },
+        video: {
+          type: "youtube",
+          src: "https://www.youtube.com/embed/snCdgrF_dTQ?autoplay=1&mute=1&rel=0",
+          description: "Sơ chế lươn, chiên giòn và chan nước dùng cho bát miến lươn hấp dẫn.",
+        },
+        ingredientGallery: [],
+        ingredientsTitle: "Nguyên liệu nổi bật",
+        ingredientsList: [
+          { iconClass: "fa-solid fa-fish", text: "Lươn đồng tươi làm sạch, chiên giòn hoặc om mềm." },
+          { iconClass: "fa-solid fa-bowl-rice", text: "Miến dong dai sợi dễ thấm nước dùng." },
+          { iconClass: "fa-solid fa-mug-hot", text: "Nước dùng từ xương, tôm khô ninh trong." },
+          { iconClass: "fa-solid fa-onion", text: "Hành phi, hành lá giúp dậy hương." },
+          { iconClass: "fa-solid fa-leaf", text: "Giá đỗ, rau thơm làm món ăn thêm hài hòa." },
+        ],
+        recipeTitle: "Thưởng thức đúng điệu",
+        recipeSteps: [
+          "Sơ chế lươn, khử nhớt, chiên giòn hoặc om mềm tùy thích.",
+          "Ninh xương cùng tôm khô để lấy nước dùng trong, nêm nhẹ tay.",
+          "Chần miến, chan nước, thêm lươn, rau giá, hành phi và thưởng thức khi còn nóng." ,
+        ],
+        spotsTitle: "Quán miến lươn nên ghé",
+        spots: [
+          {
+            id: "mienluon-chancam",
+            name: "Miến lươn Chân Cầm",
+            address: "1 Chân Cầm, Hoàn Kiếm",
+            description:
+              "Địa chỉ lâu năm ở phố cổ với lươn giòn rụm và nước dùng thơm nhẹ." ,
+            price: "Giá: 40.000 – 50.000đ/bát.",
+            image: "/assets/mienluon/1.png",
+            mapUrl: "https://maps.google.com/?q=1+Ch%C3%A2n+C%E1%BA%A7m+Hanoi",
+          },
+          {
+            id: "mienluon-thaiha",
+            name: "Miến lươn Đông Thái Hà",
+            address: "42 Thái Hà, Đống Đa",
+            description:
+              "Quán đông khách với cả phiên bản lươn giòn và lươn mềm chan nước." ,
+            price: "Giá: 35.000 – 60.000đ/bát.",
+            image: "/assets/mienluon/2.png",
+            mapUrl: "https://maps.google.com/?q=42+Th%C3%A1i+H%C3%A0+Hanoi",
+          },
+          {
+            id: "mienluon-nghiahang",
+            name: "Miến lươn Nghĩa Hàng",
+            address: "72 Nghĩa Hàng, Cầu Giấy",
+            description:
+              "Quán quen trong khu dân cư, lươn tươi mỗi ngày, rau sống sạch." ,
+            price: "Giá: 35.000 – 55.000đ/bát.",
+            image: "/assets/mienluon/3.png",
+            mapUrl: "https://maps.google.com/?q=72+Ngh%C4%A9a+H%C3%A0ng+Hanoi",
+          },
+        ],
+      },
+      {
+        id: "bun-tron",
+        hero: {
+          eyebrow: "Hòa quyện đủ vị",
+          title: "BÚN TRỘN HÀ NỘI",
+          description:
+            "Bún trộn Hà Nội gồm bún mềm, thịt nướng thơm, rau sống tươi, lạc rang và nước mắm chua ngọt. Món ăn được dọn khô, thực khách tự trộn đều để cảm nhận sự cân bằng giữa vị ngọt, mặn, chua, bùi trong từng gắp.",
+          image: "/assets/buntron/buntron.jpg",
+          imageAlt: "Bát bún trộn Hà Nội đầy đủ topping",
+          cta: "Trộn đều và thưởng thức",
+        },
+        intro: {
+          title: "Hương vị phố cổ",
+          body: "Bún sợi mảnh ăn cùng đồ nướng, rau thơm, lạc rang và nước chấm chua ngọt.",
+        },
+        video: null,
+        ingredientGallery: [],
+        ingredientsTitle: "Thành phần đặc trưng",
+        ingredientsList: [
+          { iconClass: "fa-solid fa-bowl-rice", text: "Bún gạo trắng mềm." },
+          { iconClass: "fa-solid fa-drumstick-bite", text: "Thịt nướng hoặc chả giò tạo vị đậm đà." },
+          { iconClass: "fa-solid fa-seedling", text: "Rau thơm, xà lách tươi mát." },
+          { iconClass: "fa-solid fa-seedling", text: "Lạc rang vàng cho cảm giác bùi giòn." },
+          { iconClass: "fa-solid fa-mug-hot", text: "Nước mắm chua ngọt làm liên kết tất cả hương vị." },
+        ],
+        recipeTitle: "Cách thưởng thức",
+        recipeSteps: [
+          "Cho bún, thịt, rau và nước mắm vào tô lớn.",
+          "Thêm lạc rang, hành phi để tăng hương thơm.",
+          "Trộn đều tay để nước chấm phủ lên mọi nguyên liệu trước khi ăn." ,
+        ],
+        spotsTitle: "Quán bún trộn đáng thử",
+        spots: [
+          {
+            id: "buntron-hangbun",
+            name: "Bún trộn Hàng Bún",
+            address: "57 Hàng Bún, Ba Đình",
+            description:
+              "Hương vị phố cổ đặc trưng với thịt nướng thơm khói và rau giòn mát." ,
+            price: "Giá: 35.000 – 45.000đ/bát.",
+            image: "/assets/buntron/1.png",
+            mapUrl: "https://maps.google.com/?q=57+H%C3%A0ng+B%C3%BAn+Hanoi",
+          },
+          {
+            id: "buntron-comai",
+            name: "Bún trộn Cô Mai",
+            address: "9 Ngõ Tràng Tiền, Hoàn Kiếm",
+            description:
+              "Biến tấu hiện đại với nhiều topping và nước chấm cân bằng." ,
+            price: "Giá: 40.000 – 55.000đ/bát.",
+            image: "/assets/buntron/2.png",
+            mapUrl: "https://maps.google.com/?q=9+Ng%C3%B5+Tr%C3%A0ng+Ti%E1%BB%81n+Hanoi",
+          },
+          {
+            id: "buntron-anlac",
+            name: "Bún trộn chay An Lạc",
+            address: "18 Ngõ Huyện, Hoàn Kiếm",
+            description:
+              "Phiên bản chay với nấm, đậu phụ và rau củ đầy màu sắc." ,
+            price: "Giá: 35.000 – 45.000đ/bát.",
+            image: "/assets/buntron/3.png",
+            mapUrl: "https://maps.google.com/?q=18+Ng%C3%B5+Huy%E1%BB%87n+Hanoi",
+          },
+        ],
+      },
+      {
+        id: "cha-ruoi",
+        hero: {
+          eyebrow: "Đặc sản theo mùa",
+          title: "CHẢ RƯƠI",
+          description:
+            "Chả rươi là món đặc sản mùa thu của Hà Nội. Rươi tươi được làm sạch, trộn cùng thịt nạc vai, trứng gà, thì là, hành hoa và vỏ quýt thái nhỏ rồi chiên trên chảo nóng. Miếng chả vàng ruộm bên ngoài, mềm béo bên trong, thơm đặc trưng khó lẫn.",
+          image: "/assets/charuoi/charuoi.jpg",
+          imageAlt: "Đĩa chả rươi vàng giòn",
+          cta: "Thưởng thức chả rươi",
+        },
+        intro: {
+          title: "VIDEO",
+          body: "Từ khâu làm sạch rươi tới chiên vàng ruộm những miếng chả thơm béo.",
+        },
+        video: {
+          type: "youtube",
+          src: "https://www.youtube.com/embed/1Rp4ScQawEk?autoplay=1&mute=1&rel=0",
+          description: "Chế biến chả rươi Hà Nội trong mùa rươi ngắn ngủi cuối năm.",
+        },
+        ingredientGallery: [],
+        ingredientsTitle: "Nguyên liệu đặc trưng",
+        ingredientsList: [
+          { iconClass: "fa-solid fa-water", text: "Rươi tươi sơ chế kỹ để giữ vị ngọt." },
+          { iconClass: "fa-solid fa-drumstick-bite", text: "Thịt băm và trứng gà giúp kết dính hỗn hợp." },
+          { iconClass: "fa-solid fa-leaf", text: "Thì là, hành hoa tạo hương thơm đặc trưng." },
+          { iconClass: "fa-solid fa-lemon", text: "Vỏ quýt thái nhuyễn làm dậy mùi, khử tanh." },
+          { iconClass: "fa-solid fa-fire", text: "Chiên trên chảo nóng đều tay cho mặt ngoài giòn." },
+        ],
+        recipeTitle: "Thưởng thức ngon nhất",
+        recipeSteps: [
+          "Rửa rươi với nước ấm pha muối, quất để sạch nhớt.",
+          "Trộn rươi với thịt băm, trứng, thì là, hành, gia vị rồi múc vào chảo dầu nóng.",
+          "Chiên vàng hai mặt, gắp ra dùng nóng với rau thơm và nước chấm chua ngọt." ,
+        ],
+        spotsTitle: "Điểm bán chả rươi ngon",
+        spots: [
+          {
+            id: "charuoi-hangbeo",
+            name: "Chả rươi Hàng Bèo",
+            address: "244 Lò Đúc, Hai Bà Trưng",
+            description:
+              "Quán lâu năm nổi tiếng với miếng chả giòn rụm, phần ăn đầy đặn." ,
+            price: "Giá: 35.000 – 65.000đ/phần.",
+            image: "/assets/charuoi/1.png",
+            mapUrl: "https://maps.google.com/?q=244+L%C3%B2+%C4%90%C3%BAc+Hanoi",
+          },
+          {
+            id: "charuoi-hungthinh",
+            name: "Chả rươi Hưng Thịnh",
+            address: "1 Hàng Chiếu, Hoàn Kiếm",
+            description:
+              "Bán cả ngày, ăn kèm bún tươi và nhiều loại rau sống." ,
+            price: "Giá: 20.000 – 200.000đ tùy khẩu phần.",
+            image: "/assets/charuoi/2.png",
+            mapUrl: "https://maps.google.com/?q=1+H%C3%A0ng+Chi%E1%BA%BFu+Hanoi",
+          },
+          {
+            id: "charuoi-tamtho",
+            name: "Chả rươi Tâm Thọ",
+            address: "58 Hàng Bè, Hoàn Kiếm",
+            description:
+              "Đậm hương thì là, vỏ quýt; chả dày và chiên vàng đều tay." ,
+            price: "Giá: 40.000 – 80.000đ/phần.",
+            image: "/assets/charuoi/3.png",
+            mapUrl: "https://maps.google.com/?q=58+H%C3%A0ng+B%E1%BB%83+Hanoi",
+          },
+        ],
+      },
+      {
+        id: "mi-ga-tan",
+        hero: {
+          eyebrow: "Bổ dưỡng từ thảo mộc",
+          title: "MÌ GÀ TẦN",
+          description:
+            "Mì gà tần được hầm từ gà ta cùng các vị thuốc bắc như kỷ tử, táo đỏ, đẳng sâm. Nước dùng đầu tiên hơi đắng nhẹ nhưng sau đó ngọt hậu, ăn kèm sợi mì dai nóng hổi giúp cơ thể phục hồi sau ngày dài.",
+          image: "/assets/gatan/gatan.png",
+          imageAlt: "Bát mì gà tần thảo mộc",
+          cta: "Bồi bổ với mì gà tần",
+        },
+        intro: {
+          title: "VIDEO",
+          body: "Nước gà tần hầm lửa nhỏ cùng thuốc bắc rồi chan lên tô mì nóng.",
+        },
+        video: {
+          type: "youtube",
+          src: "https://www.youtube.com/embed/2L_8wW_EPHQ?autoplay=1&mute=1&rel=0",
+          description: "Hầm gà với thảo mộc và trình bày tô mì gà tần chuẩn vị Hà Nội." ,
+        },
+        ingredientGallery: [],
+        ingredientsTitle: "Nguyên liệu chính",
+        ingredientsList: [
+          { iconClass: "fa-solid fa-drumstick-bite", text: "Gà ta hầm mềm tơi nhưng vẫn giữ vị ngọt." },
+          { iconClass: "fa-solid fa-seedling", text: "Kỷ tử, táo đỏ, đẳng sâm và các vị thuốc bổ." },
+          { iconClass: "fa-solid fa-bowl-rice", text: "Sợi mì mềm dai thấm đều nước tần." },
+          { iconClass: "fa-solid fa-mug-hot", text: "Nước dùng hơi đắng đầu lưỡi nhưng ngọt hậu thanh." },
+          { iconClass: "fa-solid fa-pepper-hot", text: "Gừng, tiêu làm ấm bụng, xua mệt mỏi." },
+        ],
+        recipeTitle: "Thưởng thức",
+        recipeSteps: [
+          "Hầm gà cùng vị thuốc tối thiểu một giờ cho nước ngọt đậm." ,
+          "Chần mì, chan nước gà, thêm thịt xé và rau thơm.",
+          "Ăn khi còn nóng, có thể thêm mật ong hoặc tiêu tùy khẩu vị." ,
+        ],
+        spotsTitle: "Địa chỉ mì gà tần nổi tiếng",
+        spots: [
+          {
+            id: "miga-caysi",
+            name: "Gà tần Cây Si",
+            address: "29 Tống Duy Tân, Hoàn Kiếm",
+            description:
+              "Phố ẩm thực Tống Duy Tân luôn tấp nập với nồi gà tần thơm nức tới tận khuya." ,
+            price: "Giá: 150.000đ/bát.",
+            image: "/assets/gatan/1.png",
+            mapUrl: "https://maps.google.com/?q=29+T%E1%BB%91ng+Duy+T%C3%A2n+Hanoi",
+          },
+          {
+            id: "miga-badau",
+            name: "Gà tần Bà Đậu",
+            address: "203 Tôn Đức Thắng, Đống Đa",
+            description:
+              "Quán bình dân nổi tiếng gà mềm, nước tần vừa vị, mở cửa tới khuya." ,
+            price: "Giá: 40.000 – 75.000đ/bát.",
+            image: "/assets/gatan/2.png",
+            mapUrl: "https://maps.google.com/?q=203+T%C3%B4n+%C4%90%E1%BB%A9c+Th%E1%BA%AFng+Hanoi",
+          },
+          {
+            id: "miga-hangbo",
+            name: "Mì gà tần 24 Hàng Bông",
+            address: "24 Hàng Bồ, Hoàn Kiếm",
+            description:
+              "Quán phục vụ cả ngày với tô mì gà tần hài hòa hương thuốc bắc." ,
+            price: "Giá: 40.000đ/bát.",
+            image: "/assets/gatan/3.png",
+            mapUrl: "https://maps.google.com/?q=24+H%C3%A0ng+B%E1%BB%93+Hanoi",
           },
         ],
       },
@@ -349,7 +891,7 @@ export const FOODS_COPY = {
         spots: [
           {
             id: "buncha-tuyet",
-            name: "BÚN CHẢ TUYẾT",
+            name: "Bún Chả Tuyết",
             address: "34 Hàng Than, quận Ba Đình, Hà Nội",
             description:
               "Hơn 30 năm phục vụ, nổi tiếng với miếng thịt lát lớn, cháy cạnh vừa phải và nước chấm nhẹ nhàng.",
@@ -359,7 +901,7 @@ export const FOODS_COPY = {
           },
           {
             id: "buncha-huonglien",
-            name: "BÚN CHẢ HƯƠNG LIÊN",
+            name: "Bún Chả Hương Liên",
             address: "24 Lê Văn Hưu, quận Hai Bà Trưng, Hà Nội",
             description:
               "Nổi tiếng khắp thế giới sau bữa tối của Tổng thống Obama; nước chấm đậm đà ăn kèm nem cua bể giòn rụm.",
@@ -369,7 +911,7 @@ export const FOODS_COPY = {
           },
           {
             id: "buncha-41",
-            name: "BÚN CHẢ 41",
+            name: "Bún Chả 41",
             address: "41 Cửa Đông, quận Hoàn Kiếm, Hà Nội",
             description:
               "Quán lâu đời khu phố cổ với thịt nướng dậy mùi khói và mẹt rau thơm phong phú.",
@@ -457,7 +999,7 @@ export const FOODS_COPY = {
         spots: [
           {
             id: "bunthang-baduc",
-            name: "BÚN THANG BÀ ĐỨC",
+            name: "Bún Thang Bà Đức",
             address: "48 Cầu Gỗ, quận Hoàn Kiếm, Hà Nội",
             description:
               "Quán lâu năm nổi tiếng với nước dùng trong, vị ngọt thanh và không gian gọn gàng ấm cúng.",
@@ -467,7 +1009,7 @@ export const FOODS_COPY = {
           },
           {
             id: "bunthang-thuanly",
-            name: "BÚN THANG THUẬN LÝ",
+            name: "Bún Thang Thuận Lý",
             address: "33 Hàng Hòm, quận Hoàn Kiếm, Hà Nội",
             description:
               "Giữ hương vị truyền thống, khẩu phần vừa vặn và đậm chất phố cổ.",
@@ -477,7 +1019,7 @@ export const FOODS_COPY = {
           },
           {
             id: "bunthang-tulun",
-            name: "BÚN THANG TÙ LÙN",
+            name: "Bún Thang Tù Lùn",
             address: "5 Hàng Trống, quận Hoàn Kiếm, Hà Nội",
             description:
               "Quán nhỏ bình dị được người địa phương yêu thích bởi vị thanh cân bằng.",
@@ -565,7 +1107,7 @@ export const FOODS_COPY = {
         spots: [
           {
             id: "banhcuon-baxuan",
-            name: "BÁNH CUỐN BÀ XUÂN",
+            name: "Bánh Cuốn Bà Xuân",
             address: "Dốc Hòe Nhai, quận Ba Đình, Hà Nội",
             description:
               "Quán gia truyền bánh mềm, nước chấm hài hòa và chủ quán thân thiện.",
@@ -575,7 +1117,7 @@ export const FOODS_COPY = {
           },
           {
             id: "banhcuon-thuykhue",
-            name: "BÁNH CUỐN THỤY KHUÊ",
+            name: "Bánh Cuốn Thụy Khuê",
             address: "Ngõ 29 Thụy Khuê, quận Tây Hồ, Hà Nội",
             description:
               "Được người dân quanh hồ yêu thích nhờ vị đậm đà và phần rau tươi hào phóng.",
@@ -585,7 +1127,7 @@ export const FOODS_COPY = {
           },
           {
             id: "banhcuon-bahanh",
-            name: "BÁNH CUỐN BÀ HẠNH",
+            name: "Bánh Cuốn Bà Hạnh",
             address: "16B Thọ Xương, quận Hoàn Kiếm, Hà Nội",
             description:
               "Nằm gần Nhà thờ Lớn, không gian sạch sẽ với suất bánh cuốn đầy đặn, ấm bụng buổi sáng.",
@@ -614,13 +1156,13 @@ export const FOODS_COPY = {
         video: {
           type: "youtube",
           src: "https://www.youtube.com/embed/udmWMcekReY?autoplay=1&mute=1&rel=0",
-          poster: "/assets/xoi/xoi-hero.png",
+          poster: "/assets/xoi/xoi.png",
           description: "Hơi nếp bốc khói, topping phong phú và nhịp sống vội vã quanh gánh xôi Hà Nội.",
         },
         ingredientGallery: [
           {
             id: "xoi-glutinous",
-            src: "/assets/xoi/xoi-nep.png",
+            src: "/assets/xoi/xoi.png",
             caption: {
               vi: "Nếp cái hoa vàng đồ chín mềm, hạt tơi mà dẻo",
               en: "Golden glutinous rice steamed until tender and fragrant",
@@ -632,7 +1174,7 @@ export const FOODS_COPY = {
           },
           {
             id: "xoi-toppings-savory",
-            src: "/assets/xoi/xoi-man.png",
+            src: "/assets/xoi/1.png",
             caption: {
               vi: "Topping mặn đậm đà như thịt gà xé, thịt kho, chả lụa",
               en: "Savory toppings like shredded chicken, caramelized pork, and pork roll",
@@ -644,7 +1186,7 @@ export const FOODS_COPY = {
           },
           {
             id: "xoi-toppings-sweet",
-            src: "/assets/xoi/xoi-ngot.png",
+            src: "/assets/xoi/2.png",
             caption: {
               vi: "Phiên bản ngọt với dừa nạo, đậu phộng và mè rang",
               en: "Sweet versions with coconut shavings, peanuts, and sesame",
@@ -673,7 +1215,7 @@ export const FOODS_COPY = {
         spots: [
           {
             id: "xoi-yen",
-            name: "XÔI YẾN",
+            name: "Xôi Yến",
             address: "35B Nguyễn Hữu Huân, Hoàn Kiếm",
             description:
               "Quán nổi tiếng nhất với xôi xéo đậu xanh, hành phi vàng óng, phục vụ từ sáng tới khuya.",
@@ -683,7 +1225,7 @@ export const FOODS_COPY = {
           },
           {
             id: "xoi-ba-thu",
-            name: "XÔI BÀ THU",
+            name: "Xôi Bà Thu",
             address: "57 Thợ Nhuộm, Hoàn Kiếm",
             description:
               "Nổi tiếng với xôi gà, xôi thịt kho tàu đậm đà, giá mềm và phục vụ nhanh chóng.",
@@ -693,7 +1235,7 @@ export const FOODS_COPY = {
           },
           {
             id: "xoi-cat-lam",
-            name: "XÔI CÁT LÂM",
+            name: "Xôi Cát Lâm",
             address: "24B Đường Thành, Hoàn Kiếm",
             description:
               "Giữ nguyên hương vị truyền thống với xôi xéo, xôi ngô thơm ngon, ổn định qua từng năm.",
@@ -721,13 +1263,13 @@ export const FOODS_COPY = {
         video: {
           type: "youtube",
           src: "https://www.youtube.com/embed/zXgwTTiysUA?autoplay=1&mute=1&rel=0",
-          poster: "/assets/bunrieu/bunrieu-hero.png",
+          poster: "/assets/bunrieu/rieu.png",
           description: "Gạch cua quyện cà chua, đậu phụ mềm và rau thơm làm nên tô bún riêu trọn vị.",
         },
         ingredientGallery: [
           {
             id: "bunrieu-crab",
-            src: "/assets/bunrieu/gach-cua.png",
+            src: "/assets/bunrieu/1.png",
             caption: {
               vi: "Gạch cua đồng xay nhuyễn tạo phần riêu bông mềm",
               en: "Fresh field crab paste creating delicate curds",
@@ -739,7 +1281,7 @@ export const FOODS_COPY = {
           },
           {
             id: "bunrieu-broth",
-            src: "/assets/bunrieu/nouoc-dung.png",
+            src: "/assets/bunrieu/2.png",
             caption: {
               vi: "Nước dùng trong thanh với cà chua và giấm bỗng",
               en: "Clear broth brightened with tomatoes and rice vinegar",
@@ -751,7 +1293,7 @@ export const FOODS_COPY = {
           },
           {
             id: "bunrieu-garnish",
-            src: "/assets/bunrieu/topping.png",
+            src: "/assets/bunrieu/3.png",
             caption: {
               vi: "Đậu phụ rán, thịt heo và rau thơm làm topping",
               en: "Crispy tofu, pork, and herbs ready to top the bowl",
@@ -780,7 +1322,7 @@ export const FOODS_COPY = {
         spots: [
           {
             id: "bunrieu-huyen-thu",
-            name: "BÚN RIÊU HUYỀN THU",
+            name: "Bún Riêu Huyền Thu",
             address: "2F Quang Trung, Hoàn Kiếm",
             description:
               "Hơn 30 năm phục vụ, bát bún riêu cầu kỳ và phục vụ thân thiện.",
@@ -790,7 +1332,7 @@ export const FOODS_COPY = {
           },
           {
             id: "bunrieu-trang",
-            name: "BÚN RIÊU SƯỜN SỤN TRANG",
+            name: "Bún Riêu Sườn Sụn Trang",
             address: "23 Nguyễn Siêu, Hoàn Kiếm",
             description:
               "Biến tấu với sườn sụn mềm ngọt và nước dùng đậm đà, hút khách cả ngày.",
@@ -800,147 +1342,13 @@ export const FOODS_COPY = {
           },
           {
             id: "bunrieu-be-be",
-            name: "BÚN RIÊU BỀ BỀ",
+            name: "Bún Riêu Bề Bề",
             address: "608 Lạc Long Quân, Tây Hồ",
             description:
               "Thêm bề bề tươi ngọt, mang đến trải nghiệm bún riêu hiện đại bên hồ Tây.",
             price: "Giá: 60.000 – 75.000đ.",
             image: "/assets/bunrieu/3.png",
             mapUrl: "https://maps.google.com/?q=608+L%E1%BA%A1c+Long+Qu%C3%A2n+T%C3%A2y+H%E1%BB%93",
-          },
-        ],
-      },
-      {
-        id: "nemnuong",
-        hero: {
-          eyebrow: "Đặc sản miền Trung",
-          title: "NEM NƯỚNG NHA TRANG",
-          description:
-            "Nem nướng Nha Trang được làm từ thịt heo quết nhuyễn, nướng trên than hồng thơm lừng, ăn kèm bánh tráng, rau sống và nước chấm sền sệt ngọt bùi. Hương vị hài hoà, dễ ăn khiến món đặc sản miền Trung này chinh phục thực khách ở mọi miền đất nước.",
-          image: null,
-          imageAlt: "Nem nướng Nha Trang với bánh tráng và rau sống",
-          cta: "Thưởng thức nem nướng",
-        },
-        intro: {
-          title: "VIDEO",
-          body: "Nem nướng được quết dẻo, nướng vàng và cuốn cùng rau sống, bánh tráng.",
-        },
-        video: {
-          type: "youtube",
-          src: "https://www.youtube.com/embed/NVzRMbREV_c?autoplay=1&mute=1&rel=0",
-          description: "Quy trình quết thịt, nướng nem thơm lừng và cuốn bánh tráng đúng điệu Nha Trang.",
-        },
-        ingredientGallery: [],
-        ingredientsTitle: "Nguyên liệu tạo nên hương vị",
-        ingredientsList: [
-          { iconClass: "fa-solid fa-drumstick-bite", text: "Thịt heo quết nhuyễn trộn mỡ, nêm gia vị đậm đà." },
-          { iconClass: "fa-solid fa-fire", text: "Que tre và bếp than hồng giúp nem chín vàng thơm." },
-          { iconClass: "fa-solid fa-leaf", text: "Rau sống, xoài xanh, dưa leo cho vị tươi mát." },
-          { iconClass: "fa-solid fa-bread-slice", text: "Bánh tráng mềm dẻo cuốn cùng nem và rau." },
-          { iconClass: "fa-solid fa-bowl-food", text: "Nước chấm sền sệt từ đậu phộng, gan heo, tỏi ớt." },
-        ],
-        recipeTitle: "Cách thưởng thức chuẩn vị",
-        recipeSteps: [
-          "Nướng nem trên than hồng, trở đều tay đến khi vàng óng và dậy mùi thơm.",
-          "Trải bánh tráng, thêm rau sống, đồ chua, xoài xanh, đặt nem nướng lên trên.",
-          "Cuốn chặt tay và chấm cùng nước chấm đậu phộng sền sệt đặc trưng Nha Trang.",
-        ],
-        spotsTitle: "Địa chỉ nem nướng ở Hà Nội",
-        spots: [
-          {
-            id: "nemnuong-vukhanh",
-            name: "NEM NƯỚNG NHA TRANG VŨ KHÁNH",
-            address: "90 Trần Hưng Đạo, Hoàn Kiếm",
-            description:
-              "Không gian rộng rãi, nem nướng thơm mềm, nước chấm đậm đà đúng kiểu Nha Trang.",
-            price: "Giá: 50.000 – 80.000đ/suất.",
-            image: null,
-            mapUrl: "https://maps.google.com/?q=90+Tr%E1%BA%A7n+H%C6%B0ng+%C4%90%E1%BA%A1o+H%C3%A0+N%E1%BB%99i",
-          },
-          {
-            id: "nemnuong-hangbong",
-            name: "NEM NƯỚNG NHA TRANG",
-            address: "39 Hàng Bông, Hoàn Kiếm",
-            description:
-              "Quán nhỏ ngay phố cổ, nổi tiếng với phần nem nướng nóng hổi cuốn bánh tráng rau sống.",
-            price: "Giá: 50.000 – 80.000đ/suất.",
-            image: null,
-            mapUrl: "https://maps.google.com/?q=39+H%C3%A0ng+B%C3%B4ng+H%C3%A0+N%E1%BB%99i",
-          },
-          {
-            id: "nemnuong-hanh",
-            name: "NEM NƯỚNG NHA TRANG HẠNH",
-            address: "23 Nguyễn Thái Học, Ba Đình",
-            description:
-              "Nem nướng mềm thơm, nước chấm béo bùi, phục vụ nhanh chóng, được thực khách địa phương yêu thích.",
-            price: "Giá: 50.000 – 80.000đ/suất.",
-            image: null,
-            mapUrl: "https://maps.google.com/?q=23+Nguy%E1%BB%85n+Th%C3%A1i+H%E1%BB%8Dc+H%C3%A0+N%E1%BB%99i",
-          },
-        ],
-      },
-      {
-        id: "lau-cua-dong",
-        hero: {
-          eyebrow: "Ấm áp hồn quê",
-          title: "LẨU CUA ĐỒNG",
-          description:
-            "Lẩu cua đồng mang đậm hương vị đồng quê Bắc Bộ với nước dùng ngọt thanh từ cua đồng tươi, gạch cua béo ngậy và giấm bỗng chua nhẹ. Giữa tiết trời se lạnh của Hà Nội, quây quần bên nồi lẩu nghi ngút khói là trải nghiệm ấm áp khó quên.",
-          image: null,
-          imageAlt: "Nồi lẩu cua đồng nghi ngút khói",
-          cta: "Thưởng thức lẩu cua",
-        },
-        intro: {
-          title: "ẨM THỰC HÀ NỘI",
-          body: "Nồi lẩu cua đồng sôi sùng sục với gạch cua vàng, rau nhúng xanh mướt và topping phong phú.",
-        },
-        video: null,
-        ingredientGallery: [],
-        ingredientsTitle: "Thành phần dân dã",
-        ingredientsList: [
-          { iconClass: "fa-solid fa-crab", text: "Cua đồng tươi giã nhuyễn, lọc lấy nước cho vị ngọt thanh." },
-          { iconClass: "fa-solid fa-bowl-food", text: "Gạch cua béo ngậy tạo màu vàng hấp dẫn." },
-          { iconClass: "fa-solid fa-mug-hot", text: "Giấm bỗng, mắm tôm, cà chua tạo vị chua dịu đặc trưng." },
-          { iconClass: "fa-solid fa-drumstick-bite", text: "Topping phong phú: thịt bò, sườn sụn, đậu phụ, giò." },
-          { iconClass: "fa-solid fa-leaf", text: "Rau theo mùa như rau muống, mồng tơi, hoa chuối." },
-        ],
-        recipeTitle: "Cách thưởng thức",
-        recipeSteps: [
-          "Nấu nước lẩu từ nước cua, cà chua, giấm bỗng đến khi sôi nổi gạch cua vàng.",
-          "Chuẩn bị topping: thịt bò, sườn sụn, đậu phụ, giò, rau nhúng sạch.",
-          "Nhúng đồ ăn khi nước lẩu sôi, chan ra bát cùng bún và rau sống, thưởng thức nóng.",
-        ],
-        spotsTitle: "Quán lẩu cua đồng nổi bật",
-        spots: [
-          {
-            id: "laucua-685",
-            name: "LẨU CUA ĐỒNG 685",
-            address: "685 Lạc Long Quân, Tây Hồ",
-            description:
-              "Không gian mang phong cách Bắc Bộ, nước lẩu ngọt thanh, gạch cua thơm béo, topping phong phú.",
-            price: "Giá: 250.000 – 400.000đ/nồi.",
-            image: null,
-            mapUrl: "https://maps.google.com/?q=685+L%E1%BA%A1c+Long+Qu%C3%A2n+H%C3%A0+N%E1%BB%99i",
-          },
-          {
-            id: "laucua-songha",
-            name: "LẨU CUA ĐỒNG SONG HÀ",
-            address: "685 Lạc Long Quân, Tây Hồ",
-            description:
-              "Lẩu cua đồng chuẩn vị Bắc Bộ, nước lẩu ngọt thanh, đồ nhúng đa dạng phù hợp nhóm bạn và gia đình.",
-            price: "Giá: 150.000 – 300.000đ/người.",
-            image: null,
-            mapUrl: "https://maps.google.com/?q=685+L%E1%BA%A1c+Long+Qu%C3%A2n+H%C3%A0+N%E1%BB%99i",
-          },
-          {
-            id: "laucua-chinhbeo",
-            name: "LẨU CUA ĐỒNG CHÍNH BÉO",
-            address: "Liền kề 20A, KĐT Văn Phú, Hà Đông",
-            description:
-              "Quán bình dân nhưng đông khách, nguyên liệu tươi, nồi lẩu vừa đủ cho 3-4 người với hương vị đậm đà.",
-            price: "Giá: 220.000 – 350.000đ/nồi.",
-            image: null,
-            mapUrl: "https://maps.google.com/?q=Khu+%C4%91%E1%BB%88nh+c%C6%B0+V%C4%83n+Ph%C3%BA+H%C3%A0+N%E1%BB%99i",
           },
         ],
       },
@@ -1021,7 +1429,7 @@ export const FOODS_COPY = {
         spots: [
           {
             id: "chaca-la-vong",
-            name: "CHẢ CÁ LÃ VỌNG",
+            name: "Chả Cá Lã Vọng",
             address: "14 Chả Cá, Hoàn Kiếm",
             description:
               "Hơn 100 năm tuổi, giữ trọn công thức gia truyền và phong cách phục vụ tại bàn.",
@@ -1031,7 +1439,7 @@ export const FOODS_COPY = {
           },
           {
             id: "chaca-thang-long",
-            name: "CHẢ CÁ THĂNG LONG",
+            name: "Chả Cá Thăng Long",
             address: "21 Đường Thành, Hoàn Kiếm",
             description:
               "Không gian rộng rãi, phù hợp nhóm bạn đông với cá đậm vị và rau thơm tươi.",
@@ -1041,7 +1449,7 @@ export const FOODS_COPY = {
           },
           {
             id: "chaca-anh-vu",
-            name: "CHẢ CÁ ANH VŨ",
+            name: "Chả Cá Anh Vũ",
             address: "120-122 K1 Giảng Võ, Ba Đình",
             description:
               "Không gian hiện đại nhưng vẫn giữ hương vị truyền thống, nổi tiếng với cá tươi và nước chấm hài hoà.",
@@ -1049,7 +1457,6 @@ export const FOODS_COPY = {
             image: "/assets/chaca/3.png",
             mapUrl: "https://maps.google.com/?q=120+K1+Gi%E1%BA%A3ng+V%C3%B5+H%C3%A0+N%E1%BB%99i",
           },
-      
         ],
       },
     ],
@@ -1179,6 +1586,550 @@ export const FOODS_COPY = {
               "A favorite near St. Joseph’s Cathedral, serving both beef and chicken pho with consistent flavors for locals and travelers alike.",
             image: "/assets/pho/pho-lyquocsu.png",
             mapUrl: "https://maps.google.com/?q=Ph%E1%BB%9F+10+L%C3%BD+Qu%E1%BB%91c+S%C6%B2",
+          },
+        ],
+      },
+      {
+        id: "nemnuong",
+        hero: {
+          eyebrow: "Central coast delight",
+          title: "NHA TRANG NEM NUONG",
+          description:
+            "Nha Trang nem nuong is hand-pounded pork mixed with aromatics, shaped onto skewers, and grilled over glowing charcoal. The surface caramelizes while the inside stays irresistibly juicy. Wrap a hot skewer with rice paper, fresh herbs, pickles, and a generous spoon of peanut sauce. The balance of sweet, savory, and nutty flavors keeps you craving the next bite.",
+          image: "/assets/nemnuong/nem.jpg",
+          imageAlt: "Nha Trang nem nuong with rice paper and fresh herbs",
+          cta: "Roll your nem nuong",
+        },
+        intro: {
+          title: "VIDEO",
+          body: "From pounding the pork to grilling and wrapping nem nuong with crisp greens.",
+        },
+        video: {
+          type: "youtube",
+          src: "https://www.youtube.com/embed/NVzRMbREV_c?autoplay=1&mute=1&rel=0",
+          description: "Shaping, grilling, and serving Nha Trang nem nuong with creamy peanut sauce.",
+        },
+        ingredientGallery: [],
+        ingredientsTitle: "Key components",
+        ingredientsList: [
+          { iconClass: "fa-solid fa-drumstick-bite", text: "Hand-pounded pork blended with fat, garlic, and spices until springy." },
+          { iconClass: "fa-solid fa-fire", text: "Charcoal heat that caramelizes the outside yet keeps the filling juicy." },
+          { iconClass: "fa-solid fa-leaf", text: "Fresh herbs, lettuce, and green mango for crunch and brightness." },
+          { iconClass: "fa-solid fa-bread-slice", text: "Chewy rice paper to wrap every ingredient together." },
+          { iconClass: "fa-solid fa-bowl-food", text: "Rich peanut dipping sauce that ties all the flavors together." },
+        ],
+        recipeTitle: "How to enjoy it",
+        recipeSteps: [
+          "Grill the skewers over charcoal, turning often until lightly charred and fragrant.",
+          "Lay out rice paper with herbs, pickles, and a hot skewer of nem nuong.",
+          "Roll tightly, dip into the peanut sauce, and savor while still warm.",
+        ],
+        spotsTitle: "Where to try nem nuong in Hanoi",
+        spots: [
+          {
+            id: "nemnuong-vukhanh",
+            name: "NEM NUONG NHA TRANG VU KHANH",
+            address: "90 Tran Hung Dao, Hoan Kiem",
+            description:
+              "Spacious dining room with smoky skewers, plentiful herbs, and extra-creamy dipping sauce.",
+            price: "Price: 50,000 - 80,000 VND per serving.",
+            image: "/assets/nemnuong/1.png",
+            mapUrl: "https://maps.google.com/?q=90+Tr%E1%BA%A7n+H%C6%B0ng+%C4%90%E1%BA%A1o+Hanoi",
+          },
+          {
+            id: "nemnuong-hangbong",
+            name: "NEM NUONG NHA TRANG",
+            address: "39 Hang Bong, Hoan Kiem",
+            description:
+              "Old Quarter favorite where skewers are rolled tableside and served piping hot.",
+            price: "Price: 50,000 - 80,000 VND per serving.",
+            image: "/assets/nemnuong/2.png",
+            mapUrl: "https://maps.google.com/?q=39+H%C3%A0ng+B%C3%B4ng+Hanoi",
+          },
+          {
+            id: "nemnuong-hanh",
+            name: "NEM NUONG NHA TRANG HANH",
+            address: "23 Nguyen Thai Hoc, Ba Dinh",
+            description:
+              "Loved by locals for juicy skewers, bold peanut sauce, and quick service.",
+            price: "Price: 50,000 - 80,000 VND per serving.",
+            image: "/assets/nemnuong/3.png",
+            mapUrl: "https://maps.google.com/?q=23+Nguy%E1%BB%85n+Th%C3%A1i+H%E1%BB%8Dc+Hanoi",
+          },
+        ],
+      },
+      {
+        id: "lau-cua-dong",
+        hero: {
+          eyebrow: "Countryside warmth",
+          title: "NORTHERN FIELD CRAB HOTPOT",
+          description:
+            "Field crab hotpot captures the rustic soul of northern Vietnam: a light, naturally sweet broth pressed from freshwater crabs, crowned with golden crab roe, and lifted with a gentle tang from fermented rice vinegar. On a chilly Hanoi evening, gathering around the bubbling pot, dipping meats and greens, then ladling it over vermicelli is the very definition of cozy comfort.",
+          image: "/assets/laucua/laucua.png",
+          imageAlt: "Steaming Vietnamese field crab hotpot",
+          cta: "Share a crab hotpot",
+        },
+        intro: {
+          title: "VIDEO",
+          body: "A simmering pot of crab broth with golden roe and plenty of fresh add-ins.",
+        },
+        video: null,
+        ingredientGallery: [],
+        ingredientsTitle: "Signature ingredients",
+        ingredientsList: [
+          { iconClass: "fa-solid fa-crab", text: "Freshwater field crabs pounded and strained for a sweet, clean broth." },
+          { iconClass: "fa-solid fa-bowl-food", text: "Golden crab roe that adds color and richness." },
+          { iconClass: "fa-solid fa-mug-hot", text: "Fermented rice vinegar, tomatoes, and shrimp paste for gentle acidity." },
+          { iconClass: "fa-solid fa-drumstick-bite", text: "Thinly sliced beef, pork paste, tofu, and cinnamon sausage for dipping." },
+          { iconClass: "fa-solid fa-leaf", text: "Morning glory, water celery, and banana blossom for crisp freshness." },
+        ],
+        recipeTitle: "How to enjoy it",
+        recipeSteps: [
+          "Simmer the crab broth with tomatoes and fermented rice vinegar until the roe floats to the top.",
+          "Arrange meats, tofu, and vegetables so everyone can dip as they like.",
+          "Add toppings to the bubbling pot, then ladle the broth over noodles and enjoy while steaming hot.",
+        ],
+        spotsTitle: "Field crab hotpot spots in Hanoi",
+        spots: [
+          {
+            id: "laucua-685",
+            name: "LAU CUA DONG 685",
+            address: "685 Lac Long Quan, Tay Ho",
+            description:
+              "Northern-style setting with naturally sweet broth, abundant crab roe, and generous platters of add-ins.",
+            price: "Price: 250,000 - 400,000 VND per pot.",
+            image: "/assets/laucua/1.png",
+            mapUrl: "https://maps.google.com/?q=685+L%E1%BA%A1c+Long+Qu%C3%A2n+Hanoi",
+          },
+          {
+            id: "laucua-songha",
+            name: "LAU CUA DONG SONG HA",
+            address: "685 Lac Long Quan, Tay Ho",
+            description:
+              "Classic northern flavors with light, balanced broth and plentiful dipping platters.",
+            price: "Price: 150,000 - 300,000 VND per person.",
+            image: "/assets/laucua/2.png",
+            mapUrl: "https://maps.google.com/?q=685+L%E1%BA%A1c+Long+Qu%C3%A2n+Hanoi",
+          },
+          {
+            id: "laucua-chinhbeo",
+            name: "LAU CUA DONG CHINH BEO",
+            address: "20A Van Phu Urban Area, Ha Dong",
+            description:
+              "Beloved neighborhood joint serving hearty pots with fresh ingredients at cozy portions for small groups.",
+            price: "Price: 220,000 - 350,000 VND per pot.",
+            image: "/assets/laucua/3.png",
+            mapUrl: "https://maps.google.com/?q=Khu+%C4%91%E1%BB%8Bnh+c%C6%B0+V%C4%83n+Ph%C3%BA+Hanoi",
+          },
+        ],
+      },
+      {
+        id: "chao-trai",
+        hero: {
+          eyebrow: "Gentle comfort",
+          title: "HANOI CLAM PORRIDGE",
+          description:
+            "Clam porridge is a humble Hanoi staple: rice is simmered in sweet clam broth until silky, then topped with sauteed river clams, fried shallots, fish sauce, and pepper. Every spoonful is light yet savory, the perfect bowl for a breezy afternoon or late-night supper.",
+          image: "/assets/chaotrai/chaotrai.png",
+          imageAlt: "Bowl of Hanoi clam porridge",
+          cta: "Savor clam porridge",
+        },
+        intro: {
+          title: "VIDEO",
+          body: "Cooking rice in clam broth, then finishing with sauteed clams and fragrant herbs.",
+        },
+        video: {
+          type: "youtube",
+          src: "https://www.youtube.com/embed/JQhFY7_CiSs?autoplay=1&mute=1&rel=0",
+          description: "Preparing Hanoi-style clam porridge with fresh river clams.",
+        },
+        ingredientGallery: [],
+        ingredientsTitle: "Essential ingredients",
+        ingredientsList: [
+          { iconClass: "fa-solid fa-bowl-rice", text: "Rice soaked and ground, simmered until velvety smooth." },
+          { iconClass: "fa-solid fa-water", text: "Sweet clam stock forming the base." },
+          { iconClass: "fa-solid fa-fish", text: "Clam meat sauteed with shallots, fish sauce, and pepper." },
+          { iconClass: "fa-solid fa-onion", text: "Golden fried shallots for aroma." },
+          { iconClass: "fa-solid fa-leaf", text: "Vietnamese coriander and shiso brighten the bowl." },
+        ],
+        recipeTitle: "How to enjoy",
+        recipeSteps: [
+          "Blanch the clams, reserve the broth, and clean the meat.",
+          "Simmer ground rice in the clam stock until silky, seasoning gently.",
+          "Top with sauteed clam meat, herbs, fried shallots, and a sprinkle of pepper.",
+        ],
+        spotsTitle: "Where to taste clam porridge",
+        spots: [
+          {
+            id: "chaotrai-colan",
+            name: "CO LAN CLAM PORRIDGE",
+            address: "34 Nguyen Van To Street, Hoan Kiem District",
+            description:
+              "Afternoon-only stall serving silky porridge perfumed with fresh herbs.",
+            price: "Price: 10,000 - 15,000 VND per bowl.",
+            image: "/assets/chaotrai/1.png",
+            mapUrl: "https://maps.google.com/?q=34+Nguy%E1%BB%85n+V%C4%83n+T%E1%BB%91+Hanoi",
+          },
+          {
+            id: "chaotrai-trankhatchan",
+            name: "321 TRAN KHAT CHAN CLAM PORRIDGE",
+            address: "321 Tran Khat Chan Street, Hai Ba Trung District",
+            description:
+              "Late-morning favorite with richly flavored broth and generous toppings.",
+            price: "Price: 20,000 - 25,000 VND per bowl.",
+            image: "/assets/chaotrai/2.png",
+            mapUrl: "https://maps.google.com/?q=321+Tr%E1%BA%A7n+Kh%C3%A1t+Ch%C3%A2n+Hanoi",
+          },
+          {
+            id: "chaotrai-cohang",
+            name: "CO HANG CLAM PORRIDGE",
+            address: "C2 Trung Tu, Dong Da District",
+            description:
+              "Family-run shop serving hot clam porridge all day with crispy fried shallots.",
+            price: "Price: 27,000 VND per bowl.",
+            image: "/assets/chaotrai/3.png",
+            mapUrl: "https://maps.google.com/?q=C2+Trung+T%E1%BB%B1+Hanoi",
+          },
+        ],
+      },
+      {
+        id: "chao-suon",
+        hero: {
+          eyebrow: "Breakfast classic",
+          title: "HANOI PORK RIB PORRIDGE",
+          description:
+            "Pork rib porridge is a beloved Hanoi breakfast: ground rice is simmered with pork ribs until luxuriously smooth, then topped with tender rib meat, fried shallots, and crisp Chinese crullers. A steaming bowl brings the comforting warmth of a home-cooked morning.",
+          image: "/assets/chaosuon/chaosuon.png",
+          imageAlt: "Bowl of pork rib porridge with fried dough sticks",
+          cta: "Start your day with chao suon",
+        },
+        intro: {
+          title: "VIDEO",
+          body: "Silky porridge simmered from ground rice and pork ribs, finished with toppings.",
+        },
+        video: {
+          type: "youtube",
+          src: "https://www.youtube.com/embed/ZneH5LsyYBo?autoplay=1&mute=1&rel=0",
+          description: "Making creamy Hanoi pork rib porridge from scratch.",
+        },
+        ingredientGallery: [],
+        ingredientsTitle: "Core components",
+        ingredientsList: [
+          { iconClass: "fa-solid fa-bone", text: "Pork ribs simmered for a naturally sweet broth." },
+          { iconClass: "fa-solid fa-bowl-rice", text: "Ground rice cooked until velvety." },
+          { iconClass: "fa-solid fa-onion", text: "Fried shallots and pepper for fragrance." },
+          { iconClass: "fa-solid fa-bread-slice", text: "Crispy crullers for dipping and crunch." },
+          { iconClass: "fa-solid fa-leaf", text: "Spring onions and herbs to finish." },
+        ],
+        recipeTitle: "How to enjoy",
+        recipeSteps: [
+          "Simmer ribs to create a clear, flavorful broth.",
+          "Cook ground rice in the broth until smooth and creamy.",
+          "Top with rib meat, fried shallots, crullers, and freshly ground pepper.",
+        ],
+        spotsTitle: "Where to try it",
+        spots: [
+          {
+            id: "chaosuon-cola",
+            name: "CO LA PORK RIB PORRIDGE",
+            address: "2A Ly Quoc Su Street, Hoan Kiem District",
+            description:
+              "Long-standing Old Quarter favorite serving silky bowls morning and afternoon.",
+            price: "Price: 15,000 - 25,000 VND per bowl.",
+            image: "/assets/chaosuon/1.png",
+            mapUrl: "https://maps.google.com/?q=2A+L%C3%BD+Qu%E1%BB%91c+S%C6%B2+Hanoi",
+          },
+          {
+            id: "chaosuon-baloi",
+            name: "BA LOI PORK RIB PORRIDGE",
+            address: "39 Hang Dieu Street, Hoan Kiem District",
+            description:
+              "Known for cartilage-rich toppings and all-day service.",
+            price: "Price: 25,000 - 30,000 VND per bowl.",
+            image: "/assets/chaosuon/2.png",
+            mapUrl: "https://maps.google.com/?q=39+H%C3%A0ng+%C4%90i%E1%BA%BFu+Hanoi",
+          },
+          {
+            id: "chaosuon-dongxuan",
+            name: "DONG XUAN PORK RIB PORRIDGE",
+            address: "14 Dong Xuan Street, Hoan Kiem District",
+            description:
+              "Bustling street stall offering hearty bowls at wallet-friendly prices.",
+            price: "Price: 20,000 - 30,000 VND per bowl.",
+            image: "/assets/chaosuon/3.png",
+            mapUrl: "https://maps.google.com/?q=14+%C4%90%E1%BB%93ng+Xu%C3%A2n+Hanoi",
+          },
+        ],
+      },
+      {
+        id: "mien-luon",
+        hero: {
+          eyebrow: "Crisp eel delight",
+          title: "HANOI EEL GLASS NOODLES",
+          description:
+            "Hanoi's eel glass noodles can be served dry or with broth: field eel is cleaned, then either fried until crisp or simmered until tender, and paired with chewy glass noodles. The light broth made from pork bones and dried shrimp, together with bean sprouts, fried shallots, and herbs, creates a wonderfully balanced bowl.",
+          image: "/assets/mienluon/mienluon.jpg",
+          imageAlt: "Bowl of eel glass noodles",
+          cta: "Enjoy eel noodles",
+        },
+        intro: {
+          title: "VIDEO",
+          body: "Frying eel to a crisp and simmering broth for Hanoi's signature mien luon.",
+        },
+        video: {
+          type: "youtube",
+          src: "https://www.youtube.com/embed/snCdgrF_dTQ?autoplay=1&mute=1&rel=0",
+          description: "Preparing eel two ways for Hanoi glass noodles.",
+        },
+        ingredientGallery: [],
+        ingredientsTitle: "Signature ingredients",
+        ingredientsList: [
+          { iconClass: "fa-solid fa-fish", text: "Fresh field eel fried crisp or simmered tender." },
+          { iconClass: "fa-solid fa-bowl-rice", text: "Glass noodles that happily soak up broth." },
+          { iconClass: "fa-solid fa-mug-hot", text: "Light broth simmered from bones and dried shrimp." },
+          { iconClass: "fa-solid fa-onion", text: "Fried shallots and scallions for aroma." },
+          { iconClass: "fa-solid fa-leaf", text: "Herbs and bean sprouts brighten every bite." },
+        ],
+        recipeTitle: "Serving suggestion",
+        recipeSteps: [
+          "Clean eel, then fry until crisp or simmer until silky, depending on the style you prefer.",
+          "Prepare a clear broth from pork bones and dried shrimp, seasoning lightly.",
+          "Blanch the noodles, ladle over broth, add eel, and finish with sprouts, herbs, and fried shallots.",
+        ],
+        spotsTitle: "Where to try eel noodles",
+        spots: [
+          {
+            id: "mienluon-chancam",
+            name: "MIEN LUON CHAN CAM",
+            address: "1 Chan Cam Street, Hoan Kiem District",
+            description:
+              "Old Quarter institution serving crisp eel and fragrant broth.",
+            price: "Price: 40,000 - 50,000 VND per bowl.",
+            image: "/assets/mienluon/1.png",
+            mapUrl: "https://maps.google.com/?q=1+Ch%C3%A2n+C%E1%BA%A7m+Hanoi",
+          },
+          {
+            id: "mienluon-thaiha",
+            name: "MIEN LUON DONG THAI HA",
+            address: "42 Thai Ha Street, Dong Da District",
+            description:
+              "Popular spot offering both crisp eel noodles and hearty broth bowls all day long.",
+            price: "Price: 35,000 - 60,000 VND per bowl.",
+            image: "/assets/mienluon/2.png",
+            mapUrl: "https://maps.google.com/?q=42+Th%C3%A1i+H%C3%A0+Hanoi",
+          },
+          {
+            id: "mienluon-nghiahang",
+            name: "MIEN LUON NGHIA HANG",
+            address: "72 Nghia Hang Street, Cau Giay District",
+            description:
+              "Neighborhood favorite with fresh daily eel and vibrant herbs.",
+            price: "Price: 35,000 - 55,000 VND per bowl.",
+            image: "/assets/mienluon/3.png",
+            mapUrl: "https://maps.google.com/?q=72+Ngh%C4%A9a+H%C3%A0ng+Hanoi",
+          },
+        ],
+      },
+      {
+        id: "bun-tron",
+        hero: {
+          eyebrow: "All-in-one harmony",
+          title: "HANOI MIXED VERMICELLI",
+          description:
+            "Hanoi bun tron layers soft vermicelli, smoky grilled meat, fresh herbs, roasted peanuts, and a tangy fish-sauce dressing. Served dry so diners toss everything themselves, each chopstickful balances sweet, salty, sour, and nutty notes.",
+          image: "/assets/buntron/buntron.jpg",
+          imageAlt: "Bowl of Hanoi mixed vermicelli with full toppings",
+          cta: "Toss and enjoy",
+        },
+        intro: {
+          title: "Old Quarter flavors",
+          body: "Fine rice noodles paired with grilled meats, fragrant herbs, roasted peanuts, and sweet-sour dressing.",
+        },
+        video: null,
+        ingredientGallery: [],
+        ingredientsTitle: "Signature components",
+        ingredientsList: [
+          { iconClass: "fa-solid fa-bowl-rice", text: "Soft, fine rice vermicelli noodles." },
+          { iconClass: "fa-solid fa-drumstick-bite", text: "Charcoal-grilled pork or spring rolls for savory depth." },
+          { iconClass: "fa-solid fa-seedling", text: "Fresh herbs and lettuce for cool crunch." },
+          { iconClass: "fa-solid fa-seedling", text: "Roasted peanuts that add nutty crunch." },
+          { iconClass: "fa-solid fa-mug-hot", text: "Sweet-sour fish sauce dressing that ties every flavor together." },
+        ],
+        recipeTitle: "How to enjoy",
+        recipeSteps: [
+          "Add noodles, grilled meat, herbs, and dressing to a large bowl.",
+          "Top with roasted peanuts and fried shallots for aroma.",
+          "Toss thoroughly so the dressing coats every ingredient before eating.",
+        ],
+        spotsTitle: "Where to try bun tron",
+        spots: [
+          {
+            id: "buntron-hangbun",
+            name: "BUN TRON HANG BUN",
+            address: "57 Hang Bun, Ba Dinh",
+            description:
+              "Classic Old Quarter flavors with smoky grilled pork and crisp greens.",
+            price: "Price: 35,000 - 45,000 VND per bowl.",
+            image: "/assets/buntron/1.png",
+            mapUrl: "https://maps.google.com/?q=57+H%C3%A0ng+B%C3%BAn+Hanoi",
+          },
+          {
+            id: "buntron-comai",
+            name: "BUN TRON CO MAI",
+            address: "9 Ngo Trang Tien, Hoan Kiem",
+            description:
+              "Modern twist with plentiful toppings and a well-balanced dressing.",
+            price: "Price: 40,000 - 55,000 VND per bowl.",
+            image: "/assets/buntron/2.png",
+            mapUrl: "https://maps.google.com/?q=9+Ng%C3%B5+Tr%C3%A0ng+Ti%E1%BB%81n+Hanoi",
+          },
+          {
+            id: "buntron-anlac",
+            name: "BUN TRON CHAY AN LAC",
+            address: "18 Ngo Huyen, Hoan Kiem",
+            description:
+              "Vegetarian version with mushrooms, tofu, and colorful vegetables.",
+            price: "Price: 35,000 - 45,000 VND per bowl.",
+            image: "/assets/buntron/3.png",
+            mapUrl: "https://maps.google.com/?q=18+Ng%C3%B5+Huy%E1%BB%87n+Hanoi",
+          },
+        ],
+      },
+      {
+        id: "cha-ruoi",
+        hero: {
+          eyebrow: "Seasonal specialty",
+          title: "CHA RUOI",
+          description:
+            "Cha ruoi is Hanoi's treasured autumn treat. Fresh sand worms are cleaned, mixed with minced pork, eggs, dill, scallions, and finely sliced tangerine peel, then pan-fried until golden. Each patty stays crisp outside, custardy within, and carries a uniquely aromatic finish.",
+          image: "/assets/charuoi/charuoi.jpg",
+          imageAlt: "Plate of golden cha ruoi fritters",
+          cta: "Savor cha ruoi",
+        },
+        intro: {
+          title: "VIDEO",
+          body: "Cleaning the sand worms and frying fragrant cha ruoi patties to golden perfection.",
+        },
+        video: {
+          type: "youtube",
+          src: "https://www.youtube.com/embed/1Rp4ScQawEk?autoplay=1&mute=1&rel=0",
+          description: "Making Hanoi-style cha ruoi during the short late-autumn season.",
+        },
+        ingredientGallery: [],
+        ingredientsTitle: "Signature ingredients",
+        ingredientsList: [
+          { iconClass: "fa-solid fa-water", text: "Fresh sand worms carefully cleaned to keep their sweetness." },
+          { iconClass: "fa-solid fa-drumstick-bite", text: "Minced pork and eggs provide structure and richness." },
+          { iconClass: "fa-solid fa-leaf", text: "Dill and scallions lend the iconic herbal aroma." },
+          { iconClass: "fa-solid fa-lemon", text: "Finely sliced tangerine peel brightens and removes any briny notes." },
+          { iconClass: "fa-solid fa-fire", text: "Pan-fried over steady heat for a crisp exterior." },
+        ],
+        recipeTitle: "Best enjoyed",
+        recipeSteps: [
+          "Rinse the sand worms with warm salted water and kumquat juice to remove slime.",
+          "Combine with minced pork, eggs, dill, scallions, and seasoning before ladling into hot oil.",
+          "Fry until both sides are golden, then serve hot with herbs and sweet-sour dipping sauce.",
+        ],
+        spotsTitle: "Where to buy cha ruoi",
+        spots: [
+          {
+            id: "charuoi-hangbeo",
+            name: "CHA RUOI HANG BEO",
+            address: "244 Lo Duc, Hai Ba Trung",
+            description:
+              "Longtime shop famous for crispy patties and generous portions.",
+            price: "Price: 35,000 - 65,000 VND per serving.",
+            image: "/assets/charuoi/1.png",
+            mapUrl: "https://maps.google.com/?q=244+L%C3%B2+%C4%90%C3%BAc+Hanoi",
+          },
+          {
+            id: "charuoi-hungthinh",
+            name: "CHA RUOI HUNG THINH",
+            address: "1 Hang Chieu, Hoan Kiem",
+            description:
+              "Open all day with fresh cha ruoi served alongside vermicelli and herbs.",
+            price: "Price: 20,000 - 200,000 VND depending on portion size.",
+            image: "/assets/charuoi/2.png",
+            mapUrl: "https://maps.google.com/?q=1+H%C3%A0ng+Chi%E1%BA%BFu+Hanoi",
+          },
+          {
+            id: "charuoi-tamtho",
+            name: "CHA RUOI TAM THO",
+            address: "58 Hang Be, Hoan Kiem",
+            description:
+              "Aromatic with dill and citrus peel, thick patties fried evenly to a golden hue.",
+            price: "Price: 40,000 - 80,000 VND per serving.",
+            image: "/assets/charuoi/3.png",
+            mapUrl: "https://maps.google.com/?q=58+H%C3%A0ng+B%E1%BB%83+Hanoi",
+          },
+        ],
+      },
+      {
+        id: "mi-ga-tan",
+        hero: {
+          eyebrow: "Herbal nourishment",
+          title: "MI GA TAN",
+          description:
+            "Mi ga tan is free-range chicken gently stewed with traditional herbs such as goji berries, red dates, and codonopsis. The broth starts with a slight bitterness that mellows into lingering sweetness, soaking into springy noodles for the perfect pick-me-up after a long day.",
+          image: "/assets/gatan/gatan.png",
+          imageAlt: "Bowl of herbal mi ga tan",
+          cta: "Recharge with mi ga tan",
+        },
+        intro: {
+          title: "VIDEO",
+          body: "Chicken simmered low and slow with herbs before being ladled over hot noodles.",
+        },
+        video: {
+          type: "youtube",
+          src: "https://www.youtube.com/embed/2L_8wW_EPHQ?autoplay=1&mute=1&rel=0",
+          description: "Stewing chicken with medicinal herbs and plating a classic Hanoi mi ga tan.",
+        },
+        ingredientGallery: [],
+        ingredientsTitle: "Key ingredients",
+        ingredientsList: [
+          { iconClass: "fa-solid fa-drumstick-bite", text: "Free-range chicken simmered until tender yet naturally sweet." },
+          { iconClass: "fa-solid fa-seedling", text: "Goji berries, red dates, codonopsis, and other nourishing herbs." },
+          { iconClass: "fa-solid fa-bowl-rice", text: "Soft yet springy noodles that soak up the broth." },
+          { iconClass: "fa-solid fa-mug-hot", text: "Broth with a gentle bitterness upfront and a sweet finish." },
+          { iconClass: "fa-solid fa-pepper-hot", text: "Ginger and pepper to warm the body and chase away fatigue." },
+        ],
+        recipeTitle: "How to enjoy",
+        recipeSteps: [
+          "Simmer chicken with the herbal mix for at least an hour to draw out deep sweetness.",
+          "Blanch the noodles, ladle over hot broth, add shredded chicken, and finish with herbs.",
+          "Serve steaming hot; add a touch of honey or extra pepper to taste.",
+        ],
+        spotsTitle: "Popular mi ga tan shops",
+        spots: [
+          {
+            id: "miga-caysi",
+            name: "GA TAN CAY SI",
+            address: "29 Tong Duy Tan, Hoan Kiem",
+            description:
+              "Night-food street favorite with fragrant herbal broth simmering until late.",
+            price: "Price: 150,000 VND per bowl.",
+            image: "/assets/gatan/1.png",
+            mapUrl: "https://maps.google.com/?q=29+T%E1%BB%91ng+Duy+T%C3%A2n+Hanoi",
+          },
+          {
+            id: "miga-badau",
+            name: "GA TAN BA DAU",
+            address: "203 Ton Duc Thang, Dong Da",
+            description:
+              "Beloved casual spot with tender chicken and balanced herbal broth, open until late.",
+            price: "Price: 40,000 - 75,000 VND per bowl.",
+            image: "/assets/gatan/2.png",
+            mapUrl: "https://maps.google.com/?q=203+T%C3%B4n+%C4%90%E1%BB%A9c+Th%E1%BA%AFng+Hanoi",
+          },
+          {
+            id: "miga-hangbo",
+            name: "MI GA TAN 24 HANG BO",
+            address: "24 Hang Bo, Hoan Kiem",
+            description:
+              "Open all day with bowls that balance herbal aromas and comforting noodles.",
+            price: "Price: 40,000 VND per bowl.",
+            image: "/assets/gatan/3.png",
+            mapUrl: "https://maps.google.com/?q=24+H%C3%A0ng+B%E1%BB%93+Hanoi",
           },
         ],
       },
@@ -1556,7 +2507,7 @@ export const FOODS_COPY = {
           title: "HANOI STICKY RICE",
           description:
             "In Hanoi, xoi—sticky rice—is more than food; it is living heritage. From dawn street corners to late-night alleys, steaming bundles wrapped in banana leaves accompany locals through every stage of life. Each packet reveals a story: silky rice crowned with golden mung beans and crispy shallots, savoury chicken or braised pork, or sweet coconut, peanut, and sesame. Simple yet deeply satisfying, it is the warm, timeless soul of Hanoi.",
-          image: "/assets/xoi/xoi-hero.png",
+          image: "/assets/xoi/xoi.png",
           imageAlt: "Steaming basket of Hanoi sticky rice",
           cta: "Experience Hanoi xoi",
         },
@@ -1567,13 +2518,13 @@ export const FOODS_COPY = {
         video: {
           type: "youtube",
           src: "https://www.youtube.com/embed/udmWMcekReY?autoplay=1&mute=1&rel=0",
-          poster: "/assets/xoi/xoi-hero.png",
+          poster: "/assets/xoi/xoi.png",
           description: "A sensory journey of fragrant rice, colourful toppings, and Hanoi’s morning rhythm.",
         },
         ingredientGallery: [
           {
             id: "xoi-glutinous",
-            src: "/assets/xoi/xoi-nep.png",
+            src: "/assets/xoi/xoi.png",
             caption: {
               vi: "Nếp cái hoa vàng đồ chín mềm, hạt tơi mà dẻo",
               en: "Golden glutinous rice steamed until tender and fragrant",
@@ -1585,7 +2536,7 @@ export const FOODS_COPY = {
           },
           {
             id: "xoi-toppings-savory",
-            src: "/assets/xoi/xoi-man.png",
+            src: "/assets/xoi/1.png",
             caption: {
               vi: "Topping đậm đà như thịt gà, thịt kho, chả lụa",
               en: "Savory toppings like shredded chicken, caramelized pork, and pork roll",
@@ -1597,7 +2548,7 @@ export const FOODS_COPY = {
           },
           {
             id: "xoi-toppings-sweet",
-            src: "/assets/xoi/xoi-ngot.png",
+            src: "/assets/xoi/2.png",
             caption: {
               vi: "Phiên bản ngọt với dừa nạo, đậu phộng và mè rang",
               en: "Sweet versions with coconut shavings, peanuts, and sesame",
@@ -1631,7 +2582,7 @@ export const FOODS_COPY = {
             description:
               "The city’s most famous xoi xeo with mung beans and crispy shallots, open from morning till night.",
             price: "Price: 25,000 – 45,000 VND (~1 – 1.9 USD).",
-            image: "/assets/xoi/xoi-yen.png",
+            image: "/assets/xoi/1.png",
             mapUrl: "https://maps.google.com/?q=35B+Nguy%E1%BB%85n+H%E1%BB%AFu+H%C3%A2n+H%E1%BB%93n+Ki%E1%BA%BFm",
           },
           {
@@ -1641,7 +2592,7 @@ export const FOODS_COPY = {
             description:
               "Beloved for shredded chicken and braised pork toppings—hearty, flavourful, and affordable.",
             price: "Price: 25,000 – 40,000 VND (~1 – 1.7 USD).",
-            image: "/assets/xoi/xoi-ba-thu.png",
+            image: "/assets/xoi/2.png",
             mapUrl: "https://maps.google.com/?q=57+Th%E1%BB%A3+Nhu%E1%BB%99m+Ho%C3%A0n+Ki%E1%BA%BFm",
           },
           {
@@ -1651,7 +2602,7 @@ export const FOODS_COPY = {
             description:
               "A traditional favourite serving classics like xoi xeo and xoi ngo with consistent quality.",
             price: "Price: 20,000 – 50,000 VND (~0.8 – 2 USD).",
-            image: "/assets/xoi/xoi-cat-lam.png",
+            image: "/assets/xoi/3.png",
             mapUrl: "https://maps.google.com/?q=24B+%C4%90%C6%B0%E1%BB%9Dng+Th%C3%A0nh+Ho%C3%A0n+Ki%E1%BA%BFm",
           },
         ],
@@ -1663,7 +2614,7 @@ export const FOODS_COPY = {
           title: "HANOI BUN RIEU",
           description:
             "A bowl of bun rieu in Hanoi is a feast for the senses. The broth is light yet brimming with the sweetness of fresh field crab and a gentle tomato tang. Silky rice noodles, tofu, pork, and vibrant herbs absorb every flavour, making each spoonful bright, savoury, and deeply satisfying.",
-          image: "/assets/bunrieu/bunrieu-hero.png",
+          image: "/assets/bunrieu/rieu.png",
           imageAlt: "Hanoi crab noodle soup",
           cta: "Taste bun rieu",
         },
@@ -1674,13 +2625,13 @@ export const FOODS_COPY = {
         video: {
           type: "youtube",
           src: "https://www.youtube.com/embed/zXgwTTiysUA?autoplay=1&mute=1&rel=0",
-          poster: "/assets/bunrieu/bunrieu-hero.png",
+          poster: "/assets/bunrieu/rieu.png",
           description: "Delicate crab curds, ruby tomatoes, and fragrant herbs coming together in one bowl.",
         },
         ingredientGallery: [
           {
             id: "bunrieu-crab",
-            src: "/assets/bunrieu/gach-cua.png",
+            src: "/assets/bunrieu/1.png",
             caption: {
               vi: "Gạch cua đồng xay nhuyễn tạo phần riêu bông mềm",
               en: "Fresh crab paste whipped into fluffy curds",
@@ -1692,7 +2643,7 @@ export const FOODS_COPY = {
           },
           {
             id: "bunrieu-broth",
-            src: "/assets/bunrieu/nouoc-dung.png",
+            src: "/assets/bunrieu/2.png",
             caption: {
               vi: "Nước dùng trong thanh với cà chua và giấm bỗng",
               en: "Clear tomato broth with rice vinegar brightness",
@@ -1704,7 +2655,7 @@ export const FOODS_COPY = {
           },
           {
             id: "bunrieu-garnish",
-            src: "/assets/bunrieu/topping.png",
+            src: "/assets/bunrieu/3.png",
             caption: {
               vi: "Đậu phụ rán, thịt heo và rau thơm làm topping",
               en: "Tofu, pork, and herbs waiting to top the noodles",
@@ -1738,7 +2689,7 @@ export const FOODS_COPY = {
             description:
               "Over 30 years of serving warmly crafted bowls with time-honoured flavours and friendly service.",
             price: "Price: 45,000 – 90,000 VND.",
-            image: "/assets/bunrieu/huyen-thu.png",
+            image: "/assets/bunrieu/1.png",
             mapUrl: "https://maps.google.com/?q=2F+Quang+Trung+Hanoi",
           },
           {
@@ -1748,7 +2699,7 @@ export const FOODS_COPY = {
             description:
               "Beloved for tender pork ribs and crunchy cartilage that elevate the classic broth.",
             price: "Price: 30,000 – 75,000 VND.",
-            image: "/assets/bunrieu/trang.png",
+            image: "/assets/bunrieu/2.png",
             mapUrl: "https://maps.google.com/?q=23+Nguyen+Sieu+Hanoi",
           },
           {
@@ -1758,7 +2709,7 @@ export const FOODS_COPY = {
             description:
               "Adds sweet mantis shrimp to classic crab broth for a lakeside twist that locals adore.",
             price: "Price: 60,000 – 75,000 VND.",
-            image: "/assets/bunrieu/be-be.png",
+            image: "/assets/bunrieu/3.png",
             mapUrl: "https://maps.google.com/?q=608+Lac+Long+Quan+Hanoi",
           },
         ],
@@ -1868,16 +2819,6 @@ export const FOODS_COPY = {
             image: "/assets/chaca/3.png",
             mapUrl: "https://maps.google.com/?q=120+K1+Gi%E1%BA%A3ng+V%C3%B5+Hanoi",
           },
-          {
-            id: "chaca-ha-thanh",
-            name: "CHA CA HA THANH",
-            address: "20 Nguyen Van Huyen, Cau Giay",
-            description:
-              "Contemporary presentation that keeps tradition alive with every sizzling pan.",
-            price: "Price: 100,000 – 140,000 VND (~4.2 – 5.8 USD).",
-            image: "/assets/chaca/ha-thanh.png",
-            mapUrl: "https://maps.google.com/?q=20+Nguy%E1%BB%85n+V%C4%83n+Huy%C3%AAn+Hanoi",
-          },
         ],
       },
     ],
@@ -1886,9 +2827,36 @@ export const FOODS_COPY = {
 
 const STORAGE_KEY = "foodie_map_clicks";
 
+const ensureLoopingYoutubeSrc = (src) => {
+  if (!src) return src;
+  if (/[?&]loop=1/.test(src)) return src;
+
+  const [base, hash] = src.split("#");
+  const match = base.match(/\/embed\/([^?]+)/);
+  const videoId = match ? match[1] : "";
+  const separator = base.includes("?") ? "&" : "?";
+  let updated = `${base}${separator}loop=1`;
+
+  if (videoId && !/[?&]playlist=/.test(base)) {
+    updated += `&playlist=${videoId}`;
+  }
+
+  return `${updated}${hash ? `#${hash}` : ""}`;
+};
+
 export default function Foods() {
   const { language } = useLanguage();
-  const content = useMemo(() => FOODS_COPY[language], [language]);
+  const content = useMemo(() => {
+    const raw = FOODS_COPY[language];
+    const uniqueDishes = raw.dishes.reduce((acc, dish) => {
+      if (!acc.some((item) => item.id === dish.id)) {
+        acc.push(dish);
+      }
+      return acc;
+    }, []);
+
+    return { ...raw, dishes: uniqueDishes };
+  }, [language]);
   const { dishes, labels } = content;
   const [clickStats, setClickStats] = useState(() => {
     if (typeof window === "undefined") return {};
@@ -1901,6 +2869,41 @@ export default function Foods() {
   });
 
   useScrollReveal("[data-reveal]");
+
+  useEffect(() => {
+    let isActive = true;
+
+    const syncRemoteCounts = async () => {
+      try {
+        const { data, error } = await fetchClickEvents({ category: "foods", limit: 1000 });
+        if (error) {
+          throw error;
+        }
+        const remoteCounts = aggregateEventCounts(data);
+        if (!isActive || !remoteCounts || Object.keys(remoteCounts).length === 0) {
+          return;
+        }
+        setClickStats((prev) => {
+          const merged = { ...prev };
+          Object.entries(remoteCounts).forEach(([id, count]) => {
+            merged[id] = Math.max(merged[id] || 0, count);
+          });
+          return merged;
+        });
+      } catch (error) {
+        if (import.meta.env.DEV) {
+          // eslint-disable-next-line no-console
+          console.warn("Unable to fetch remote click counts for foods:", error.message);
+        }
+      }
+    };
+
+    syncRemoteCounts();
+
+    return () => {
+      isActive = false;
+    };
+  }, []);
 
   useEffect(() => {
     try {
@@ -1984,7 +2987,7 @@ export default function Foods() {
     if (dish.video.type === "youtube") {
       return (
         <iframe
-          src={dish.video.src}
+          src={ensureLoopingYoutubeSrc(dish.video.src)}
           title={`${dish.hero.title} video`}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
@@ -2001,6 +3004,7 @@ export default function Foods() {
         playsInline
         preload="metadata"
         poster={dish.video.poster}
+        loop
         data-autoplay-on-view
       >
         <source src={dish.video.src} type="video/mp4" />

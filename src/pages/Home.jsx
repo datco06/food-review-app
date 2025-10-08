@@ -128,7 +128,7 @@ const copy = {
 };
 
 export default function Home() {
-  const { language, setLanguage } = useLanguage();
+  const { language, toggleLanguage } = useLanguage();
   const navigate = useNavigate();
   const content = useMemo(() => copy[language], [language]);
   const { story, values } = content;
@@ -151,7 +151,7 @@ export default function Home() {
                 className={`lang-switch lang-switch--${language}`}
                 aria-checked={language === "en"}
                 aria-label={language === "vi" ? "Đổi sang tiếng Anh" : "Switch to Vietnamese"}
-                onClick={() => setLanguage(language === "vi" ? "en" : "vi")}
+                onClick={toggleLanguage}
               >
                 <span className="lang-switch__option" aria-hidden="true">
                   <span className="flag flag--vi" />

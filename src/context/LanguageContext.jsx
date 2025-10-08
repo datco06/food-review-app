@@ -1,14 +1,37 @@
-import React, { createContext, useContext, useMemo, useState } from "react";
+import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
+
+const LANGUAGE_STORAGE_KEY = "foodie_map_language";
+const DEFAULT_LANGUAGE = "vi";
 
 const LanguageContext = createContext({
-  language: "en",
+  language: DEFAULT_LANGUAGE,
   setLanguage: () => {},
+  toggleLanguage: () => {},
 });
 
-export function LanguageProvider({ children }) {
-  const [language, setLanguage] = useState("en");
+function readStoredLanguage() {
+  if (typeof window === "undefined") return DEFAULT_LANGUAGE;
+  const stored = window.localStorage.getItem(LANGUAGE_STORAGE_KEY);
+  return stored === "en" || stored === "vi" ? stored : DEFAULT_LANGUAGE;
+}
 
-  const value = useMemo(() => ({ language, setLanguage }), [language]);
+export function LanguageProvider({ children }) {
+  const [language, setLanguage] = useState(() => readStoredLanguage());
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    window.localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
+    document.documentElement.setAttribute("lang", language);
+  }, [language]);
+
+  const toggleLanguage = useCallback(() => {
+    setLanguage((prev) => (prev === "vi" ? "en" : "vi"));
+  }, []);
+
+  const value = useMemo(
+    () => ({ language, setLanguage, toggleLanguage }),
+    [language, toggleLanguage],
+  );
 
   return (
     <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>

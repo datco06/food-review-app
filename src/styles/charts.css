@@ -56,6 +56,8 @@
   font-size: clamp(2.1rem, 5vw, 2.6rem);
   font-weight: 700;
   color: var(--color-deep-green, #1f4f45);
+  font-family: var(--font-body);
+  letter-spacing: -0.01em;
 }
 
 .stats-summary__meta {

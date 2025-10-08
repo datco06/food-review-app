@@ -41,3 +41,14 @@ export function recordClickEvent(event) {
 export function getClickEvents() {
   return readEvents();
 }
+
+export function aggregateEventCounts(events) {
+  if (!Array.isArray(events)) return {};
+  return events.reduce((accumulator, entry) => {
+    const targetId = entry?.target_id || entry?.id;
+    if (!targetId) return accumulator;
+    const current = accumulator[targetId] || 0;
+    accumulator[targetId] = current + 1;
+    return accumulator;
+  }, {});
+}

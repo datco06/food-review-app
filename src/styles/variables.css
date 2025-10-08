@@ -14,6 +14,6 @@
   --shadow-soft: 0 24px 60px rgba(59, 45, 33, 0.18);
   --nav-height: 88px;
 
-  --font-display: "Playfair Display", "Times New Roman", serif;
+  --font-display: "Playfair Display", "Poppins", "Helvetica Neue", "Segoe UI", sans-serif;
   --font-body: "Poppins", "Helvetica", "Arial", sans-serif;
 }

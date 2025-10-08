@@ -4,7 +4,8 @@ import useScrollReveal from "../hooks/useScrollReveal.js";
 import useAutoPlayVideos from "../hooks/useAutoPlayVideos.js";
 import { useLanguage } from "../context/LanguageContext.jsx";
 import "../styles/foods.css";
-import { recordClickEvent } from "../utils/clickTracker.js";
+import { aggregateEventCounts, recordClickEvent } from "../utils/clickTracker.js";
+import { fetchClickEvents } from "../utils/supabaseApi.js";
 
 const STORAGE_KEY = "foodie_map_snack_clicks";
 
@@ -632,7 +633,7 @@ export const SNACKS_COPY = {
           title: "BÁNH KẾP THÁI",
           description:
             "Bánh kếp Thái (Roti Thái) là món ăn đường phố nổi tiếng với lớp vỏ bột mì mỏng chiên vàng giòn, bên trong là chuối, trứng, sô-cô-la hoặc sữa đặc. Khi ăn cảm nhận rõ độ giòn bên ngoài, mềm thơm bên trong, vị ngọt béo quyện cùng hương bơ hấp dẫn.",
-          image: null,
+          image: "/assets/roti/banhkepthai.jpg",
           imageAlt: "Bánh kếp Thái cuộn nhân chuối trứng",
           cta: "Thưởng thức bánh kếp",
         },
@@ -669,7 +670,7 @@ export const SNACKS_COPY = {
             description:
               "Xe bánh kếp nổi tiếng phố cổ với phiên bản chuối trứng truyền thống, luôn nóng và giòn.",
             price: "Giá: 25.000 – 40.000đ/chiếc.",
-            image: null,
+            image: "/assets/roti/1.jpg",
             mapUrl: "https://maps.google.com/?q=24+T%E1%BA%A1+Hi%E1%BB%87n+H%C3%A0+N%E1%BB%99i",
           },
           {
@@ -679,7 +680,7 @@ export const SNACKS_COPY = {
             description:
               "Cửa hàng nhỏ phục vụ nhiều loại nhân phong phú, thêm topping trái cây và sô-cô-la hấp dẫn.",
             price: "Giá: 25.000 – 40.000đ/chiếc.",
-            image: null,
+            image: "/assets/roti/2.jpg",
             mapUrl: "https://maps.google.com/?q=22+Nguy%E1%BB%85n+H%E1%BB%AFu+Hu%C3%A2n+H%C3%A0+N%E1%BB%99i",
           },
         ],
@@ -691,7 +692,7 @@ export const SNACKS_COPY = {
           title: "BÁNH XÈO HÀ NỘI",
           description:
             "Bánh xèo Hà Nội vàng giòn, thơm mùi nghệ, nhân tôm thịt nóng hổi cuốn cùng rau sống tươi mát. Giữa tiết trời se lạnh, vị giòn rụm, béo nhẹ và nước mắm chua ngọt đậm đà khiến ai thưởng thức cũng khó quên.",
-          image: null,
+          image: "/assets/banhxeo/banhxeo.jpeg",
           imageAlt: "Đĩa bánh xèo vàng giòn với rau sống",
           cta: "Thưởng thức bánh xèo",
         },
@@ -728,7 +729,7 @@ export const SNACKS_COPY = {
             description:
               "Không gian sạch sẽ, phục vụ phong cách miền Trung với vỏ bánh giòn, nhân đầy đặn, được nhiều du khách yêu thích.",
             price: "Giá: 30.000 – 90.000đ/suất.",
-            image: null,
+            image: "/assets/banhxeo/1.png",
             mapUrl: "https://maps.google.com/?q=25+T%C3%B4+Ng%E1%BB%8Dc+V%C3%A2n+H%C3%A0+N%E1%BB%99i",
           },
           {
@@ -738,7 +739,7 @@ export const SNACKS_COPY = {
             description:
               "Bánh xèo miền Trung đậm đà, giòn rụm, nhân tôm thịt tươi ngon, nước chấm vừa miệng.",
             price: "Giá: 40.000 – 60.000đ/suất.",
-            image: null,
+            image: "/assets/banhxeo/2.png",
             mapUrl: "https://maps.google.com/?q=142B+%C4%90%E1%BB%99i+C%E1%BA%A5n+H%C3%A0+N%E1%BB%99i",
           },
           {
@@ -748,8 +749,73 @@ export const SNACKS_COPY = {
             description:
               "Quán được Michelin Guide 2024 vinh danh với bánh xèo kiểu miền Tây, vỏ giòn, nhân đầy và nước chấm pha khéo.",
             price: "Giá: 65.000 – 85.000đ/suất.",
-            image: null,
+            image: "/assets/banhxeo/3.png",
             mapUrl: "https://maps.google.com/?q=74+C%E1%BA%A7u+%C4%90%E1%BA%A5t+H%C3%A0+N%E1%BB%99i",
+          },
+        ],
+      },
+      {
+        id: "caramen",
+        hero: {
+          eyebrow: "Ngọt ngào phố cổ",
+          title: "CARAMEN HÀ NỘI",
+          description:
+            "Caramen (flan) kiểu Hà Nội mềm mịn, thơm bơ trứng và có lớp caramel hơi đắng nhẹ. Món tráng miệng tưởng đơn giản nhưng đã gắn với bao thế hệ thực khách thủ đô.",
+          image: "/assets/caramen/caramen.jpg",
+          imageAlt: "Đĩa caramen phủ caramel",
+          cta: "Thưởng thức caramen",
+        },
+        intro: {
+          title: "MÓN NGỌT KINH ĐIỂN",
+          body: "Caramen mềm mịn, vị ngọt béo hài hoà, ăn kèm đá bào hoặc topping đa dạng.",
+        },
+        video: null,
+        ingredientGallery: [],
+        ingredientsTitle: "Hương vị làm nên caramen",
+        ingredientsList: [
+          { iconClass: "fa-solid fa-egg", text: "Trứng gà tươi tạo độ mịn và thơm." },
+          { iconClass: "fa-solid fa-mug-hot", text: "Sữa đặc, sữa tươi cho vị ngọt béo." },
+          { iconClass: "fa-solid fa-fire", text: "Đường thắng caramel đậm đà." },
+          { iconClass: "fa-solid fa-snowflake", text: "Đá bào, thạch, trân châu ăn kèm tuỳ thích." },
+          { iconClass: "fa-solid fa-spoon", text: "Phục vụ lạnh để giữ độ mềm mịn." },
+        ],
+        recipeTitle: "Gợi ý thưởng thức",
+        recipeSteps: [
+          "Thưởng thức nguyên vị để cảm nhận lớp caramel đậm và flan mềm." ,
+          "Thêm đá bào, trân châu hoặc thạch nếu thích cảm giác mát lạnh." ,
+          "Kết hợp cùng bạc hà hoặc cà phê để tăng hương thơm." ,
+        ],
+        spotsTitle: "Địa chỉ caramen nổi tiếng",
+        spots: [
+          {
+            id: "caramen-duonghoa",
+            name: "CARAMEN DƯƠNG HOA",
+            address: "29 Hàng Than, Ba Đình",
+            description:
+              "Tiệm lâu năm nổi tiếng với caramen mềm mịn, giá bình dân." ,
+            price: "Giá: 8.000 – 25.000đ/phần.",
+            image: "/assets/caramen/1.png",
+            mapUrl: "https://maps.google.com/?q=29+H%C3%A0ng+Than+H%C3%A0+N%E1%BB%99i",
+          },
+          {
+            id: "caramen-ngocthach",
+            name: "NGỌC THẠCH QUÁN",
+            address: "Khu tập thể Kim Liên, Đống Đa",
+            description:
+              "Hệ thống quán chè nổi tiếng với caramen ăn kèm nhiều topping mát lạnh." ,
+            price: "Giá: 15.000 – 25.000đ/phần.",
+            image: "/assets/caramen/2.jpg",
+            mapUrl: "https://maps.google.com/?q=Khu+t%E1%BA%ADp+th%E1%BB%83+Kim+Li%C3%AAn+H%C3%A0+N%E1%BB%99i",
+          },
+          {
+            id: "caramen-caramello",
+            name: "CARAMELLO",
+            address: "595H1 Tân Mai, Hoàng Mai",
+            description:
+              "Quán nhỏ phục vụ caramen biến tấu hiện đại với hương vị đa dạng." ,
+            price: "Giá: 20.000 – 35.000đ/phần.",
+            image: "/assets/caramen/3.jpeg",
+            mapUrl: "https://maps.google.com/?q=595H1+T%C3%A2n+Mai+H%C3%A0+N%E1%BB%99i",
           },
         ],
       },
@@ -1375,7 +1441,7 @@ export const SNACKS_COPY = {
           title: "THAI PANCAKE (ROTI)",
           description:
             "Thai roti is a beloved street food made from paper-thin dough fried until crisp, folded around fillings like banana, egg, chocolate, or condensed milk. Each bite combines buttery aroma, crisp edges, and a soft, sweet center.",
-          image: null,
+          image: "/assets/roti/banhkepthai.jpg",
           imageAlt: "Thai roti folded with banana and egg filling",
           cta: "Grab a roti",
         },
@@ -1412,7 +1478,7 @@ export const SNACKS_COPY = {
             description:
               "Old Quarter cart famous for classic banana-egg roti made to order and served piping hot.",
             price: "Price: 25,000 – 40,000 VND per piece.",
-            image: null,
+            image: "/assets/roti/1.jpg",
             mapUrl: "https://maps.google.com/?q=24+T%E1%BA%A1+Hi%E1%BB%87n+Hanoi",
           },
           {
@@ -1422,7 +1488,7 @@ export const SNACKS_COPY = {
             description:
               "Cosy shop offering creative fillings and toppings for Thai pancakes to suit every sweet tooth.",
             price: "Price: 25,000 – 40,000 VND per piece.",
-            image: null,
+            image: "/assets/roti/2.jpg",
             mapUrl: "https://maps.google.com/?q=22+Nguy%E1%BB%85n+H%E1%BB%AFu+Hu%C3%A2n+Hanoi",
           },
         ],
@@ -1434,7 +1500,7 @@ export const SNACKS_COPY = {
           title: "HANOI BANH XEO",
           description:
             "Hanoi’s take on banh xeo features turmeric-tinted crepes fried until shatteringly crisp, stuffed with sizzling shrimp and pork, and wrapped with fresh herbs. Dip in tangy fish sauce for a comforting contrast of textures and flavors.",
-          image: null,
+          image: "/assets/banhxeo/banhxeo.jpeg",
           imageAlt: "Vietnamese banh xeo with herbs and dipping sauce",
           cta: "Crunch into banh xeo",
         },
@@ -1471,7 +1537,7 @@ export const SNACKS_COPY = {
             description:
               "Bright, traveller-friendly eatery serving Central-style banh xeo with generous fillings and artful plating.",
             price: "Price: 30,000 – 90,000 VND per serving.",
-            image: null,
+            image: "/assets/banhxeo/1.png",
             mapUrl: "https://maps.google.com/?q=25+T%C3%B4+Ng%E1%BB%8Dc+V%C3%A2n+Hanoi",
           },
           {
@@ -1481,7 +1547,7 @@ export const SNACKS_COPY = {
             description:
               "Classic Central Vietnamese-style crepes with crisp shells, juicy fillings, and balanced dipping sauce.",
             price: "Price: 40,000 – 60,000 VND per serving.",
-            image: null,
+            image: "/assets/banhxeo/2.png",
             mapUrl: "https://maps.google.com/?q=142B+%C4%90%E1%BB%99i+C%E1%BA%A5n+Hanoi",
           },
           {
@@ -1491,13 +1557,95 @@ export const SNACKS_COPY = {
             description:
               "Bib Gourmand-listed spot famed for Mekong-style banh xeo with airy shells and flavour-packed nuoc cham.",
             price: "Price: 65,000 – 85,000 VND per serving.",
-            image: null,
+            image: "/assets/banhxeo/3.png",
             mapUrl: "https://maps.google.com/?q=74+C%E1%BA%A7u+%C4%90%E1%BA%A5t+Hanoi",
+          },
+        ],
+      },
+      {
+        id: "caramen",
+        hero: {
+          eyebrow: "Silky indulgence",
+          title: "HANOI CARAMEN",
+          description:
+            "Hanoi-style caramen (Vietnamese flan) is silky and lightly bitter from caramelised sugar. Simple yet timeless, it’s a dessert locals have adored for generations.",
+          image: "/assets/caramen/caramen.jpg",
+          imageAlt: "Vietnamese flan with caramel",
+          cta: "Treat yourself",
+        },
+        intro: {
+          title: "SWEET CLASSIC",
+          body: "Soft flan with caramel sauce, served chilled with optional toppings.",
+        },
+        video: null,
+        ingredientGallery: [],
+        ingredientsTitle: "What makes it special",
+        ingredientsList: [
+          { iconClass: "fa-solid fa-egg", text: "Fresh eggs create a silky custard." },
+          { iconClass: "fa-solid fa-mug-hot", text: "Condensed and fresh milk for creamy sweetness." },
+          { iconClass: "fa-solid fa-fire", text: "Caramelised sugar lending gentle bitterness." },
+          { iconClass: "fa-solid fa-ice-cream", text: "Crushed ice, jelly, or boba for added fun." },
+          { iconClass: "fa-solid fa-spoon", text: "Best enjoyed chilled with a spoonful of caramel." },
+        ],
+        recipeTitle: "How to enjoy",
+        recipeSteps: [
+          "Savour the original flan to appreciate the balance of caramel and custard.",
+          "Add crushed ice, boba, or jelly if you prefer a refreshing twist.",
+          "Pair with coffee or mint for extra aroma." ,
+        ],
+        spotsTitle: "Top flan spots",
+        spots: [
+          {
+            id: "caramen-duonghoa",
+            name: "DUONG HOA CARAMEN",
+            address: "29 Hang Than, Ba Dinh",
+            description:
+              "Decades-old dessert shop with silky flan at wallet-friendly prices." ,
+            price: "Price: 8,000 – 25,000 VND per portion.",
+            image: "/assets/caramen/1.png",
+            mapUrl: "https://maps.google.com/?q=29+H%C3%A0ng+Than+Hanoi",
+          },
+          {
+            id: "caramen-ngocthach",
+            name: "NGOC THACH QUAN",
+            address: "Kim Lien Apartment Complex, Dong Da",
+            description:
+              "Famous dessert chain offering flan with a variety of chilled toppings." ,
+            price: "Price: 15,000 – 25,000 VND per portion.",
+            image: "/assets/caramen/2.jpg",
+            mapUrl: "https://maps.google.com/?q=Khu+t%E1%BA%ADp+th%E1%BB%83+Kim+Li%C3%AAn+Hanoi",
+          },
+          {
+            id: "caramen-caramello",
+            name: "CARAMELLO",
+            address: "595H1 Tan Mai, Hoang Mai",
+            description:
+              "Cosy corner serving modern flan variations with creative toppings." ,
+            price: "Price: 20,000 – 35,000 VND per portion.",
+            image: "/assets/caramen/3.jpeg",
+            mapUrl: "https://maps.google.com/?q=595H1+T%C3%A2n+Mai+Hanoi",
           },
         ],
       },
     ],
   },
+};
+
+const ensureLoopingYoutubeSrc = (src) => {
+  if (!src) return src;
+  if (/[?&]loop=1/.test(src)) return src;
+
+  const [base, hash] = src.split("#");
+  const match = base.match(/\/embed\/([^?]+)/);
+  const videoId = match ? match[1] : "";
+  const separator = base.includes("?") ? "&" : "?";
+  let updated = `${base}${separator}loop=1`;
+
+  if (videoId && !/[?&]playlist=/.test(base)) {
+    updated += `&playlist=${videoId}`;
+  }
+
+  return `${updated}${hash ? `#${hash}` : ""}`;
 };
 
 export default function Snacks() {
@@ -1515,6 +1663,41 @@ export default function Snacks() {
   });
 
   useScrollReveal("[data-reveal]");
+
+  useEffect(() => {
+    let isActive = true;
+
+    const syncRemoteCounts = async () => {
+      try {
+        const { data, error } = await fetchClickEvents({ category: "snacks", limit: 1000 });
+        if (error) {
+          throw error;
+        }
+        const remoteCounts = aggregateEventCounts(data);
+        if (!isActive || !remoteCounts || Object.keys(remoteCounts).length === 0) {
+          return;
+        }
+        setClickStats((prev) => {
+          const merged = { ...prev };
+          Object.entries(remoteCounts).forEach(([id, count]) => {
+            merged[id] = Math.max(merged[id] || 0, count);
+          });
+          return merged;
+        });
+      } catch (error) {
+        if (import.meta.env.DEV) {
+          // eslint-disable-next-line no-console
+          console.warn("Unable to fetch remote click counts for snacks:", error.message);
+        }
+      }
+    };
+
+    syncRemoteCounts();
+
+    return () => {
+      isActive = false;
+    };
+  }, []);
 
   useEffect(() => {
     try {
@@ -1546,7 +1729,7 @@ export default function Snacks() {
     if (dish.video.type === "youtube") {
       return (
         <iframe
-          src={dish.video.src}
+          src={ensureLoopingYoutubeSrc(dish.video.src)}
           title={`${dish.hero.title} video`}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
@@ -1563,6 +1746,7 @@ export default function Snacks() {
         playsInline
         preload="metadata"
         poster={dish.video.poster}
+        loop
         data-autoplay-on-view
       >
         <source src={dish.video.src} type="video/mp4" />
