@@ -1,7 +1,7 @@
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 
-const LANGUAGE_STORAGE_KEY = "foodie_map_language";
-const DEFAULT_LANGUAGE = "vi";
+const LANGUAGE_STORAGE_KEY = "foodie_map_language_v2";
+const DEFAULT_LANGUAGE = "en";
 
 const LanguageContext = createContext({
   language: DEFAULT_LANGUAGE,
