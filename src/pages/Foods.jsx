@@ -3098,7 +3098,11 @@ export default function Foods() {
                     )}
                   </div>
                   <div className="spot-card__content">
-                    <h3>{spot.name}</h3>
+                    <h3>
+                      {language === "vi" && typeof spot.name === "string"
+                        ? spot.name.toLocaleUpperCase("vi-VN")
+                        : spot.name}
+                    </h3>
                     <div className="spot-card__meta">
                       <i className="fa-solid fa-location-dot" />
                       <span>{spot.address}</span>
