@@ -2,8 +2,12 @@
 
 .home-hero{
   /* 1) Ảnh phủ full màn hình */
+  min-height: 100vh;
   min-height: 100svh;                 /* dùng svh để chuẩn trên mobile */
-  background: url("/assets/home-banner.jpg") center / cover no-repeat;
+  --hero-bg-position: center;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
 
   /* 2) Cho nội dung tránh bị che bởi navbar */
   padding-top: var(--nav-h);          /* đẩy nội dung xuống dưới navbar */
@@ -23,6 +27,15 @@
   .home-hero__inner{ transform: none; }
 }
 
+.home-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/assets/home-banner.jpg") var(--hero-bg-position) / cover no-repeat;
+  z-index: 0;
+  pointer-events: none;
+}
+
 
 .home-hero::after {
   content: "";
@@ -37,11 +50,13 @@
       rgba(244, 234, 223, 0) 84%
     ),
     linear-gradient(180deg, rgba(244, 234, 223, 0.4), rgba(244, 234, 223, 0));
-  z-index: -1;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .home-hero__inner {
   position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -339,11 +354,11 @@
 
 @media (max-width: 960px) {
   .home-hero {
-    background-position: center top;
+    --hero-bg-position: center top;
   }
 
   .home-hero::after {
-    background: linear-gradient(110deg, rgba(244, 234, 223, 0.95), rgba(244, 234, 223, 0.65));
+    background: linear-gradient(110deg, rgba(244, 234, 223, 0.85), rgba(244, 234, 223, 0.45));
   }
 
   .home-hero__inner {
@@ -406,7 +421,11 @@
   .home-hero {
     padding-top: 6.5rem;
     padding-bottom: 4.2rem;
-    background-position: center 30%;
+    --hero-bg-position: center 30%;
+  }
+
+  .home-hero::after {
+    background: linear-gradient(120deg, rgba(244, 234, 223, 0.72), rgba(244, 234, 223, 0.32));
   }
 
   .home-hero__language {

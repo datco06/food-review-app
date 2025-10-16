@@ -37,9 +37,8 @@ export const SNACKS_COPY = {
           body: "Cận cảnh từng công đoạn ngâm, ninh và hoàn thiện một cốc chè đỗ đen ngọt mát.",
         },
         video: {
-          type: "local",
-          src: "/assets/doden/doden.mp4",
-          poster: "/assets/doden/chedoden.png",
+          type: "youtube",
+          src: "https://www.youtube.com/embed/z-XMpQGH6UE?autoplay=1&mute=1&rel=0",
           description: "Thước phim cận cảnh nấu chè đỗ đen với nước đường phèn trong veo.",
         },
         ingredientGallery: [
@@ -848,9 +847,8 @@ export const SNACKS_COPY = {
           body: "Watch the soaking, simmering, and finishing touches of this chilled classic.",
         },
         video: {
-          type: "local",
-          src: "/assets/doden/doden.mp4",
-          poster: "/assets/doden/chedoden.png",
+          type: "youtube",
+          src: "https://www.youtube.com/embed/z-XMpQGH6UE?autoplay=1&mute=1&rel=0",
           description: "Witness every simmering step of this chilled Hanoi classic.",
         },
         ingredientGallery: [

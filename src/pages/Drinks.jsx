@@ -37,9 +37,8 @@ export const DRINKS_COPY = {
           body: "Hành trình cà phê Hà Nội – từ phin truyền thống tới cà phê trứng huyền thoại.",
         },
         video: {
-          type: "local",
-          src: "/assets/cafe/cafe.mp4",
-          poster: "/assets/cafe/cafe.png",
+          type: "youtube",
+          src: "https://www.youtube.com/embed/0aRFSwo_3Hc?autoplay=1&mute=1&rel=0",
         },
         ingredientGallery: [
           {
@@ -337,9 +336,8 @@ export const DRINKS_COPY = {
           body: "Discover Hanoi coffee culture—from traditional phin drip to legendary egg coffee.",
         },
         video: {
-          type: "local",
-          src: "/assets/cafe/cafe.mp4",
-          poster: "/assets/cafe/cafe.png",
+          type: "youtube",
+          src: "https://www.youtube.com/embed/0aRFSwo_3Hc?autoplay=1&mute=1&rel=0",
         },
         ingredientGallery: [
           {

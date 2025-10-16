@@ -1,9 +1,10 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useLanguage } from "../../context/LanguageContext.jsx";
 
 export default function Navbar() {
   const { language } = useLanguage();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const labels = useMemo(
     () =>
@@ -14,6 +15,8 @@ export default function Navbar() {
             drinks: "Thức uống",
             snacks: "Ăn vặt",
             statistics: "Thống kê",
+            openMenu: "Mở menu",
+            closeMenu: "Đóng menu",
           }
         : {
             home: "Home",
@@ -21,6 +24,8 @@ export default function Navbar() {
             drinks: "Drinks",
             snacks: "Snacks",
             statistics: "Statistics",
+            openMenu: "Open menu",
+            closeMenu: "Close menu",
           },
     [language]
   );
@@ -32,6 +37,8 @@ export default function Navbar() {
     { to: "/snacks", label: labels.snacks },
     { to: "/statistics", label: labels.statistics },
   ];
+
+  const toggleLabel = isMenuOpen ? labels.closeMenu : labels.openMenu;
 
   return (
     <header className="site-header">
@@ -45,7 +52,27 @@ export default function Navbar() {
           <span className="brand__name">Foodie Map</span>
         </Link>
 
-        <nav className="site-nav" aria-label="Primary navigation">
+        <button
+          type="button"
+          className="site-header__toggle"
+          aria-expanded={isMenuOpen}
+          aria-controls="primary-navigation"
+          onClick={() => setIsMenuOpen((open) => !open)}
+          data-open={isMenuOpen}
+        >
+          <span className="sr-only">{toggleLabel}</span>
+          <span className="site-header__toggle-icon" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+          </span>
+        </button>
+
+        <nav
+          id="primary-navigation"
+          className={isMenuOpen ? "site-nav site-nav--open" : "site-nav"}
+          aria-label="Primary navigation"
+        >
           {links.map((link) => (
             <NavLink
               key={link.to}
@@ -54,6 +81,7 @@ export default function Navbar() {
               className={({ isActive }) =>
                 isActive ? "site-nav__link site-nav__link--active" : "site-nav__link"
               }
+              onClick={() => setIsMenuOpen(false)}
             >
               {link.label}
             </NavLink>
