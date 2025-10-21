@@ -14,6 +14,7 @@ export default function Navbar() {
             foods: "Món ăn",
             drinks: "Thức uống",
             snacks: "Ăn vặt",
+            search: "Tìm kiếm",
             statistics: "Thống kê",
             openMenu: "Mở menu",
             closeMenu: "Đóng menu",
@@ -23,6 +24,7 @@ export default function Navbar() {
             foods: "Foods",
             drinks: "Drinks",
             snacks: "Snacks",
+            search: "Search",
             statistics: "Statistics",
             openMenu: "Open menu",
             closeMenu: "Close menu",
@@ -35,6 +37,7 @@ export default function Navbar() {
     { to: "/foods", label: labels.foods },
     { to: "/drinks", label: labels.drinks },
     { to: "/snacks", label: labels.snacks },
+    { to: "/search", label: labels.search },
     { to: "/statistics", label: labels.statistics },
   ];
 
