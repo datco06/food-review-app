@@ -262,6 +262,7 @@
   overflow: hidden;
   border-radius: 28px;
   min-height: 220px;
+  width: 100%;
   box-shadow: 0 26px 52px rgba(59, 45, 33, 0.18);
   border: 1px solid rgba(200, 107, 47, 0.16);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
