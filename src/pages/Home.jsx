@@ -7,13 +7,13 @@ import "../styles/home.css";
 const copy = {
   vi: {
     heroTag: "Hành trình ẩm thực hà nội",
-    title: "✨ Foodie Map - Hành trình Ẩm thực Hà Nội ✨",
+    title: "✨ Foodie Map - Hành trình Ẩm thực Hà Nội ✨",
     description:
-      "Chào mừng đến với Foodie Map, nơi mỗi bước chân ở Hà Nội trở thành một cuộc phiêu lưu hương vị khó quên. Từ bát phở nóng hổi, bún chả thơm lừng đến những món ăn đường phố hút hồn, chúng tôi đồng hành cùng bạn khám phá hương vị chân thật và linh hồn của ẩm thực nơi đây.",
+      "Chào mừng đến với Foodie Map, nơi mỗi bước chân ở Hà Nội trở thành một cuộc phiêu lưu hương vị khó quên. Từ bát phở nóng hổi, bún chả thơm lừng đến những món ăn đường phố hút hồn, chúng tôi đồng hành cùng bạn khám phá hương vị chân thật và linh hồn của ẩm thực nơi đây.",
     cta: "Khám phá ẩm thực Việt",
     story: {
       kicker: "Câu chuyện của Foodie Map",
-      title: "Gìn giữ hương vị bản địa và tinh thần Hà Nội",
+      title: "Gìn giữ hương vị bản địa và tinh thần Hà Nội",
       paragraphs: [
         "Foodie Map được tạo nên bởi những người trẻ lớn lên giữa các khu chợ, những gánh hàng rong và quán nhỏ nằm sâu trong phố cổ. Chúng tôi tin rằng mỗi món ăn là một ký ức, vì vậy Foodie Map kết nối bạn với những đầu bếp gia đình, nghệ nhân ẩm thực và quán quen lâu đời mà du khách thường bỏ lỡ.",
         "Chúng tôi không chỉ ghi lại địa chỉ; từng gợi ý đều được đội ngũ trải nghiệm, trò chuyện với chủ quán và tổng hợp bí quyết thưởng thức. Foodie Map vì thế giống một người bạn địa phương, dẫn đường bạn qua những góc phố thơm mùi than hoa và cà phê trứng.",
@@ -42,7 +42,7 @@ const copy = {
     values: {
       title: "Điều khiến Foodie Map khác biệt",
       description:
-        "Chúng tôi xây dựng Foodie Map như một nhịp cầu giữa người yêu ẩm thực và cộng đồng quán nhỏ tại Hà Nội. Mỗi chức năng đều hướng tới trải nghiệm chân thật và bền vững.",
+        "Chúng tôi xây dựng Foodie Map như một nhịp cầu giữa người yêu ẩm thực và cộng đồng quán nhỏ tại Hà Nội. Mỗi chức năng đều hướng tới trải nghiệm chân thật và bền vững.",
       items: [
         {
           iconClass: "fa-solid fa-bowl-food",
@@ -54,7 +54,7 @@ const copy = {
           iconClass: "fa-solid fa-map-location-dot",
           title: "Tầm nhìn",
           description:
-            "Trở thành bản đồ ẩm thực được tin cậy nhất khi khám phá Hà Nội, từ bữa sáng bình dân đến trải nghiệm fine dining.",
+            "Trở thành bản đồ ẩm thực được tin cậy nhất khi khám phá Hà Nội, từ bữa sáng bình dân đến trải nghiệm fine dining.",
         },
         {
           iconClass: "fa-solid fa-hand-holding-heart",

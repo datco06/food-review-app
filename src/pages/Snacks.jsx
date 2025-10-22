@@ -27,7 +27,7 @@ export const SNACKS_COPY = {
           eyebrow: "Ngọt lành giải nhiệt",
           title: "CHÈ ĐỖ ĐEN",
           description:
-            "Chè đỗ đen là món giải khát quen thuộc của người Hà Nội. Đỗ đen được ngâm mềm rồi hầm chín nhưng vẫn còn hạt, nước chè trong veo và vị ngọt dịu từ đường phèn — người xưa tin rằng món ăn này giúp thanh nhiệt, giải độc và mang lại may mắn. Khi múc lên, hương lá nếp thoang thoảng cùng chút gừng khiến bát chè ấm mà vẫn nhẹ nhàng. Ly chè mát lạnh hòa quyện cùng nước cốt dừa béo nhẹ sẽ đánh thức mọi giác quan trong những chiều hè oi ả.",
+            "Chè đỗ đen là món giải khát quen thuộc của người Hà Nội. Đỗ đen được ngâm mềm rồi hầm chín nhưng vẫn còn hạt, nước chè trong veo và vị ngọt dịu từ đường phèn — người xưa tin rằng món ăn này giúp thanh nhiệt, giải độc và mang lại may mắn. Khi múc lên, hương lá nếp thoang thoảng cùng chút gừng khiến bát chè ấm mà vẫn nhẹ nhàng. Ly chè mát lạnh hòa quyện cùng nước cốt dừa béo nhẹ sẽ đánh thức mọi giác quan trong những chiều hè oi ả.",
           image: "/assets/doden/chedoden.png",
           imageAlt: "Cốc chè đỗ đen với đá bào và nước cốt dừa",
           cta: "Thưởng thức chè mát",
@@ -118,7 +118,7 @@ export const SNACKS_COPY = {
           eyebrow: "Tinh hoa cung đình",
           title: "CHÈ SEN LONG NHÃN",
           description:
-            "Hạt sen già được hầm mềm dẻo, khéo léo lồng vào từng quả nhãn tươi căng mọng, chan với nước đường phèn thơm dịu – món tráng miệng từng gắn với ẩm thực cung đình Hà Nội. Khi nhắm mắt lại, bạn sẽ cảm nhận sự thanh tao của sen, vị ngọt thơm của nhãn hòa quyện trên đầu lưỡi. Mỗi chén chè như lời mời gọi thư thái giữa mùa hè, để lòng dịu lại giữa nhịp sống hối hả.",
+            "Hạt sen già được hầm mềm dẻo, khéo léo lồng vào từng quả nhãn tươi căng mọng, chan với nước đường phèn thơm dịu – món tráng miệng từng gắn với ẩm thực cung đình Hà Nội. Khi nhắm mắt lại, bạn sẽ cảm nhận sự thanh tao của sen, vị ngọt thơm của nhãn hòa quyện trên đầu lưỡi. Mỗi chén chè như lời mời gọi thư thái giữa mùa hè, để lòng dịu lại giữa nhịp sống hối hả.",
           image: "/assets/longnhan/longnhan.png",
           imageAlt: "Chè sen long nhãn trong bát sứ",
           cta: "Thưởng thức chè sen",
@@ -205,22 +205,22 @@ export const SNACKS_COPY = {
         id: "com",
         hero: {
           eyebrow: "Hương cốm mùa thu",
-          title: "CỐM HÀ NỘI",
+          title: "CỐM HÀ NỘI",
           description:
-            "Cốm xanh mềm dẻo, thơm hương lúa non là thức quà gắn với mùa thu Hà Nội. Từ cốm, người Hà Nội tạo nên bánh cốm, chè cốm, chả cốm hay xôi cốm – mỗi món đều lưu giữ ký ức và văn hóa kinh kỳ. Hương lá sen ôm trọn từng gói cốm khiến người ăn nhớ mãi nắng vàng và gió heo may. Chỉ một nắm cốm nhỏ cũng đủ gợi lại nhịp sống chậm rãi, tinh tế của đất Thăng Long.",
+            "Cốm xanh mềm dẻo, thơm hương lúa non là thức quà gắn với mùa thu Hà Nội. Từ cốm, người Hà Nội tạo nên bánh cốm, chè cốm, chả cốm hay xôi cốm – mỗi món đều lưu giữ ký ức và văn hóa kinh kỳ. Hương lá sen ôm trọn từng gói cốm khiến người ăn nhớ mãi nắng vàng và gió heo may. Chỉ một nắm cốm nhỏ cũng đủ gợi lại nhịp sống chậm rãi, tinh tế của đất Thăng Long.",
           image: "/assets/com/com.png",
           imageAlt: "Set cốm làng Vòng và các món chế biến từ cốm",
           cta: "Thưởng thức hương cốm",
         },
         intro: {
           title: "VIDEO",
-          body: "Theo dõi hành trình từ lúa non tới những món cốm nổi tiếng của Hà Nội.",
+          body: "Theo dõi hành trình từ lúa non tới những món cốm nổi tiếng của Hà Nội.",
         },
         video: {
           type: "local",
           src: "/assets/com/com.mp4",
           poster: "/assets/com/com.png",
-          description: "Hành trình chế biến cốm thành nhiều món quà mùa thu Hà Nội.",
+          description: "Hành trình chế biến cốm thành nhiều món quà mùa thu Hà Nội.",
         },
         ingredientGallery: [
           {
@@ -233,7 +233,7 @@ export const SNACKS_COPY = {
             id: "com-cake",
             src: "/assets/com/banhcom.png",
             caption: "Bánh cốm nhân đậu xanh béo ngậy",
-            alt: "Bánh cốm Hà Nội",
+            alt: "Bánh cốm Hà Nội",
           },
           {
             id: "com-cha",
@@ -244,7 +244,7 @@ export const SNACKS_COPY = {
         ],
         ingredientsTitle: "Những món ngon từ cốm",
         ingredientsList: [
-          { iconClass: "fa-solid fa-leaf", text: "Cốm làng Vòng dẻo thơm – linh hồn mùa thu Hà Nội." },
+          { iconClass: "fa-solid fa-leaf", text: "Cốm làng Vòng dẻo thơm – linh hồn mùa thu Hà Nội." },
           {
             iconClass: "fa-solid fa-cake-candles",
             text: "Bánh cốm nhân đậu xanh ngọt bùi, món quà cưới hỏi truyền thống.",
@@ -299,7 +299,7 @@ export const SNACKS_COPY = {
           eyebrow: "Ấm nồng mùa đông",
           title: "CHÈ SẮN NÓNG",
           description:
-            "Khi gió mùa tràn về, người Hà Nội thường tìm đến bát chè sắn nóng vừa dẻo vừa thơm mùi gừng. Sắn được gọt vỏ, cắt miếng, ninh trong nước đường vàng cùng gừng tươi tạo nên vị ngọt ấm và mùi hương khó quên. Hơi khói bốc lên làm ấm đôi bàn tay, mùi gừng lan tỏa khiến lòng nhẹ nhõm. Một miếng sắn mềm tan kèm nước cốt dừa béo nhẹ đủ xua đi cái lạnh đầu đông.",
+            "Khi gió mùa tràn về, người Hà Nội thường tìm đến bát chè sắn nóng vừa dẻo vừa thơm mùi gừng. Sắn được gọt vỏ, cắt miếng, ninh trong nước đường vàng cùng gừng tươi tạo nên vị ngọt ấm và mùi hương khó quên. Hơi khói bốc lên làm ấm đôi bàn tay, mùi gừng lan tỏa khiến lòng nhẹ nhõm. Một miếng sắn mềm tan kèm nước cốt dừa béo nhẹ đủ xua đi cái lạnh đầu đông.",
           image: "/assets/chesan/chesan.png",
           imageAlt: "Bát chè sắn nóng với gừng",
           cta: "Thưởng thức chè nóng",
@@ -470,11 +470,11 @@ export const SNACKS_COPY = {
         id: "banh-gio",
         hero: {
           eyebrow: "Quà chiều truyền thống",
-          title: "BÁNH GIÒ HÀ NỘI",
+          title: "BÁNH GIÒ HÀ NỘI",
           description:
-            "Nhắc tới các món quà Hà Nội, bánh giò bình dị mà khó cưỡng. Bánh được gói kín trong lá chuối, mở ra tỏa mùi thơm dịu. Lớp bột mềm mỏng ôm lấy nhân thịt băm, mộc nhĩ và gia vị truyền thống, hình chóp đặc trưng gợi nhớ ký ức của nhiều thế hệ người Hà Nội. Không chỉ là món quà vặt, bánh giò còn là hương vị ký ức, đậm chất ẩm thực Thủ đô.",
+            "Nhắc tới các món quà Hà Nội, bánh giò bình dị mà khó cưỡng. Bánh được gói kín trong lá chuối, mở ra tỏa mùi thơm dịu. Lớp bột mềm mỏng ôm lấy nhân thịt băm, mộc nhĩ và gia vị truyền thống, hình chóp đặc trưng gợi nhớ ký ức của nhiều thế hệ người Hà Nội. Không chỉ là món quà vặt, bánh giò còn là hương vị ký ức, đậm chất ẩm thực Thủ đô.",
           image: "/assets/banhgio/banhgio.jpg",
-          imageAlt: "Bánh giò Hà Nội nóng hổi",
+          imageAlt: "Bánh giò Hà Nội nóng hổi",
           cta: "Thưởng thức bánh giò",
         },
         intro: {
@@ -506,7 +506,7 @@ export const SNACKS_COPY = {
           {
             id: "banhgio-hangthan",
             name: "BÁNH GIÒ DỐC HÀNG THAN",
-            address: "Dốc Hàng Than, Nguyễn Trung Trực, Ba Đình, Hà Nội",
+            address: "Dốc Hàng Than, Nguyễn Trung Trực, Ba Đình, Hà Nội",
             description:
               "Gần Lăng Bác, quán nhỏ lâu năm nổi tiếng vị chuẩn; chỉ mở vài giờ mỗi ngày và luôn đông khách.",
             price: "Giá: 15.000 – 35.000đ/chiếc.",
@@ -516,7 +516,7 @@ export const SNACKS_COPY = {
           {
             id: "banhgio-kimlien",
             name: "BÁNH GIÒ KIM LIÊN",
-            address: "Ki-ốt 21 Lương Định Của, quận Đống Đa, Hà Nội",
+            address: "Ki-ốt 21 Lương Định Của, quận Đống Đa, Hà Nội",
             description:
               "Hơn 10 năm phục vụ, bánh giò mềm mại ăn kèm dưa góp, chả bò, xúc xích và cốm dẹp tùy chọn.",
             price: "Giá: 10.000 – 40.000đ/suất.",
@@ -526,7 +526,7 @@ export const SNACKS_COPY = {
           {
             id: "banhgio-thuykhue",
             name: "BÁNH GIÒ CÔ BÉO",
-            address: "3 Thụy Khuê, quận Tây Hồ, Hà Nội",
+            address: "3 Thụy Khuê, quận Tây Hồ, Hà Nội",
             description:
               "Bánh giò chuẩn vị, topping đầy đặn với chả, xúc xích và dưa góp; hương vị khó quên của người địa phương.",
             price: "Giá: 12.000 – 30.000đ/suất.",
@@ -540,9 +540,9 @@ export const SNACKS_COPY = {
         id: "banh-ran",
         hero: {
           eyebrow: "Góc quà chiều",
-          title: "BÁNH RÁN HÀ NỘI",
+          title: "BÁNH RÁN HÀ NỘI",
           description:
-            "Bánh rán Hà Nội là món quà vặt gắn với ký ức cư dân phố cổ. Vỏ bánh làm từ bột nếp chiên vàng ruộm, bên trong có thể là nhân mặn với thịt băm, mộc nhĩ, miến hoặc nhân ngọt đậu xanh bùi béo. Khi ăn kèm nước chấm pha từ nước mắm, tỏi, ớt, giấm, vị giòn – dẻo – đậm đà hòa quyện hoàn hảo. Những chiều thu se lạnh, ghé xe bánh rán đang chiên nóng, nghe tiếng dầu xèo xèo và chia sẻ chiếc bánh nóng hổi cùng bạn bè là trải nghiệm thân thuộc của người Hà Nội.",
+            "Bánh rán Hà Nội là món quà vặt gắn với ký ức cư dân phố cổ. Vỏ bánh làm từ bột nếp chiên vàng ruộm, bên trong có thể là nhân mặn với thịt băm, mộc nhĩ, miến hoặc nhân ngọt đậu xanh bùi béo. Khi ăn kèm nước chấm pha từ nước mắm, tỏi, ớt, giấm, vị giòn – dẻo – đậm đà hòa quyện hoàn hảo. Những chiều thu se lạnh, ghé xe bánh rán đang chiên nóng, nghe tiếng dầu xèo xèo và chia sẻ chiếc bánh nóng hổi cùng bạn bè là trải nghiệm thân thuộc của người Hà Nội.",
           image: "/assets/banhran/banhran.webp",
           imageAlt: "Đĩa bánh rán nóng hổi với nước chấm",
           cta: "Thưởng thức bánh rán",
@@ -555,7 +555,7 @@ export const SNACKS_COPY = {
           type: "youtube",
           src: "https://www.youtube.com/embed/525ekCPnKgM?autoplay=1&mute=1&rel=0",
           poster: "/assets/banhran/banhran.webp",
-          description: "Quy trình nặn bánh, chiên giòn và pha nước chấm đặc trưng Hà Nội.",
+          description: "Quy trình nặn bánh, chiên giòn và pha nước chấm đặc trưng Hà Nội.",
         },
         ingredientGallery: [
           {
@@ -660,7 +660,7 @@ export const SNACKS_COPY = {
           "Thêm chuối thái lát, trứng hoặc topping yêu thích vào giữa, gập bốn cạnh tạo hình vuông.",
           "Chiên vàng giòn hai mặt, cắt miếng và rưới sữa đặc hoặc sô-cô-la khi còn nóng.",
         ],
-        spotsTitle: "Địa chỉ bánh kếp Thái ở Hà Nội",
+        spotsTitle: "Địa chỉ bánh kếp Thái ở Hà Nội",
         spots: [
           {
             id: "roti-ta-hien",
@@ -688,9 +688,9 @@ export const SNACKS_COPY = {
         id: "banh-xeo",
         hero: {
           eyebrow: "Giòn rụm mùi nghệ",
-          title: "BÁNH XÈO HÀ NỘI",
+          title: "BÁNH XÈO HÀ NỘI",
           description:
-            "Bánh xèo Hà Nội vàng giòn, thơm mùi nghệ, nhân tôm thịt nóng hổi cuốn cùng rau sống tươi mát. Giữa tiết trời se lạnh, vị giòn rụm, béo nhẹ và nước mắm chua ngọt đậm đà khiến ai thưởng thức cũng khó quên.",
+            "Bánh xèo Hà Nội vàng giòn, thơm mùi nghệ, nhân tôm thịt nóng hổi cuốn cùng rau sống tươi mát. Giữa tiết trời se lạnh, vị giòn rụm, béo nhẹ và nước mắm chua ngọt đậm đà khiến ai thưởng thức cũng khó quên.",
           image: "/assets/banhxeo/banhxeo.jpeg",
           imageAlt: "Đĩa bánh xèo vàng giòn với rau sống",
           cta: "Thưởng thức bánh xèo",
@@ -702,7 +702,7 @@ export const SNACKS_COPY = {
         video: {
           type: "youtube",
           src: "https://www.youtube.com/embed/Bs-VttCSeC4?autoplay=1&mute=1&rel=0",
-          description: "Đổ bánh xèo giòn rụm, nhân tôm thịt đầy đặn và cách pha nước chấm chuẩn vị Hà Nội.",
+          description: "Đổ bánh xèo giòn rụm, nhân tôm thịt đầy đặn và cách pha nước chấm chuẩn vị Hà Nội.",
         },
         ingredientGallery: [],
         ingredientsTitle: "Nguyên liệu chính",
@@ -757,9 +757,9 @@ export const SNACKS_COPY = {
         id: "caramen",
         hero: {
           eyebrow: "Ngọt ngào phố cổ",
-          title: "CARAMEN HÀ NỘI",
+          title: "CARAMEN HÀ NỘI",
           description:
-            "Caramen (flan) kiểu Hà Nội mềm mịn, thơm bơ trứng và có lớp caramel hơi đắng nhẹ. Món tráng miệng tưởng đơn giản nhưng đã gắn với bao thế hệ thực khách thủ đô.",
+            "Caramen (flan) kiểu Hà Nội mềm mịn, thơm bơ trứng và có lớp caramel hơi đắng nhẹ. Món tráng miệng tưởng đơn giản nhưng đã gắn với bao thế hệ thực khách thủ đô.",
           image: "/assets/caramen/caramen.jpg",
           imageAlt: "Đĩa caramen phủ caramel",
           cta: "Thưởng thức caramen",

@@ -25,16 +25,16 @@ export const DRINKS_COPY = {
         id: "coffee",
         hero: {
           eyebrow: "Văn hoá cà phê",
-          title: "CÀ PHÊ HÀ NỘI",
+          title: "CÀ PHÊ HÀ NỘI",
           description:
-            "Ở Việt Nam, cà phê không chỉ là đồ uống mà còn là một nét sống. Người Hà Nội chậm rãi nhấp từng ngụm cà phê phin đậm đà, sáng tạo nên cà phê trứng, cà phê cốt dừa và biến quán cà phê thành nơi gặp gỡ, kể chuyện đời thường. Mùi cà phê rang xay lan khắp những con phố nhỏ, đánh thức một buổi sáng đầy cảm hứng. Chỉ cần ngồi xuống chiếc ghế nhựa bên hè, bạn sẽ cảm thấy nhịp sống chậm lại và những câu chuyện thân quen cứ thế tuôn trào.",
+            "Ở Việt Nam, cà phê không chỉ là đồ uống mà còn là một nét sống. Người Hà Nội chậm rãi nhấp từng ngụm cà phê phin đậm đà, sáng tạo nên cà phê trứng, cà phê cốt dừa và biến quán cà phê thành nơi gặp gỡ, kể chuyện đời thường. Mùi cà phê rang xay lan khắp những con phố nhỏ, đánh thức một buổi sáng đầy cảm hứng. Chỉ cần ngồi xuống chiếc ghế nhựa bên hè, bạn sẽ cảm thấy nhịp sống chậm lại và những câu chuyện thân quen cứ thế tuôn trào.",
           image: "/assets/cafe/cafe.png",
-          imageAlt: "Cà phê phin và cà phê trứng Hà Nội",
+          imageAlt: "Cà phê phin và cà phê trứng Hà Nội",
           cta: "Khám phá quán cà phê",
         },
         intro: {
           title: "VIDEO",
-          body: "Hành trình cà phê Hà Nội – từ phin truyền thống tới cà phê trứng huyền thoại.",
+          body: "Hành trình cà phê Hà Nội – từ phin truyền thống tới cà phê trứng huyền thoại.",
         },
         video: {
           type: "youtube",
@@ -68,7 +68,7 @@ export const DRINKS_COPY = {
           { iconClass: "fa-solid fa-seedling", text: "Dừa tươi, sữa dừa hoà quyện với cà phê cho hương vị nhiệt đới." },
           { iconClass: "fa-solid fa-people-group", text: "Không gian quán cà phê – nơi gặp gỡ, trò chuyện và sống chậm." },
         ],
-        recipeTitle: "Thưởng thức cà phê như người Hà Nội",
+        recipeTitle: "Thưởng thức cà phê như người Hà Nội",
         recipeSteps: [
           "Pha cà phê phin nóng, chờ từng giọt rơi để cảm nhận trọn mùi hương.",
           "Thử cà phê trứng béo mịn, hoặc cà phê cốt dừa mát lạnh cho ngày hè.",
@@ -114,7 +114,7 @@ export const DRINKS_COPY = {
           eyebrow: "Giải khát hè phố",
           title: "NƯỚC MÍA",
           description:
-            "Nước mía được ép trực tiếp từ mía tươi, mang vị ngọt tự nhiên và thanh mát. Một chút tắc, chanh hoặc dứa sẽ khiến ly nước mía càng thơm và sảng khoái, xua tan cái nóng oi ả của Hà Nội.",
+            "Nước mía được ép trực tiếp từ mía tươi, mang vị ngọt tự nhiên và thanh mát. Một chút tắc, chanh hoặc dứa sẽ khiến ly nước mía càng thơm và sảng khoái, xua tan cái nóng oi ả của Hà Nội.",
           image: "/assets/nuocmia/nuocmia.jpeg",
           imageAlt: "Ly nước mía tươi với lát chanh",
           cta: "Tìm quán nước mía",
@@ -191,7 +191,7 @@ export const DRINKS_COPY = {
         video: {
           type: "youtube",
           src: "https://www.youtube.com/embed/-vQLiChyFg8?autoplay=1&mute=1&rel=0",
-          description: "Quy trình ướp trà bằng sen trăm cánh để tạo nên hương vị đặc trưng của Hà Nội.",
+          description: "Quy trình ướp trà bằng sen trăm cánh để tạo nên hương vị đặc trưng của Hà Nội.",
         },
         ingredientGallery: [],
         ingredientsTitle: "Hương vị đặc trưng",
@@ -200,7 +200,7 @@ export const DRINKS_COPY = {
           { iconClass: "fa-solid fa-mug-hot", text: "Trà xanh Thái Nguyên chọn lọc làm nền." },
           { iconClass: "fa-solid fa-wind", text: "Quy trình ướp nhiều đêm để trà thấm hương sen." },
           { iconClass: "fa-solid fa-seedling", text: "Lá trà nhỏ, màu xanh non, vị ngọt hậu." },
-          { iconClass: "fa-solid fa-heart", text: "Sự tinh tế và tỉ mỉ của nghệ nhân trà Hà Nội." },
+          { iconClass: "fa-solid fa-heart", text: "Sự tinh tế và tỉ mỉ của nghệ nhân trà Hà Nội." },
         ],
         recipeTitle: "Thưởng trà đúng điệu",
         recipeSteps: [
@@ -248,7 +248,7 @@ export const DRINKS_COPY = {
           eyebrow: "Hương vị mùa hè",
           title: "NƯỚC SẤU",
           description:
-            "Nước sấu được pha từ sấu ngâm đường, mang vị ngọt, chua và hơi cay nhẹ đặc trưng của Hà Nội. Mỗi ly nước sấu như gói ghém ký ức về những hàng cây già và tiếng rao quen thuộc mùa hạ.",
+            "Nước sấu được pha từ sấu ngâm đường, mang vị ngọt, chua và hơi cay nhẹ đặc trưng của Hà Nội. Mỗi ly nước sấu như gói ghém ký ức về những hàng cây già và tiếng rao quen thuộc mùa hạ.",
           image: "/assets/nuocsau/nuocsau.jpg",
           imageAlt: "Ly nước sấu đá mát lạnh",
           cta: "Thưởng thức nước sấu",
@@ -304,6 +304,75 @@ export const DRINKS_COPY = {
             price: "Giá: 10.000 – 20.000đ/ly.",
             image: "/assets/nuocsau/3.webp",
             mapUrl: "https://maps.google.com/?q=%C4%90%E1%BB%93ng+Xu%C3%A2n+Market+Hanoi",
+          },
+        ],
+      },
+      {
+        id: "bia-hoi",
+        hero: {
+          eyebrow: "Văn hoá quán vỉa hè",
+          title: "BIA HƠI HÀ NỘI",
+          description:
+            "Bia hơi Hà Nội là biểu tượng bình dị mà tự hào của người Tràng An. Buổi chiều ngồi bên vỉa hè, ly bia vàng óng sủi bọt mát lạnh, tiếng cụng ly rộn ràng hòa cùng câu chuyện bạn bè – đó là khoảnh khắc khó quên. Bia nhẹ độ nhưng thơm, uống ậm ự mà vẫn thanh, đã khát mà không nặng đầu. Một đĩa lạc rang, nem chua, đôi ba món nhậu là đủ để kéo nhau ngồi lâu, cảm nhận nhịp sống phố phường.",
+          image: "/assets/biahoi/Bia hơi.jpg",
+          imageAlt: "Ly bia hơi Hà Nội vàng óng trên bàn vỉa hè",
+          cta: "Nâng ly bia hơi",
+        },
+        intro: {
+          title: "VIDEO",
+          body: "Không khí quán bia hơi Hà Nội – tiếng cười nói, bọt bia trắng xóa.",
+        },
+        video: {
+          type: "youtube",
+          src: "https://www.youtube.com/embed/f59MZQKifIA?autoplay=1&mute=1&rel=0",
+          description: "Trải nghiệm văn hóa bia hơi Hà Nội từ xưởng ủ tới quán vỉa hè đông vui.",
+        },
+        ingredientGallery: [],
+        ingredientsTitle: "Điểm nhấn hương vị",
+        ingredientsList: [
+          { iconClass: "fa-solid fa-beer-mug-empty", text: "Bia tươi, nhẹ độ, lên men nhanh cho vị thanh mát." },
+          { iconClass: "fa-solid fa-glass-water", text: "Bọt trắng mịn, tạo cảm giác êm và đã khát." },
+          { iconClass: "fa-solid fa-bread-slice", text: "Mồi nhậu giản dị như lạc rang, nem chua, xúc xích nướng." },
+          { iconClass: "fa-solid fa-people-group", text: "Không gian quán vỉa hè, bàn ghế thấp tạo cảm giác gần gũi." },
+          { iconClass: "fa-solid fa-clock", text: "Thưởng thức lúc chiều muộn, khi trời dịu và bạn bè quây quần." },
+        ],
+        recipeTitle: "Thưởng thức chuẩn vị",
+        recipeSteps: [
+          "Gọi ly bia vừa rót lạnh, bọt dày phủ trên miệng ly.",
+          "Chọn vài món nhậu nhẹ như lạc rang, nem chua, dưa chuột muối.",
+          "Cụng ly, nhấp từng ngụm nhỏ và trò chuyện để tận hưởng trọn vẹn không khí Hà Nội.",
+        ],
+        spotsTitle: "Quán bia hơi nổi tiếng",
+        spots: [
+          {
+            id: "bia-hoi-co-tan",
+            name: "BIA HƠI CỔ TÂN",
+            address: "2A Trần Hưng Đạo, Hoàn Kiếm, Hà Nội",
+            description:
+              "Quán quen dân văn phòng với bia tươi mát lạnh và đồ ăn kèm phong phú.",
+            price: "Giá: 13.000đ/cốc (≈ 0,52 USD).",
+            image: "/assets/biahoi/biahoi1.jpg",
+            mapUrl: "https://maps.google.com/?q=2A+Tr%E1%BA%A7n+H%C6%B0ng+%C4%90%E1%BA%A1o+H%C3%A0+N%E1%BB%99i",
+          },
+          {
+            id: "bia-hoi-loc-vung",
+            name: "BIA HƠI LỘC VỪNG",
+            address: "22 Tôn Đức Thắng, Đống Đa, Hà Nội",
+            description:
+              "Không gian rộng, giá mềm, nổi tiếng với món nhậu “béo mà không ngấy”.",
+            price: "Giá: 11.000đ/cốc (≈ 0,44 USD).",
+            image: "/assets/biahoi/biahoi2.JPG",
+            mapUrl: "https://maps.google.com/?q=22+T%C3%B4n+%C4%90%E1%BB%A9c+Th%E1%BA%AFng+H%C3%A0+N%E1%BB%99i",
+          },
+          {
+            id: "bia-hoi-ngoc-ha",
+            name: "BIA HƠI NGỌC HÀ",
+            address: "Ngã ba Ngọc Hà – Kim Mã, Ba Đình, Hà Nội",
+            description:
+              "Quán lâu năm, phù hợp tụ tập bạn bè với bia lạnh và đồ nhắm dân dã.",
+            price: "Giá: 10.000đ/cốc (≈ 0,40 USD).",
+            image: "/assets/biahoi/biahoi3.jpg",
+            mapUrl: "https://maps.google.com/?q=Ng%E1%BA%A1+ba+Ng%E1%BB%8Dc+H%C3%A0+Kim+M%C3%A3+H%C3%A0+N%E1%BB%99i",
           },
         ],
       },
@@ -603,6 +672,75 @@ export const DRINKS_COPY = {
             price: "Price: 10,000 – 20,000 VND per cup.",
             image: "/assets/nuocsau/3.webp",
             mapUrl: "https://maps.google.com/?q=%C4%90%E1%BB%93ng+Xu%C3%A2n+Market",
+          },
+        ],
+      },
+      {
+        id: "bia-hoi",
+        hero: {
+          eyebrow: "Sidewalk tradition",
+          title: "HANOI DRAUGHT BEER",
+          description:
+            "Bia hoi—Hanoi’s fresh draught beer—captures the city’s easy-going evenings. As twilight falls, friends gather on low stools, clinking frothy golden glasses while sharing stories. Light, crisp, and endlessly refreshing, it pairs perfectly with simple drinking snacks.",
+          image: "/assets/biahoi/Bia hơi.jpg",
+          imageAlt: "Glasses of Hanoi bia hoi on a sidewalk table",
+          cta: "Raise a glass",
+        },
+        intro: {
+          title: "VIDEO",
+          body: "Step into Hanoi’s bia hoi culture—from brewery tap to bustling sidewalk.",
+        },
+        video: {
+          type: "youtube",
+          src: "https://www.youtube.com/embed/f59MZQKifIA?autoplay=1&mute=1&rel=0",
+          description: "Follow fresh beer as it’s poured, served, and cheered across the capital.",
+        },
+        ingredientGallery: [],
+        ingredientsTitle: "What to expect",
+        ingredientsList: [
+          { iconClass: "fa-solid fa-beer-mug-empty", text: "Low-ABV draught beer served cold and effervescent." },
+          { iconClass: "fa-solid fa-glass-water", text: "A creamy foam cap that keeps every sip smooth." },
+          { iconClass: "fa-solid fa-bread-slice", text: "Classic pairings like roasted peanuts, nem chua, and grilled sausages." },
+          { iconClass: "fa-solid fa-people-group", text: "Communal sidewalk seating that invites lively conversation." },
+          { iconClass: "fa-solid fa-clock", text: "Best enjoyed at dusk when the city winds down." },
+        ],
+        recipeTitle: "How to enjoy it",
+        recipeSteps: [
+          "Order a freshly poured glass crowned with foam.",
+          "Grab a few street-food snacks—peanuts, pickles, or grilled skewers.",
+          "Toast your friends, sip slowly, and soak up Hanoi’s evening buzz.",
+        ],
+        spotsTitle: "Where to drink bia hoi",
+        spots: [
+          {
+            id: "bia-hoi-co-tan",
+            name: "BIA HOI CO TAN",
+            address: "2A Tran Hung Dao Street, Hoan Kiem District, Hanoi",
+            description:
+              "Office workers flock here for icy beer, hearty dishes, and a lively crowd.",
+            price: "Price: 13,000 VND per glass (≈ $0.52 USD).",
+            image: "/assets/biahoi/biahoi1.jpg",
+            mapUrl: "https://maps.google.com/?q=2A+Tr%E1%BA%A7n+H%C6%B0ng+%C4%90%E1%BA%A1o+H%C3%A0+N%E1%BB%99i",
+          },
+          {
+            id: "bia-hoi-loc-vung",
+            name: "BIA HOI LOC VUNG",
+            address: "22 Ton Duc Thang Street, Dong Da District, Hanoi",
+            description:
+              "Spacious, affordable, and beloved for generous drinking snacks and fresh kegs.",
+            price: "Price: 11,000 VND per glass (≈ $0.44 USD).",
+            image: "/assets/biahoi/biahoi2.JPG",
+            mapUrl: "https://maps.google.com/?q=22+T%C3%B4n+%C4%90%E1%BB%A9c+Th%E1%BA%AFng+H%C3%A0+N%E1%BB%99i",
+          },
+          {
+            id: "bia-hoi-ngoc-ha",
+            name: "BIA HOI NGOC HA",
+            address: "Ngo Ha – Kim Ma Junction, Ba Dinh District, Hanoi",
+            description:
+              "A long-standing neighbourhood favourite with rustic bites and relaxed vibes.",
+            price: "Price: 10,000 VND per glass (≈ $0.40 USD).",
+            image: "/assets/biahoi/biahoi3.jpg",
+            mapUrl: "https://maps.google.com/?q=Ng%E1%BA%A1+ba+Ng%E1%BB%8Dc+H%C3%A0+Kim+M%C3%A3+H%C3%A0+N%E1%BB%99i",
           },
         ],
       },

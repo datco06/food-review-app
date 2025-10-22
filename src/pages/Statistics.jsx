@@ -16,10 +16,31 @@ const CATEGORY_OPTIONS = [
 ];
 
 const CATEGORY_STORAGE_KEYS = {
-  foods: "foodie_map_food_clicks",
-  drinks: "foodie_map_drink_clicks",
-  snacks: "foodie_map_snack_clicks",
+  foods: ["foodie_map_food_clicks", "foodie_map_clicks"],
+  drinks: ["foodie_map_drink_clicks"],
+  snacks: ["foodie_map_snack_clicks"],
 };
+
+const CATEGORY_ALIASES = {
+  foods: new Set(["foods", "food"]),
+  drinks: new Set(["drinks", "drink", "beverage", "beverages"]),
+  snacks: new Set(["snacks", "snack"]),
+};
+
+function normalizeCategory(value) {
+  if (!value) return value;
+  const normalized = value.toString().trim().toLowerCase();
+  if (CATEGORY_ALIASES.foods.has(normalized) || normalized.startsWith("food")) return "foods";
+  if (
+    CATEGORY_ALIASES.drinks.has(normalized) ||
+    normalized.startsWith("drink") ||
+    normalized.startsWith("beverage")
+  ) {
+    return "drinks";
+  }
+  if (CATEGORY_ALIASES.snacks.has(normalized) || normalized.startsWith("snack")) return "snacks";
+  return normalized;
+}
 
 const TIME_FILTER_OPTIONS = {
   vi: [
@@ -149,7 +170,7 @@ function filterEvents(events, category, rangeValue) {
   const windowMs = TIME_WINDOWS[rangeValue];
   const now = Date.now();
   return events.filter((event) => {
-    if (event.category !== category) return false;
+    if (normalizeCategory(event.category) !== category) return false;
     if (!windowMs) return true;
     return now - event.timestamp <= windowMs;
   });
@@ -169,16 +190,30 @@ function aggregateEvents(events) {
 
 function readStoredClickCounts(category) {
   if (typeof window === "undefined") return {};
-  const storageKey = CATEGORY_STORAGE_KEYS[category];
-  if (!storageKey) return {};
-  try {
-    const raw = window.localStorage.getItem(storageKey);
-    if (!raw) return {};
-    const parsed = JSON.parse(raw);
-    return parsed && typeof parsed === "object" ? parsed : {};
-  } catch (error) {
-    return {};
-  }
+  const storageKeys = CATEGORY_STORAGE_KEYS[category];
+  if (!storageKeys) return {};
+
+  const keys = Array.isArray(storageKeys) ? storageKeys : [storageKeys];
+  const mergedCounts = {};
+
+  keys.forEach((storageKey) => {
+    if (!storageKey) return;
+    try {
+      const raw = window.localStorage.getItem(storageKey);
+      if (!raw) return;
+      const parsed = JSON.parse(raw);
+      if (!parsed || typeof parsed !== "object") return;
+      Object.entries(parsed).forEach(([id, value]) => {
+        const numericValue = typeof value === "number" ? value : Number(value);
+        if (!Number.isFinite(numericValue) || numericValue <= 0) return;
+        mergedCounts[id] = Math.max(mergedCounts[id] || 0, numericValue);
+      });
+    } catch (error) {
+      // ignore malformed storage entries per key
+    }
+  });
+
+  return mergedCounts;
 }
 
 function mergeWithStoredCounts(rows, category, language) {
@@ -199,10 +234,8 @@ function mergeWithStoredCounts(rows, category, language) {
     });
   });
 
-  Object.entries(storedCounts).forEach(([id, value]) => {
-    const numericValue = typeof value === "number" ? value : Number(value);
+  Object.entries(storedCounts).forEach(([id, numericValue]) => {
     if (!Number.isFinite(numericValue) || numericValue <= 0) return;
-
     const localizedName = getSpotName(category, id, language) || dataset.get(id)?.name || id;
     if (dataset.has(id)) {
       const existing = dataset.get(id);
@@ -249,19 +282,19 @@ export default function Statistics() {
       setSyncError(null);
       const windowMs = TIME_WINDOWS[range];
       const since = windowMs ? new Date(Date.now() - windowMs) : null;
-      const { data, error } = await fetchClickEvents({ category, since });
+      const { data, error } = await fetchClickEvents({ since });
       if (error) {
         throw error;
       }
       const mapped = (data || [])
         .map((entry) => ({
-          category: entry.page,
+          category: normalizeCategory(entry.page),
           id: entry.target_id,
           name: null,
           timestamp: entry.created_at ? Date.parse(entry.created_at) : Date.now(),
         }))
-        .filter((event) =>
-          event.category && event.id && Number.isFinite(event.timestamp),
+        .filter(
+          (event) => event.category && event.id && Number.isFinite(event.timestamp),
         );
       setRemoteEvents(mapped);
     } catch (error) {
@@ -270,7 +303,7 @@ export default function Statistics() {
     } finally {
       setIsSyncing(false);
     }
-  }, [category, range]);
+  }, [range]);
 
   useEffect(() => {
     loadRemoteEvents();
@@ -280,11 +313,18 @@ export default function Statistics() {
     const deduped = new Map();
     [...remoteEvents, ...localEvents].forEach((event) => {
       if (!event || !event.category || !event.id) return;
-      const timestampValue = typeof event.timestamp === "number" ? event.timestamp : Date.parse(event.timestamp);
+      const normalizedCategory = normalizeCategory(event.category);
+      if (!normalizedCategory) return;
+      const timestampValue =
+        typeof event.timestamp === "number" ? event.timestamp : Date.parse(event.timestamp);
       if (!Number.isFinite(timestampValue)) return;
-      const key = `${event.category}|${event.id}|${timestampValue}`;
+      const key = `${normalizedCategory}|${event.id}|${timestampValue}`;
       if (!deduped.has(key)) {
-        deduped.set(key, { ...event, timestamp: timestampValue });
+        deduped.set(key, {
+          ...event,
+          category: normalizedCategory,
+          timestamp: timestampValue,
+        });
       }
     });
     return Array.from(deduped.values());

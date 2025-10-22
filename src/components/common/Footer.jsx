@@ -6,12 +6,12 @@ const copy = {
   vi: {
     aboutTitle: "Về Foodie Map",
     aboutDesc:
-      "Foodie Map là cộng đồng những người yêu ẩm thực Hà Nội, giúp bạn khám phá quán ngon bản địa và câu chuyện phía sau mỗi món ăn.",
+      "Foodie Map là cộng đồng những người yêu ẩm thực Hà Nội, giúp bạn khám phá quán ngon bản địa và câu chuyện phía sau mỗi món ăn.",
     quickLinks: "Khám phá nhanh",
     contactTitle: "Kết nối",
     contactDesc:
-      "Theo dõi Instagram, Threads hoặc nhắn WhatsApp để cập nhật địa điểm mới mỗi tuần.",
-    copyright: "© ${year} Foodie Map. Giữ trọn hương vị Hà Nội.",
+      "Theo dõi Instagram hoặc Threads để cập nhật địa điểm mới mỗi tuần.",
+    copyright: "© ${year} Foodie Map. Giữ trọn hương vị Hà Nội.",
     links: [
       { to: "/foods", label: "Món ăn" },
       { to: "/drinks", label: "Thức uống" },
@@ -26,7 +26,7 @@ const copy = {
     quickLinks: "Quick explore",
     contactTitle: "Stay in touch",
     contactDesc:
-      "Connect via Instagram, Threads, or WhatsApp for weekly updates on hidden gems.",
+      "Connect via Instagram or Threads for weekly updates on hidden gems.",
     copyright: "© ${year} Foodie Map. Preserving the flavors of Hanoi.",
     links: [
       { to: "/foods", label: "Foods" },
@@ -47,11 +47,6 @@ const socials = [
     label: "Threads",
     href: "https://www.threads.com/@foo.diehanoi?igshid=NTc4MTIwNjQ2YQ==",
     iconClass: "fa-brands fa-threads",
-  },
-  {
-    label: "WhatsApp",
-    href: "https://wa.me/84966744582",
-    iconClass: "fa-brands fa-whatsapp",
   },
 ];
 

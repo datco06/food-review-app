@@ -22,12 +22,12 @@ export const FOODS_COPY = {
         id: "pho",
         hero: {
           eyebrow: "Tinh hoa quốc hồn",
-          title: "PHỞ HÀ NỘI",
+          title: "PHỞ HÀ NỘI",
           description:
-            "Phở Hà Nội là món ăn nổi tiếng nhất của Việt Nam. Bánh phở mềm, thịt bò hoặc gà và nước dùng trong, đậm đà được hầm hàng giờ với xương, hành, gừng cùng các loại gia vị. Điều làm phở Hà Nội đặc biệt là vị thanh mà vẫn sâu, ăn kèm rau thơm, chanh và ớt. Với người dân Hà Nội, phở là một phần của đời sống; bát phở nóng ở quán nhỏ vỉa hè chính là trải nghiệm chân thật nhất. Mỗi muỗng nước dùng là sự kết tinh của quế, hồi, thảo quả được canh lửa tỉ mỉ suốt đêm. Hơi nóng nghi ngút quyện cùng mùi thơm đặc trưng khiến bạn chỉ muốn thưởng thức thêm một bát nữa.",
+            "Phở Hà Nội là món ăn nổi tiếng nhất của Việt Nam. Bánh phở mềm, thịt bò hoặc gà và nước dùng trong, đậm đà được hầm hàng giờ với xương, hành, gừng cùng các loại gia vị. Điều làm phở Hà Nội đặc biệt là vị thanh mà vẫn sâu, ăn kèm rau thơm, chanh và ớt. Với người dân Hà Nội, phở là một phần của đời sống; bát phở nóng ở quán nhỏ vỉa hè chính là trải nghiệm chân thật nhất. Mỗi muỗng nước dùng là sự kết tinh của quế, hồi, thảo quả được canh lửa tỉ mỉ suốt đêm. Hơi nóng nghi ngút quyện cùng mùi thơm đặc trưng khiến bạn chỉ muốn thưởng thức thêm một bát nữa.",
           image: "/assets/pho/pho-feature.png",
-          imageAlt: "Bát phở Hà Nội nóng hổi",
-          cta: "Khám phá phở Hà Nội",
+          imageAlt: "Bát phở Hà Nội nóng hổi",
+          cta: "Khám phá phở Hà Nội",
         },
         intro: {
           title: "VIDEO",
@@ -99,18 +99,18 @@ export const FOODS_COPY = {
             text: "Rau thơm, chanh, ớt và quẩy vàng giòn giúp bát phở tròn vị.",
           },
         ],
-        recipeTitle: "Bí quyết khẩu vị chuẩn Hà Nội",
+        recipeTitle: "Bí quyết khẩu vị chuẩn Hà Nội",
         recipeSteps: [
           "Hầm xương tối thiểu 8 giờ để nước dùng trong và đậm đà.",
           "Chuẩn bị thịt, thái lát mỏng hoặc làm chín vừa tới để giữ độ mềm.",
           "Tráng bánh phở, xếp thịt, chan nước dùng nghi ngút và dọn kèm rau thơm, chanh, ớt và quẩy giòn.",
         ],
-        spotsTitle: "Địa điểm thưởng thức phở Hà Nội",
+        spotsTitle: "Địa điểm thưởng thức phở Hà Nội",
         spots: [
           {
             id: "pho-batdan",
             name: "Phở Bát Đàn",
-            address: "49 Bát Đàn, quận Hoàn Kiếm, Hà Nội",
+            address: "49 Bát Đàn, quận Hoàn Kiếm, Hà Nội",
             description:
               "Phở Bát Đàn gắn liền với phố cổ nhờ nước dùng trong veo, thịt bò mềm và truyền thống xếp hàng, tự phục vụ để giữ đúng hương vị xưa.",
             image: "/assets/pho/pho-batdan.png",
@@ -119,7 +119,7 @@ export const FOODS_COPY = {
           {
             id: "pho-thin",
             name: "Phở Thìn Lò Đúc",
-            address: "13 Lò Đúc, quận Hai Bà Trưng, Hà Nội",
+            address: "13 Lò Đúc, quận Hai Bà Trưng, Hà Nội",
             description:
               "Quán nổi tiếng với bí quyết xào nhanh thịt bò trên lửa lớn trước khi chan nước dùng, tạo nên vị béo ngậy khác biệt.",
             image: "/assets/pho/pho-thin.png",
@@ -128,7 +128,7 @@ export const FOODS_COPY = {
           {
             id: "pho-lyquocsu",
             name: "Phở 10 Lý Quốc Sư",
-            address: "10 Lý Quốc Sư, phường Hàng Trống, quận Hoàn Kiếm, Hà Nội",
+            address: "10 Lý Quốc Sư, phường Hàng Trống, quận Hoàn Kiếm, Hà Nội",
             description:
               "Nằm gần Nhà thờ Lớn, quán phục vụ cả phở bò lẫn phở gà với hương vị ổn định, thu hút đông đảo du khách.",
             image: "/assets/pho/pho-lyquocsu.png",
@@ -171,7 +171,7 @@ export const FOODS_COPY = {
           "Trải bánh tráng, xếp rau, đồ chua rồi đặt nem nướng nóng hổi lên trên.",
           "Cuốn chặt tay, chấm nước chấm đậu phộng và thưởng thức khi còn nóng.",
         ],
-        spotsTitle: "Địa chỉ nem nướng Hà Nội nên thử",
+        spotsTitle: "Địa chỉ nem nướng Hà Nội nên thử",
         spots: [
           {
             id: "nemnuong-vukhanh",
@@ -211,7 +211,7 @@ export const FOODS_COPY = {
           eyebrow: "Ấm áp hương quê",
           title: "LẨU CUA ĐỒNG MIỀN BẮC",
           description:
-            "Lẩu cua đồng mang trọn tinh túy đồng quê miền Bắc: nước dùng từ cua đồng ngọt thanh, gạch cua béo ngậy nổi óng vàng và chút chua nhẹ từ dấm bỗng. Những ngày Hà Nội se lạnh, quây quần bên nồi lẩu nghi ngút khói, nhúng thịt, rau rồi chan bún là trải nghiệm ấm lòng khó quên.",
+            "Lẩu cua đồng mang trọn tinh túy đồng quê miền Bắc: nước dùng từ cua đồng ngọt thanh, gạch cua béo ngậy nổi óng vàng và chút chua nhẹ từ dấm bỗng. Những ngày Hà Nội se lạnh, quây quần bên nồi lẩu nghi ngút khói, nhúng thịt, rau rồi chan bún là trải nghiệm ấm lòng khó quên.",
           image: "/assets/laucua/laucua.png",
           imageAlt: "Nồi lẩu cua đồng Việt Nam bốc khói nghi ngút",
           cta: "Quây quần bên nồi lẩu cua",
@@ -220,7 +220,11 @@ export const FOODS_COPY = {
           title: "VIDEO",
           body: "Nồi lẩu cua đồng sôi sùng sục với gạch cua vàng ươm và nhiều món nhúng tươi ngon.",
         },
-        video: null,
+        video: {
+          type: "youtube",
+          src: "https://www.youtube.com/embed/-mzTrwB_qHU?autoplay=1&mute=1&rel=0",
+          description: "Quy trình nấu lẩu cua đồng: từ giã cua, lọc gạch tới lúc nhúng đồ ăn nóng hổi.",
+        },
         ingredientGallery: [],
         ingredientsTitle: "Nguyên liệu nổi bật",
         ingredientsList: [
@@ -236,7 +240,7 @@ export const FOODS_COPY = {
           "Bày thịt, đậu, rau ra đĩa để mọi người nhúng theo ý thích.",
           "Thêm topping vào nồi sôi, chan cùng bún hoặc miến và thưởng thức khi còn nóng.",
         ],
-        spotsTitle: "Quán lẩu cua đồng ở Hà Nội",
+        spotsTitle: "Quán lẩu cua đồng ở Hà Nội",
         spots: [
           {
             id: "laucua-685",
@@ -305,7 +309,7 @@ export const FOODS_COPY = {
           "Trải bánh tráng, xếp rau, đồ chua rồi đặt nem nướng nóng hổi lên trên.",
           "Cuốn chặt tay, chấm nước chấm đậu phộng và thưởng thức khi còn nóng.",
         ],
-        spotsTitle: "Địa chỉ nem nướng Hà Nội nên thử",
+        spotsTitle: "Địa chỉ nem nướng Hà Nội nên thử",
         spots: [
           {
             id: "nemnuong-vukhanh",
@@ -345,7 +349,7 @@ export const FOODS_COPY = {
           eyebrow: "Ấm áp hương quê",
           title: "LẨU CUA ĐỒNG MIỀN BẮC",
           description:
-            "Lẩu cua đồng mang trọn tinh túy đồng quê miền Bắc: nước dùng từ cua đồng ngọt thanh, gạch cua béo ngậy nổi óng vàng và chút chua nhẹ từ dấm bỗng. Những ngày Hà Nội se lạnh, quây quần bên nồi lẩu nghi ngút khói, nhúng thịt, rau rồi chan bún là trải nghiệm ấm lòng khó quên.",
+            "Lẩu cua đồng mang trọn tinh túy đồng quê miền Bắc: nước dùng từ cua đồng ngọt thanh, gạch cua béo ngậy nổi óng vàng và chút chua nhẹ từ dấm bỗng. Những ngày Hà Nội se lạnh, quây quần bên nồi lẩu nghi ngút khói, nhúng thịt, rau rồi chan bún là trải nghiệm ấm lòng khó quên.",
           image: "/assets/laucua/laucua.png",
           imageAlt: "Nồi lẩu cua đồng Việt Nam bốc khói nghi ngút",
           cta: "Quây quần bên nồi lẩu cua",
@@ -370,7 +374,7 @@ export const FOODS_COPY = {
           "Bày thịt, đậu, rau ra đĩa để mọi người nhúng theo ý thích.",
           "Thêm topping vào nồi sôi, chan cùng bún hoặc miến và thưởng thức khi còn nóng.",
         ],
-        spotsTitle: "Quán lẩu cua đồng ở Hà Nội",
+        spotsTitle: "Quán lẩu cua đồng ở Hà Nội",
         spots: [
           {
             id: "laucua-685",
@@ -408,9 +412,9 @@ export const FOODS_COPY = {
         id: "chao-trai",
         hero: {
           eyebrow: "Ấm lòng trong từng muỗng",
-          title: "CHÁO TRAI HÀ NỘI",
+          title: "CHÁO TRAI HÀ NỘI",
           description:
-            "Cháo trai là món quà bình dị của người Hà Nội: gạo xay được nấu chín cùng nước luộc trai ngọt thanh, trên mặt điểm thêm trai xào hành phi, mắm và tiêu thơm nồng. Mỗi muỗng cháo đều nhẹ nhàng, đậm đà và khiến người ăn thấy ấm bụng giữa ngày se lạnh.",
+            "Cháo trai là món quà bình dị của người Hà Nội: gạo xay được nấu chín cùng nước luộc trai ngọt thanh, trên mặt điểm thêm trai xào hành phi, mắm và tiêu thơm nồng. Mỗi muỗng cháo đều nhẹ nhàng, đậm đà và khiến người ăn thấy ấm bụng giữa ngày se lạnh.",
           image: "/assets/chaotrai/chaotrai.png",
           imageAlt: "Bát cháo trai nóng hổi",
           cta: "Thưởng thức cháo trai",
@@ -422,7 +426,7 @@ export const FOODS_COPY = {
         video: {
           type: "youtube",
           src: "https://www.youtube.com/embed/JQhFY7_CiSs?autoplay=1&mute=1&rel=0",
-          description: "Cách nấu cháo trai Hà Nội với trai tươi và hành phi vàng ruộm.",
+          description: "Cách nấu cháo trai Hà Nội với trai tươi và hành phi vàng ruộm.",
         },
         ingredientGallery: [],
         ingredientsTitle: "Nguyên liệu chính",
@@ -477,9 +481,9 @@ export const FOODS_COPY = {
         id: "chao-suon",
         hero: {
           eyebrow: "Bữa sáng kinh điển",
-          title: "CHÁO SƯỜN HÀ NỘI",
+          title: "CHÁO SƯỜN HÀ NỘI",
           description:
-            "Cháo sườn là món ăn sáng quen thuộc của người Hà Nội: bột gạo được nấu cùng nước xương sườn tới khi mịn sánh, phía trên là thịt sườn mềm tách xương, hành phi thơm và quẩy giòn. Bát cháo nóng hổi mang lại cảm giác ấm áp, dễ chịu như bữa sáng ở nhà.",
+            "Cháo sườn là món ăn sáng quen thuộc của người Hà Nội: bột gạo được nấu cùng nước xương sườn tới khi mịn sánh, phía trên là thịt sườn mềm tách xương, hành phi thơm và quẩy giòn. Bát cháo nóng hổi mang lại cảm giác ấm áp, dễ chịu như bữa sáng ở nhà.",
           image: "/assets/chaosuon/chaosuon.png",
           imageAlt: "Bát cháo sườn kèm quẩy giòn",
           cta: "Khởi đầu ngày mới với cháo sườn",
@@ -491,7 +495,7 @@ export const FOODS_COPY = {
         video: {
           type: "youtube",
           src: "https://www.youtube.com/embed/ZneH5LsyYBo?autoplay=1&mute=1&rel=0",
-          description: "Cách nấu cháo sườn Hà Nội mềm mịn, đậm vị xương.",
+          description: "Cách nấu cháo sườn Hà Nội mềm mịn, đậm vị xương.",
         },
         ingredientGallery: [],
         ingredientsTitle: "Nguyên liệu chính",
@@ -546,16 +550,16 @@ export const FOODS_COPY = {
         id: "mien-luon",
         hero: {
           eyebrow: "Đậm đà vị lươn",
-          title: "MIẾN LƯƠN HÀ NỘI",
+          title: "MIẾN LƯƠN HÀ NỘI",
           description:
-            "Miến lươn Hà Nội có thể ăn khô hoặc chan nước: lươn đồng được làm sạch rồi chiên giòn hoặc om mềm, ăn cùng miến dong dai sợi và bát nước dùng thơm mùi xương hầm, tôm khô. Rau giá, hành phi, rau thơm khiến mỗi miếng vừa giòn vừa ngọt, khó quên.",
+            "Miến lươn Hà Nội có thể ăn khô hoặc chan nước: lươn đồng được làm sạch rồi chiên giòn hoặc om mềm, ăn cùng miến dong dai sợi và bát nước dùng thơm mùi xương hầm, tôm khô. Rau giá, hành phi, rau thơm khiến mỗi miếng vừa giòn vừa ngọt, khó quên.",
           image: "/assets/mienluon/mienluon.jpg",
           imageAlt: "Bát miến lươn với lươn giòn",
           cta: "Thưởng thức miến lươn",
         },
         intro: {
           title: "VIDEO",
-          body: "Lươn chiên vàng và nồi nước dùng thơm ngậy cho món miến lươn chuẩn Hà Nội.",
+          body: "Lươn chiên vàng và nồi nước dùng thơm ngậy cho món miến lươn chuẩn Hà Nội.",
         },
         video: {
           type: "youtube",
@@ -615,11 +619,11 @@ export const FOODS_COPY = {
         id: "bun-tron",
         hero: {
           eyebrow: "Hòa quyện đủ vị",
-          title: "BÚN TRỘN HÀ NỘI",
+          title: "BÚN TRỘN HÀ NỘI",
           description:
-            "Bún trộn Hà Nội gồm bún mềm, thịt nướng thơm, rau sống tươi, lạc rang và nước mắm chua ngọt. Món ăn được dọn khô, thực khách tự trộn đều để cảm nhận sự cân bằng giữa vị ngọt, mặn, chua, bùi trong từng gắp.",
+            "Bún trộn Hà Nội gồm bún mềm, thịt nướng thơm, rau sống tươi, lạc rang và nước mắm chua ngọt. Món ăn được dọn khô, thực khách tự trộn đều để cảm nhận sự cân bằng giữa vị ngọt, mặn, chua, bùi trong từng gắp.",
           image: "/assets/buntron/buntron.jpg",
-          imageAlt: "Bát bún trộn Hà Nội đầy đủ topping",
+          imageAlt: "Bát bún trộn Hà Nội đầy đủ topping",
           cta: "Trộn đều và thưởng thức",
         },
         intro: {
@@ -682,7 +686,7 @@ export const FOODS_COPY = {
           eyebrow: "Đặc sản theo mùa",
           title: "CHẢ RƯƠI",
           description:
-            "Chả rươi là món đặc sản mùa thu của Hà Nội. Rươi tươi được làm sạch, trộn cùng thịt nạc vai, trứng gà, thì là, hành hoa và vỏ quýt thái nhỏ rồi chiên trên chảo nóng. Miếng chả vàng ruộm bên ngoài, mềm béo bên trong, thơm đặc trưng khó lẫn.",
+            "Chả rươi là món đặc sản mùa thu của Hà Nội. Rươi tươi được làm sạch, trộn cùng thịt nạc vai, trứng gà, thì là, hành hoa và vỏ quýt thái nhỏ rồi chiên trên chảo nóng. Miếng chả vàng ruộm bên ngoài, mềm béo bên trong, thơm đặc trưng khó lẫn.",
           image: "/assets/charuoi/charuoi.jpg",
           imageAlt: "Đĩa chả rươi vàng giòn",
           cta: "Thưởng thức chả rươi",
@@ -694,7 +698,7 @@ export const FOODS_COPY = {
         video: {
           type: "youtube",
           src: "https://www.youtube.com/embed/1Rp4ScQawEk?autoplay=1&mute=1&rel=0",
-          description: "Chế biến chả rươi Hà Nội trong mùa rươi ngắn ngủi cuối năm.",
+          description: "Chế biến chả rươi Hà Nội trong mùa rươi ngắn ngủi cuối năm.",
         },
         ingredientGallery: [],
         ingredientsTitle: "Nguyên liệu đặc trưng",
@@ -763,7 +767,7 @@ export const FOODS_COPY = {
         video: {
           type: "youtube",
           src: "https://www.youtube.com/embed/2L_8wW_EPHQ?autoplay=1&mute=1&rel=0",
-          description: "Hầm gà với thảo mộc và trình bày tô mì gà tần chuẩn vị Hà Nội." ,
+          description: "Hầm gà với thảo mộc và trình bày tô mì gà tần chuẩn vị Hà Nội." ,
         },
         ingredientGallery: [],
         ingredientsTitle: "Nguyên liệu chính",
@@ -818,11 +822,11 @@ export const FOODS_COPY = {
         id: "buncha",
         hero: {
           eyebrow: "Hương vị vỉa hè",
-          title: "BÚN CHẢ HÀ NỘI",
+          title: "BÚN CHẢ HÀ NỘI",
           description:
-            "Bún chả là biểu tượng thân thuộc của ẩm thực Hà Nội. Bún trắng mềm, thịt ba chỉ và chả viên nướng trên than hoa rồi chấm trong bát nước mắm đủ vị chua - ngọt - mặn - cay. Khói than quyện mùi mỡ cháy xém đánh thức mọi giác quan, khiến thực khách chỉ muốn nhúng thêm miếng nữa.",
+            "Bún chả là biểu tượng thân thuộc của ẩm thực Hà Nội. Bún trắng mềm, thịt ba chỉ và chả viên nướng trên than hoa rồi chấm trong bát nước mắm đủ vị chua - ngọt - mặn - cay. Khói than quyện mùi mỡ cháy xém đánh thức mọi giác quan, khiến thực khách chỉ muốn nhúng thêm miếng nữa.",
           image: "/assets/buncha/buncha.png",
-          imageAlt: "Mẹt bún chả Hà Nội với thịt nướng và rau sống",
+          imageAlt: "Mẹt bún chả Hà Nội với thịt nướng và rau sống",
           cta: "Khám phá bún chả",
         },
         intro: {
@@ -833,7 +837,7 @@ export const FOODS_COPY = {
           type: "local",
           src: "/assets/buncha/buncha.mp4",
           poster: "/assets/buncha/buncha.png",
-          description: "Mẹt bún chả Hà Nội từ bếp than đến bàn ăn qua những góc quay đầy cảm hứng.",
+          description: "Mẹt bún chả Hà Nội từ bếp than đến bàn ăn qua những góc quay đầy cảm hứng.",
         },
         ingredientGallery: [
           {
@@ -892,7 +896,7 @@ export const FOODS_COPY = {
           {
             id: "buncha-tuyet",
             name: "Bún Chả Tuyết",
-            address: "34 Hàng Than, quận Ba Đình, Hà Nội",
+            address: "34 Hàng Than, quận Ba Đình, Hà Nội",
             description:
               "Hơn 30 năm phục vụ, nổi tiếng với miếng thịt lát lớn, cháy cạnh vừa phải và nước chấm nhẹ nhàng.",
             price: "Giá: 40.000 – 50.000đ (≈ 1,7 – 2,1 USD).",
@@ -902,7 +906,7 @@ export const FOODS_COPY = {
           {
             id: "buncha-huonglien",
             name: "Bún Chả Hương Liên",
-            address: "24 Lê Văn Hưu, quận Hai Bà Trưng, Hà Nội",
+            address: "24 Lê Văn Hưu, quận Hai Bà Trưng, Hà Nội",
             description:
               "Nổi tiếng khắp thế giới sau bữa tối của Tổng thống Obama; nước chấm đậm đà ăn kèm nem cua bể giòn rụm.",
             price: "Giá: 50.000 – 70.000đ; set kèm nem cua bể 85.000đ (≈ 3,5 USD).",
@@ -912,7 +916,7 @@ export const FOODS_COPY = {
           {
             id: "buncha-41",
             name: "Bún Chả 41",
-            address: "41 Cửa Đông, quận Hoàn Kiếm, Hà Nội",
+            address: "41 Cửa Đông, quận Hoàn Kiếm, Hà Nội",
             description:
               "Quán lâu đời khu phố cổ với thịt nướng dậy mùi khói và mẹt rau thơm phong phú.",
             price: "Giá: 45.000 – 60.000đ (≈ 1,9 – 2,5 USD).",
@@ -926,11 +930,11 @@ export const FOODS_COPY = {
         id: "bunthang",
         hero: {
           eyebrow: "Thanh tao tinh tế",
-          title: "BÚN THANG HÀ NỘI",
+          title: "BÚN THANG HÀ NỘI",
           description:
-            "Bún thang được ví như bản giao hưởng tinh tế của Hà Nội với hơn mười nguyên liệu: bún sợi nhỏ, gà xé, trứng tráng thái chỉ, giò lụa, củ cải khô, nấm hương... Từng topping được cắt đều tăm tắp để mỗi thìa đều cân bằng. Vắt thêm giọt chanh, chấm chút mắm tôm và thoang thoảng hương lá chanh, bát bún thang trở nên trọn vẹn khó quên.",
+            "Bún thang được ví như bản giao hưởng tinh tế của Hà Nội với hơn mười nguyên liệu: bún sợi nhỏ, gà xé, trứng tráng thái chỉ, giò lụa, củ cải khô, nấm hương... Từng topping được cắt đều tăm tắp để mỗi thìa đều cân bằng. Vắt thêm giọt chanh, chấm chút mắm tôm và thoang thoảng hương lá chanh, bát bún thang trở nên trọn vẹn khó quên.",
           image: "/assets/bunthang/bunthang.png",
-          imageAlt: "Bát bún thang Hà Nội đầy màu sắc",
+          imageAlt: "Bát bún thang Hà Nội đầy màu sắc",
           cta: "Thưởng thức bún thang",
         },
         intro: {
@@ -989,7 +993,7 @@ export const FOODS_COPY = {
           { iconClass: "fa-solid fa-jar", text: "Nước dùng trong vắt, nêm mắm ngon, gừng và gia vị khô." },
           { iconClass: "fa-solid fa-leaf", text: "Lá chanh thái chỉ, rau thơm tạo hương vị đặc trưng." },
         ],
-        recipeTitle: "Thưởng thức chuẩn Hà Nội",
+        recipeTitle: "Thưởng thức chuẩn Hà Nội",
         recipeSteps: [
           "Ninh xương gà, tôm khô, nấm hương 2-3 giờ để nước dùng trong veo và đậm đà.",
           "Chuẩn bị topping: gà xé, trứng tráng thái chỉ, giò lụa, củ cải và nấm xào thơm.",
@@ -1000,7 +1004,7 @@ export const FOODS_COPY = {
           {
             id: "bunthang-baduc",
             name: "Bún Thang Bà Đức",
-            address: "48 Cầu Gỗ, quận Hoàn Kiếm, Hà Nội",
+            address: "48 Cầu Gỗ, quận Hoàn Kiếm, Hà Nội",
             description:
               "Quán lâu năm nổi tiếng với nước dùng trong, vị ngọt thanh và không gian gọn gàng ấm cúng.",
             price: "Giá: 30.000 – 55.000đ/tô.",
@@ -1010,7 +1014,7 @@ export const FOODS_COPY = {
           {
             id: "bunthang-thuanly",
             name: "Bún Thang Thuận Lý",
-            address: "33 Hàng Hòm, quận Hoàn Kiếm, Hà Nội",
+            address: "33 Hàng Hòm, quận Hoàn Kiếm, Hà Nội",
             description:
               "Giữ hương vị truyền thống, khẩu phần vừa vặn và đậm chất phố cổ.",
             price: "Giá: 30.000 – 40.000đ/tô.",
@@ -1020,7 +1024,7 @@ export const FOODS_COPY = {
           {
             id: "bunthang-tulun",
             name: "Bún Thang Tù Lùn",
-            address: "5 Hàng Trống, quận Hoàn Kiếm, Hà Nội",
+            address: "5 Hàng Trống, quận Hoàn Kiếm, Hà Nội",
             description:
               "Quán nhỏ bình dị được người địa phương yêu thích bởi vị thanh cân bằng.",
             price: "Giá: 25.000 – 45.000đ/tô.",
@@ -1034,11 +1038,11 @@ export const FOODS_COPY = {
         id: "banhcuon",
         hero: {
           eyebrow: "Nét thanh tao buổi sớm",
-          title: "BÁNH CUỐN HÀ NỘI",
+          title: "BÁNH CUỐN HÀ NỘI",
           description:
-            "Bánh cuốn Hà Nội mỏng mượt, ôm trọn nhân thịt heo xào mộc nhĩ, rắc hành phi giòn và rau thơm rồi chấm trong bát nước mắm ấm, thoảng hương tinh dầu cà cuống. Tiếng xèo xèo trên khuôn vải buổi sáng đánh thức cả khu phố, mang tới bữa sáng dịu dàng khó quên.",
+            "Bánh cuốn Hà Nội mỏng mượt, ôm trọn nhân thịt heo xào mộc nhĩ, rắc hành phi giòn và rau thơm rồi chấm trong bát nước mắm ấm, thoảng hương tinh dầu cà cuống. Tiếng xèo xèo trên khuôn vải buổi sáng đánh thức cả khu phố, mang tới bữa sáng dịu dàng khó quên.",
           image: "/assets/banhcuon/banhcuon.png",
-          imageAlt: "Đĩa bánh cuốn Hà Nội",
+          imageAlt: "Đĩa bánh cuốn Hà Nội",
           cta: "Khám phá bánh cuốn",
         },
         intro: {
@@ -1097,7 +1101,7 @@ export const FOODS_COPY = {
           { iconClass: "fa-solid fa-leaf", text: "Rau thơm, giá chần và dưa góp giúp vị thêm cân bằng." },
           { iconClass: "fa-solid fa-bacon", text: "Chả quế, nem chua hoặc ruốc thịt ăn kèm cho thêm độ phong phú." },
         ],
-        recipeTitle: "Cuốn bánh chuẩn Hà Nội",
+        recipeTitle: "Cuốn bánh chuẩn Hà Nội",
         recipeSteps: [
           "Tráng bột gạo trên khuôn vải, đậy nắp cho chín tới khi bánh trong mịn.",
           "Xào nhân thịt heo với mộc nhĩ, hành tím; dàn đều lên bánh và cuốn chặt tay.",
@@ -1108,7 +1112,7 @@ export const FOODS_COPY = {
           {
             id: "banhcuon-baxuan",
             name: "Bánh Cuốn Bà Xuân",
-            address: "Dốc Hòe Nhai, quận Ba Đình, Hà Nội",
+            address: "Dốc Hòe Nhai, quận Ba Đình, Hà Nội",
             description:
               "Quán gia truyền bánh mềm, nước chấm hài hòa và chủ quán thân thiện.",
             price: "Giá: 5.000 – 30.000đ (≈ 0,57 – 1,15 USD).",
@@ -1118,7 +1122,7 @@ export const FOODS_COPY = {
           {
             id: "banhcuon-thuykhue",
             name: "Bánh Cuốn Thụy Khuê",
-            address: "Ngõ 29 Thụy Khuê, quận Tây Hồ, Hà Nội",
+            address: "Ngõ 29 Thụy Khuê, quận Tây Hồ, Hà Nội",
             description:
               "Được người dân quanh hồ yêu thích nhờ vị đậm đà và phần rau tươi hào phóng.",
             price: "Giá: 15.000 – 20.000đ (≈ 0,57 – 0,77 USD).",
@@ -1128,7 +1132,7 @@ export const FOODS_COPY = {
           {
             id: "banhcuon-bahanh",
             name: "Bánh Cuốn Bà Hạnh",
-            address: "16B Thọ Xương, quận Hoàn Kiếm, Hà Nội",
+            address: "16B Thọ Xương, quận Hoàn Kiếm, Hà Nội",
             description:
               "Nằm gần Nhà thờ Lớn, không gian sạch sẽ với suất bánh cuốn đầy đặn, ấm bụng buổi sáng.",
             price: "Giá: 25.000 – 40.000đ (≈ 0,96 – 1,53 USD).",
@@ -1142,22 +1146,22 @@ export const FOODS_COPY = {
         id: "xoi",
         hero: {
           eyebrow: "Bữa sáng ấm áp",
-          title: "XÔI HÀ NỘI",
+          title: "XÔI HÀ NỘI",
           description:
-            "Ở Hà Nội, xôi không chỉ là món ăn mà là một phần của văn hoá sống. Từ góc phố tấp nập buổi sớm đến những con ngõ yên ả đêm khuya, hình ảnh gánh xôi bốc khói gói trong lá chuối đã gắn bó với tuổi thơ của người Hà thành. Một gói xôi mềm dẻo với đậu xanh vàng óng, hành phi giòn, thịt gà, thịt kho hay phiên bản ngọt với dừa nạo, đậu phộng, mè rang đều mang đến hơi ấm bình dị khó quên.",
+            "Ở Hà Nội, xôi không chỉ là món ăn mà là một phần của văn hoá sống. Từ góc phố tấp nập buổi sớm đến những con ngõ yên ả đêm khuya, hình ảnh gánh xôi bốc khói gói trong lá chuối đã gắn bó với tuổi thơ của người Hà thành. Một gói xôi mềm dẻo với đậu xanh vàng óng, hành phi giòn, thịt gà, thịt kho hay phiên bản ngọt với dừa nạo, đậu phộng, mè rang đều mang đến hơi ấm bình dị khó quên.",
           image: "/assets/xoi/xoi.png",
-          imageAlt: "Gánh xôi Hà Nội bốc khói",
-          cta: "Khám phá xôi Hà Nội",
+          imageAlt: "Gánh xôi Hà Nội bốc khói",
+          cta: "Khám phá xôi Hà Nội",
         },
         intro: {
           title: "VIDEO",
-          body: "Theo chân gánh xôi Hà Nội từ lúc thổi nếp tới khi gói xôi nóng trong lá chuối.",
+          body: "Theo chân gánh xôi Hà Nội từ lúc thổi nếp tới khi gói xôi nóng trong lá chuối.",
         },
         video: {
           type: "youtube",
           src: "https://www.youtube.com/embed/udmWMcekReY?autoplay=1&mute=1&rel=0",
           poster: "/assets/xoi/xoi.png",
-          description: "Hơi nếp bốc khói, topping phong phú và nhịp sống vội vã quanh gánh xôi Hà Nội.",
+          description: "Hơi nếp bốc khói, topping phong phú và nhịp sống vội vã quanh gánh xôi Hà Nội.",
         },
         ingredientGallery: [
           {
@@ -1249,16 +1253,16 @@ export const FOODS_COPY = {
         id: "bunrieu",
         hero: {
           eyebrow: "Nét tinh tế đồng quê",
-          title: "BÚN RIÊU HÀ NỘI",
+          title: "BÚN RIÊU HÀ NỘI",
           description:
-            "Một tô bún riêu Hà Nội là bản hoà tấu của sắc đỏ cà chua, vàng rực riêu cua và xanh mướt của rau thơm. Nước dùng thanh nhưng đậm đà vị cua đồng, thoang thoảng mùi mắm tôm, điểm thêm vị chua dịu của cà chua và giấm bỗng. Đậu phụ mềm, thịt heo ngọt và rau sống giòn mát khiến ai cũng khó quên.",
+            "Một tô bún riêu Hà Nội là bản hoà tấu của sắc đỏ cà chua, vàng rực riêu cua và xanh mướt của rau thơm. Nước dùng thanh nhưng đậm đà vị cua đồng, thoang thoảng mùi mắm tôm, điểm thêm vị chua dịu của cà chua và giấm bỗng. Đậu phụ mềm, thịt heo ngọt và rau sống giòn mát khiến ai cũng khó quên.",
           image: "/assets/bunrieu/rieu.png",
-          imageAlt: "Tô bún riêu cua Hà Nội nóng hổi",
+          imageAlt: "Tô bún riêu cua Hà Nội nóng hổi",
           cta: "Thưởng thức bún riêu",
         },
         intro: {
           title: "VIDEO",
-          body: "Theo dõi quá trình nấu nước riêu cua, thả đậu phụ và chan nước dùng đỏ au chuẩn vị Hà Nội.",
+          body: "Theo dõi quá trình nấu nước riêu cua, thả đậu phụ và chan nước dùng đỏ au chuẩn vị Hà Nội.",
         },
         video: {
           type: "youtube",
@@ -1356,16 +1360,16 @@ export const FOODS_COPY = {
         id: "cha-ca",
         hero: {
           eyebrow: "Tinh hoa phố cổ",
-          title: "CHẢ CÁ HÀ NỘI",
+          title: "CHẢ CÁ HÀ NỘI",
           description:
-            "Từng miếng cá ướp nghệ vàng óng được nướng thơm rồi xào nóng cùng thì là và hành lá. Món ăn kết hợp với bún, lạc rang, rau thơm và chén mắm tôm pha giấm bỗng tạo nên hương vị đậm đà, khó quên của Hà Nội.",
+            "Từng miếng cá ướp nghệ vàng óng được nướng thơm rồi xào nóng cùng thì là và hành lá. Món ăn kết hợp với bún, lạc rang, rau thơm và chén mắm tôm pha giấm bỗng tạo nên hương vị đậm đà, khó quên của Hà Nội.",
           image: "/assets/chaca/chaca.png",
-          imageAlt: "Chảo chả cá Hà Nội",
+          imageAlt: "Chảo chả cá Hà Nội",
           cta: "Thưởng thức chả cá",
         },
         intro: {
           title: "VIDEO",
-          body: "Chiêm ngưỡng chảo chả cá xèo xèo và cách pha mắm tôm chuẩn Hà Nội.",
+          body: "Chiêm ngưỡng chảo chả cá xèo xèo và cách pha mắm tôm chuẩn Hà Nội.",
         },
         video: {
           type: "youtube",
@@ -1456,6 +1460,210 @@ export const FOODS_COPY = {
             price: "Giá: 120.000 – 150.000đ (≈ 5 – 6,2 USD).",
             image: "/assets/chaca/3.png",
             mapUrl: "https://maps.google.com/?q=120+K1+Gi%E1%BA%A3ng+V%C3%B5+H%C3%A0+N%E1%BB%99i",
+          },
+        ],
+      },
+      {
+        id: "banh-my",
+        hero: {
+          eyebrow: "Bữa sáng phố cổ",
+          title: "BÁNH MÌ HÀ NỘI",
+          description:
+            "Một ổ bánh mì Hà Nội là bản hòa âm giữa vỏ bánh giòn rộm nứt nhẹ, ruột bông ấm và lớp pate gan thơm ngậy quện bơ mằn mặn. Bên trong là chả, giò heo thái mỏng, đôi khi thêm thịt nướng hoặc trứng ốp la nóng hổi; dưa góp chua ngọt và dưa leo mát tạo độ giòn, rau mùi thoang thoảng làm dậy hương. Chỉ một nét tương Maggi, chút tương ớt và rắc tiêu xay, vị béo – mặn – chua – cay cân bằng vừa vặn, gói trọn tinh thần bữa sáng thủ đô: nhanh gọn mà đầy đủ, giản dị mà khó quên.",
+          image: "/assets/banhmy/banhmy.jpg",
+          imageAlt: "Ổ bánh mì Hà Nội giòn rụm với nhân đầy đặn",
+          cta: "Khám phá bánh mì phố cổ",
+        },
+        intro: {
+          title: "VIDEO",
+          body: "Theo chân hàng bánh mì phố cổ với ổ bánh nóng giòn, nhân đầy đủ.",
+        },
+        video: {
+          type: "youtube",
+          src: "https://www.youtube.com/embed/9qN9izm1xbA?autoplay=1&mute=1&rel=0",
+          description: "Quy trình chuẩn bị ổ bánh mì Hà Nội với pate, chả, rau và gia vị cân bằng.",
+        },
+        ingredientGallery: [],
+        ingredientsTitle: "Nguyên liệu làm nên ổ bánh chuẩn",
+        ingredientsList: [
+          { iconClass: "fa-solid fa-bread-slice", text: "Bánh mì vỏ giòn ruột mềm nướng mới ra lò." },
+          { iconClass: "fa-solid fa-jar", text: "Pate gan béo ngậy quyện cùng bơ mặn." },
+          { iconClass: "fa-solid fa-drumstick-bite", text: "Chả lụa, thịt nguội, thịt nướng hoặc trứng ốp la." },
+          { iconClass: "fa-solid fa-carrot", text: "Dưa góp, dưa leo, rau mùi tạo độ giòn và tươi." },
+          { iconClass: "fa-solid fa-pepper-hot", text: "Tương ớt, Maggi và tiêu xay hoàn thiện vị đậm đà." },
+        ],
+        recipeTitle: "Cách thưởng thức tròn vị",
+        recipeSteps: [
+          "Quét pate và bơ lên ruột bánh mì vừa nướng cho thấm đều.",
+          "Xếp lớp nhân: chả, thịt, trứng, dưa góp, rau mùi thật hài hòa.",
+          "Thêm tương ớt, Maggi, rắc tiêu rồi thưởng thức khi bánh còn nóng giòn.",
+        ],
+        spotsTitle: "Địa chỉ bánh mì Hà Nội nên thử",
+        spots: [
+          {
+            id: "banh-mi-25",
+            name: "BÁNH MÌ 25",
+            address: "25 Hàng Cá, Hoàn Kiếm, Hà Nội",
+            description:
+              "Quầy bánh mì nhỏ giữa lòng phố cổ với nhân phong phú và ổ bánh nóng giòn từng phút.",
+            image: "/assets/banhmy/hinh1.png",
+            mapUrl: "https://maps.google.com/?q=B%C3%A1nh+M%C3%AC+25+25+H%C3%A0ng+C%C3%A1+H%C3%A0+N%E1%BB%99i",
+          },
+          {
+            id: "banh-mi-dan-to",
+            name: "BÁNH MÌ DÂN TỔ",
+            address: "32 Trần Nhật Duật, Đồng Xuân, Hoàn Kiếm, Hà Nội",
+            description:
+              "Nổi tiếng bán xuyên đêm, bánh mì nóng hổi với pate, xúc xích, bơ và sốt trứng béo ngậy.",
+            image: "/assets/banhmy/hinh2.png",
+            mapUrl: "https://maps.google.com/?q=B%C3%A1nh+M%C3%AC+D%C3%A2n+T%E1%BB%95+32+Tr%E1%BA%A7n+Nh%E1%BA%ADt+Du%E1%BA%ADt+H%C3%A0+N%E1%BB%99i",
+          },
+          {
+            id: "banh-mi-lan-ong",
+            name: "BÁNH MÌ LÃN ÔNG",
+            address: "08A Chả Cá, Hàng Bồ, Hoàn Kiếm, Hà Nội",
+            description:
+              "Ổ bánh mì truyền thống với pate nhà làm và lớp nhân được cân chỉnh vừa vặn.",
+            image: "/assets/banhmy/hinh3.png",
+            mapUrl: "https://maps.google.com/?q=B%C3%A1nh+M%C3%AC+L%C3%A3n+%C3%94ng+08A+Ch%E1%BA%A3+C%C3%A1+H%C3%A0+N%E1%BB%99i",
+          },
+        ],
+      },
+      {
+        id: "mi-van-than",
+        hero: {
+          eyebrow: "Ấm lòng đêm phố",
+          title: "MÌ VẰN THẮN HÀ NỘI",
+          description:
+            "Giữa nhịp sống tấp nập của Hà Nội, một bát mì vằn thắn nóng hổi là điểm dừng hoàn hảo để tìm lại sự ấm áp. Nước dùng trong mà đậm, ngọt từ xương heo hầm, thoang thoảng mùi tôm khô. Sợi mì vàng dai mềm ôm lấy thịt xá xíu, hoành thánh tôm căng tròn và trứng luộc dẻo bùi. Mỗi muỗng là sự hòa quyện của vị ngọt, béo, thanh, làm ấm cả tâm hồn. Mì vằn thắn không chỉ ngon mà còn lưu giữ nét duyên ẩm thực Hà thành – thử rồi sẽ nhớ không quên.",
+          image: "/assets/myvanthan/mỳ văn thằn.jpg",
+          imageAlt: "Bát mì vằn thắn Hà Nội với hoành thánh và xá xíu",
+          cta: "Thưởng thức mì vằn thắn",
+        },
+        intro: {
+          title: "VIDEO",
+          body: "Làm hoành thánh, hầm nước dùng và trình bày bát mì vằn thắn chuẩn vị.",
+        },
+        video: {
+          type: "youtube",
+          src: "https://www.youtube.com/embed/pzYBgf3_dMU?autoplay=1&mute=1&rel=0",
+          description: "Bí quyết tạo nước dùng trong, hoành thánh tôm và thịt xá xíu cho bát mì vằn thắn đậm đà.",
+        },
+        ingredientGallery: [],
+        ingredientsTitle: "Nguyên liệu tạo nên hương vị",
+        ingredientsList: [
+          { iconClass: "fa-solid fa-bowl-rice", text: "Sợi mì vàng dai mềm vừa chín tới." },
+          { iconClass: "fa-solid fa-mug-hot", text: "Nước dùng hầm xương heo, tôm khô trong veo ngọt thanh." },
+          { iconClass: "fa-solid fa-drumstick-bite", text: "Thịt xá xíu mềm và trứng luộc lòng đào." },
+          { iconClass: "fa-solid fa-fish", text: "Hoành thánh nhân tôm thịt đầy đặn." },
+          { iconClass: "fa-solid fa-seedling", text: "Hành lá, hẹ, cải chíp làm dậy hương và cân bằng vị béo." },
+        ],
+        recipeTitle: "Thưởng thức đúng điệu",
+        recipeSteps: [
+          "Hầm xương heo với tôm khô, mực khô để có nước dùng trong, nêm nhẹ tay.",
+          "Luộc mì vàng, trụng rau rồi xếp thịt xá xíu, hoành thánh, trứng vào tô.",
+          "Chan nước dùng nóng, rắc hành hẹ và thưởng thức khi còn nghi ngút khói.",
+        ],
+        spotsTitle: "Địa điểm mì vằn thắn Hà Nội",
+        spots: [
+          {
+            id: "mi-van-than-9a",
+            name: "MỲ VẰN THẰN 9A",
+            address: "9A Đinh Liệt, Hoàn Kiếm, Hà Nội",
+            description:
+              "Quán lâu năm giữa phố cổ, nước dùng ngọt thanh, hoành thánh đầy đặn, được khách quen yêu thích.",
+            price: "Giá: 45.000 – 50.000đ/bát.",
+            image: "/assets/myvanthan/hinh1.png",
+            mapUrl: "https://maps.google.com/?q=9A+%C4%90inh+Li%E1%BB%87t+H%C3%A0+N%E1%BB%99i",
+          },
+          {
+            id: "mi-van-than-lan-mi",
+            name: "LAN MỲ",
+            address: "6 Nguyễn Biểu, Ba Đình, Hà Nội",
+            description:
+              "Hơn 20 năm phục vụ mì vằn thắn với xá xíu mềm, hoành thánh tươi và giá cả dễ chịu.",
+            price: "Giá: 25.000 – 45.000đ/bát.",
+            image: "/assets/myvanthan/hinh2.png",
+            mapUrl: "https://maps.google.com/?q=6+Nguy%E1%BB%85n+Bi%E1%BB%83u+H%C3%A0+N%E1%BB%99i",
+          },
+          {
+            id: "mi-van-than-phuong-beo",
+            name: "PHƯƠNG BÉO",
+            address: "9 Hàng Chiếu, Hoàn Kiếm, Hà Nội",
+            description:
+              "Hoành thánh nhân tôm thịt chắc, mì nước hoặc mì trộn đều đậm vị, có thêm sủi cảo chiên.",
+            price: "Giá: 25.000 – 45.000đ/bát.",
+            image: "/assets/myvanthan/hinh3.png",
+            mapUrl: "https://maps.google.com/?q=9+H%C3%A0ng+Chi%E1%BA%BFu+H%C3%A0+N%E1%BB%99i",
+          },
+        ],
+      },
+      {
+        id: "com-ha-noi",
+        hero: {
+          eyebrow: "No tròn vị nhà",
+          title: "CƠM HÀ NỘI",
+          description:
+            "Cơm Hà Nội là bữa ăn quen thuộc nhưng đầy biến tấu: cơm lẻ chọn món theo ý, cơm niêu đáy cháy giòn thơm mùi niêu đất, cơm tấm sườn bì chả đậm đà. Từng hạt cơm dẻo nóng chan sốt đậm, ăn cùng món mặn chuẩn vị mang tới cảm giác đủ đầy, ấm áp. Dù là bữa trưa vội hay bữa tối sum vầy, cơm Hà Nội luôn mang tới sự cân bằng giữa dinh dưỡng và ký ức gia đình.",
+          image: "/assets/comtam/com.jpg",
+          imageAlt: "Mâm cơm Hà Nội với cơm niêu, cơm tấm và món mặn",
+          cta: "Thưởng thức cơm Hà Nội",
+        },
+        intro: {
+          title: "VIDEO",
+          body: "Ba phong cách cơm: cơm lẻ, cơm niêu và cơm tấm trong đời sống Hà Nội.",
+        },
+        video: {
+          type: "youtube",
+          src: "https://www.youtube.com/embed/fdJrGM9smtA?autoplay=1&mute=1&rel=0",
+          description: "Hành trình thưởng thức cơm Hà Nội từ quán bình dân tới cơm niêu, cơm tấm.",
+        },
+        ingredientGallery: [],
+        ingredientsTitle: "Điểm nhấn cơm Hà Nội",
+        ingredientsList: [
+          { iconClass: "fa-solid fa-bowl-rice", text: "Cơm trắng dẻo, cơm niêu hạt rời, cơm tấm hạt bể mềm thơm." },
+          { iconClass: "fa-solid fa-drumstick-bite", text: "Món mặn đa dạng: thịt kho, cá kho, sườn nướng, trứng ốp la." },
+          { iconClass: "fa-solid fa-soup", text: "Canh nóng hoặc sốt kho chan lên giúp hạt cơm thêm đậm vị." },
+          { iconClass: "fa-solid fa-carrot", text: "Dưa góp, rau luộc, đồ chua cân bằng vị béo và bổ sung chất xơ." },
+          { iconClass: "fa-solid fa-jar", text: "Nước mắm pha, sốt tiêu đen, sốt cá kho là linh hồn của bữa cơm." },
+        ],
+        recipeTitle: "Thưởng thức đa phong cách",
+        recipeSteps: [
+          "Chọn phong cách cơm yêu thích: cơm lẻ, cơm niêu hay cơm tấm.",
+          "Kết hợp món mặn, đồ chua và canh theo khẩu vị để cân bằng dinh dưỡng.",
+          "Chan sốt lên cơm, ăn khi còn nóng để cảm nhận trọn vẹn hương vị.",
+        ],
+        spotsTitle: "Địa chỉ cơm Hà Nội",
+        spots: [
+          {
+            id: "com-le-trang-thi",
+            name: "CƠM LỆ",
+            address: "24 Tràng Thi, Hoàn Kiếm, Hà Nội",
+            description:
+              "Quán cơm lẻ trứ danh với quầy món mặn đa dạng, sốt chan đậm vị, phục vụ nhanh chóng.",
+            price: "Giá: 65.000 – 85.000đ/suất.",
+            image: "/assets/comtam/hinh1.jpeg",
+            mapUrl: "https://maps.google.com/?q=24+Tr%C3%A0ng+Thi+H%C3%A0+N%E1%BB%99i",
+          },
+          {
+            id: "com-giadinh-gac-bep",
+            name: "QUÁN GÁC BẾP",
+            address: "197 Quan Hoa, Cầu Giấy, Hà Nội",
+            description:
+              "Không gian ấm cúng với cơm niêu đáy cháy giòn, món mặn chuẩn vị Bắc.",
+            price: "Giá: 95.000 – 99.000đ/suất.",
+            image: "/assets/comtam/hinh2.jpg",
+            mapUrl: "https://maps.google.com/?q=197+Quan+Hoa+H%C3%A0+N%E1%BB%99i",
+          },
+          {
+            id: "com-tam-angon",
+            name: "CƠM TẤM HÀ NỘI ANGON",
+            address: "91 Đặng Văn Ngữ, Đống Đa, Hà Nội",
+            description:
+              "Cơm tấm sườn bì chả chuẩn vị Sài Gòn giữa lòng Hà Nội, nước mắm chua ngọt hài hòa.",
+            price: "Giá: 40.000 – 50.000đ/suất.",
+            image: "/assets/comtam/hinh3.jpeg",
+            mapUrl: "https://maps.google.com/?q=91+%C4%90%E1%BA%B7ng+V%C4%83n+Ng%E1%BB%AF+H%C3%A0+N%E1%BB%99i",
           },
         ],
       },
@@ -1673,7 +1881,11 @@ export const FOODS_COPY = {
           title: "VIDEO",
           body: "A simmering pot of crab broth with golden roe and plenty of fresh add-ins.",
         },
-        video: null,
+        video: {
+          type: "youtube",
+          src: "https://www.youtube.com/embed/-mzTrwB_qHU?autoplay=1&mute=1&rel=0",
+          description: "From pounding field crabs to simmering the pot—see how Hà Nội’s signature hotpot comes together.",
+        },
         ingredientGallery: [],
         ingredientsTitle: "Signature ingredients",
         ingredientsList: [
@@ -2818,6 +3030,210 @@ export const FOODS_COPY = {
             price: "Price: 120,000 – 150,000 VND (~5 – 6.2 USD).",
             image: "/assets/chaca/3.png",
             mapUrl: "https://maps.google.com/?q=120+K1+Gi%E1%BA%A3ng+V%C3%B5+Hanoi",
+          },
+        ],
+      },
+      {
+        id: "banh-my",
+        hero: {
+          eyebrow: "Iconic breakfast",
+          title: "HANOI BANH MI",
+          description:
+            "A Hanoi banh mi is a harmony of textures and flavours: a crackly baguette with a warm, fluffy crumb layered with rich pate, savoury butter, and slices of cold cuts or grilled meats. Pickled carrots, cucumbers, and cilantro add freshness, while a splash of Maggi, chilli sauce, and ground pepper ties everything together. Fast yet satisfying, simple yet unforgettable—this humble sandwich captures the spirit of Hanoi mornings.",
+          image: "/assets/banhmy/banhmy.jpg",
+          imageAlt: "Crispy Hanoi banh mi stuffed with classic fillings",
+          cta: "Grab a banh mi",
+        },
+        intro: {
+          title: "VIDEO",
+          body: "Follow a beloved Old Quarter stall assembling a Hanoi-style banh mi.",
+        },
+        video: {
+          type: "youtube",
+          src: "https://www.youtube.com/embed/9qN9izm1xbA?autoplay=1&mute=1&rel=0",
+          description: "See how pate, cold cuts, herbs, and condiments combine into Vietnam’s iconic sandwich.",
+        },
+        ingredientGallery: [],
+        ingredientsTitle: "What makes it special",
+        ingredientsList: [
+          { iconClass: "fa-solid fa-bread-slice", text: "Freshly baked baguette with a crisp crust and airy crumb." },
+          { iconClass: "fa-solid fa-jar", text: "House-made pate blended with savoury butter." },
+          { iconClass: "fa-solid fa-drumstick-bite", text: "Cold cuts, grilled pork, or sunny-side-up eggs for protein." },
+          { iconClass: "fa-solid fa-carrot", text: "Pickled carrot and daikon, cucumber, and cilantro for balance." },
+          { iconClass: "fa-solid fa-pepper-hot", text: "Maggi seasoning, chilli sauce, and cracked pepper for the final kick." },
+        ],
+        recipeTitle: "How to enjoy it",
+        recipeSteps: [
+          "Warm or lightly toast the baguette, then spread pate and butter evenly.",
+          "Layer in meats, eggs, pickles, cucumbers, and herbs for contrast.",
+          "Finish with Maggi, chilli sauce, and pepper; enjoy while the bread is still crisp.",
+        ],
+        spotsTitle: "Where to try Hanoi banh mi",
+        spots: [
+          {
+            id: "banh-mi-25",
+            name: "BANH MI 25",
+            address: "25 Hang Ca Street, Hoan Kiem District, Hanoi",
+            description:
+              "A must-try Old Quarter favourite with generous fillings and baguettes baked throughout the day.",
+            image: "/assets/banhmy/hinh1.png",
+            mapUrl: "https://maps.google.com/?q=B%C3%A1nh+M%C3%AC+25+25+H%C3%A0ng+C%C3%A1+H%C3%A0+N%E1%BB%99i",
+          },
+          {
+            id: "banh-mi-dan-to",
+            name: "BANH MI DAN TO",
+            address: "32 Tran Nhat Duat Street, Hoan Kiem District, Hanoi",
+            description:
+              "Famous for its late-night rush, serving hot baguettes with pate, sausage, and creamy egg sauce.",
+            image: "/assets/banhmy/hinh2.png",
+            mapUrl: "https://maps.google.com/?q=B%C3%A1nh+M%C3%AC+D%C3%A2n+T%E1%BB%95+32+Tr%E1%BA%A7n+Nh%E1%BA%ADt+Du%E1%BA%ADt+H%C3%A0+N%E1%BB%99i",
+          },
+          {
+            id: "banh-mi-lan-ong",
+            name: "BANH MI LAN ONG",
+            address: "08A Cha Ca Street, Hoan Kiem District, Hanoi",
+            description:
+              "A long-standing stall known for rich homemade pate and perfectly balanced fillings.",
+            image: "/assets/banhmy/hinh3.png",
+            mapUrl: "https://maps.google.com/?q=B%C3%A1nh+M%C3%AC+L%C3%A3n+%C3%94ng+08A+Ch%E1%BA%A3+C%C3%A1+H%C3%A0+N%E1%BB%99i",
+          },
+        ],
+      },
+      {
+        id: "mi-van-than",
+        hero: {
+          eyebrow: "Midnight comfort",
+          title: "HANOI MI VAN THAN",
+          description:
+            "Mi van than—wonton noodle soup—offers pure comfort in the heart of Hanoi. Clear pork-bone broth carries a gentle sweetness, wrapping around springy egg noodles, slices of char siu, plump shrimp dumplings, and tender boiled egg. Each spoonful delivers balance, warmth, and nostalgia—the kind of bowl that makes you linger for a second serving.",
+          image: "/assets/myvanthan/mỳ văn thằn.jpg",
+          imageAlt: "Bowl of Hanoi mi van than with dumplings and char siu",
+          cta: "Slurp mi van than",
+        },
+        intro: {
+          title: "VIDEO",
+          body: "Watch how Hanoi vendors craft broth, dumplings, and toppings for mi van than.",
+        },
+        video: {
+          type: "youtube",
+          src: "https://www.youtube.com/embed/pzYBgf3_dMU?autoplay=1&mute=1&rel=0",
+          description: "Simmering broth, folding dumplings, and plating a steaming bowl of mi van than.",
+        },
+        ingredientGallery: [],
+        ingredientsTitle: "Key ingredients",
+        ingredientsList: [
+          { iconClass: "fa-solid fa-bowl-rice", text: "Springy egg noodles cooked until just tender." },
+          { iconClass: "fa-solid fa-mug-hot", text: "Clear pork-bone broth enriched with dried shrimp." },
+          { iconClass: "fa-solid fa-drumstick-bite", text: "Char siu pork slices and soft-boiled eggs." },
+          { iconClass: "fa-solid fa-fish", text: "Shrimp-and-pork wontons with a juicy bite." },
+          { iconClass: "fa-solid fa-seedling", text: "Scallions, chives, and Chinese greens for a fresh finish." },
+        ],
+        recipeTitle: "How to enjoy it",
+        recipeSteps: [
+          "Simmer pork bones with dried seafood for a clear, naturally sweet broth.",
+          "Blanch noodles and greens, then arrange char siu, wontons, and eggs in the bowl.",
+          "Ladle hot broth over and garnish with scallions, chives, and a dash of pepper.",
+        ],
+        spotsTitle: "Where to slurp mi van than",
+        spots: [
+          {
+            id: "mi-van-than-9a",
+            name: "MI VAN THAN 9A",
+            address: "9A Dinh Liet Street, Hoan Kiem District, Hanoi",
+            description:
+              "A beloved Old Quarter address with sweet broth and generously filled dumplings.",
+            price: "Price: 45,000 – 50,000 VND per bowl.",
+            image: "/assets/myvanthan/hinh1.png",
+            mapUrl: "https://maps.google.com/?q=9A+%C4%90inh+Li%E1%BB%87t+H%C3%A0+N%E1%BB%99i",
+          },
+          {
+            id: "mi-van-than-lan-mi",
+            name: "LAN MI",
+            address: "6 Nguyen Bieu Street, Ba Dinh District, Hanoi",
+            description:
+              "Over two decades of serving silky noodles, fresh dumplings, and friendly prices.",
+            price: "Price: 25,000 – 45,000 VND per bowl.",
+            image: "/assets/myvanthan/hinh2.png",
+            mapUrl: "https://maps.google.com/?q=6+Nguy%E1%BB%85n+Bi%E1%BB%83u+H%C3%A0+N%E1%BB%99i",
+          },
+          {
+            id: "mi-van-than-phuong-beo",
+            name: "PHUONG BEO",
+            address: "9 Hang Chieu Street, Hoan Kiem District, Hanoi",
+            description:
+              "Famous for plump wontons and options for soup or dry noodles with extra fried dumplings.",
+            price: "Price: 25,000 – 45,000 VND per bowl.",
+            image: "/assets/myvanthan/hinh3.png",
+            mapUrl: "https://maps.google.com/?q=9+H%C3%A0ng+Chi%E1%BA%BFu+H%C3%A0+N%E1%BB%99i",
+          },
+        ],
+      },
+      {
+        id: "com-ha-noi",
+        hero: {
+          eyebrow: "Daily comfort",
+          title: "HANOI RICE MEALS",
+          description:
+            "Rice meals are the backbone of daily life in Hanoi. From quick rice-and-dishes combos to clay-pot rice with crunchy caramelised crust and Saigon-style broken rice with grilled pork, each variation offers warmth and abundance. Steaming rice soaked with savoury sauces, paired with pickles and greens, evokes the feeling of home—whether it’s a rushed lunch or a cosy dinner.",
+          image: "/assets/comtam/com.jpg",
+          imageAlt: "Variety of Hanoi rice dishes including clay-pot and broken rice",
+          cta: "Enjoy a rice feast",
+        },
+        intro: {
+          title: "VIDEO",
+          body: "Explore three Hanoi rice experiences: daily rice trays, clay-pot rice, and broken rice.",
+        },
+        video: {
+          type: "youtube",
+          src: "https://www.youtube.com/embed/fdJrGM9smtA?autoplay=1&mute=1&rel=0",
+          description: "A tour through beloved Hanoi rice eateries, from homestyle trays to sizzling clay pots.",
+        },
+        ingredientGallery: [],
+        ingredientsTitle: "Highlights on the plate",
+        ingredientsList: [
+          { iconClass: "fa-solid fa-bowl-rice", text: "Steamed white rice, clay-pot rice with crunchy edges, and tender broken rice." },
+          { iconClass: "fa-solid fa-drumstick-bite", text: "Braised pork, caramelised fish, grilled ribs, and fried eggs." },
+          { iconClass: "fa-solid fa-soup", text: "Hot soups or braising sauces poured over to deepen flavour." },
+          { iconClass: "fa-solid fa-carrot", text: "Pickles, boiled greens, and salads to balance richness." },
+          { iconClass: "fa-solid fa-jar", text: "Fish sauce blends, caramel sauces, and peppery gravies tying everything together." },
+        ],
+        recipeTitle: "How locals enjoy it",
+        recipeSteps: [
+          "Choose your style—daily rice plate, clay-pot rice, or Saigon-inspired broken rice.",
+          "Pair with favourite mains, pickles, and soup for balance and nutrition.",
+          "Pour sauce over the rice and enjoy while it is piping hot for maximum comfort.",
+        ],
+        spotsTitle: "Where to enjoy rice meals",
+        spots: [
+          {
+            id: "com-le-trang-thi",
+            name: "COM LE",
+            address: "24 Trang Thi Street, Hoan Kiem District, Hanoi",
+            description:
+              "A beloved rice-tray spot with a huge line-up of daily dishes and flavourful sauces.",
+            price: "Price: 65,000 – 85,000 VND per serving.",
+            image: "/assets/comtam/hinh1.jpeg",
+            mapUrl: "https://maps.google.com/?q=24+Tr%C3%A0ng+Thi+H%C3%A0+N%E1%BB%99i",
+          },
+          {
+            id: "com-giadinh-gac-bep",
+            name: "GAC BEP",
+            address: "197 Quan Hoa Street, Cau Giay District, Hanoi",
+            description:
+              "A cosy space serving clay-pot rice with crispy bottoms and northern-style comfort dishes.",
+            price: "Price: 95,000 – 99,000 VND per serving.",
+            image: "/assets/comtam/hinh2.jpg",
+            mapUrl: "https://maps.google.com/?q=197+Quan+Hoa+H%C3%A0+N%E1%BB%99i",
+          },
+          {
+            id: "com-tam-angon",
+            name: "COM TAM HANOI ANGON",
+            address: "91 Dang Van Ngu Street, Dong Da District, Hanoi",
+            description:
+              "Serving Saigon-style broken rice with smoky grilled ribs, shredded pork skin, and balanced fish sauce.",
+            price: "Price: 40,000 – 50,000 VND per serving.",
+            image: "/assets/comtam/hinh3.jpeg",
+            mapUrl: "https://maps.google.com/?q=91+%C4%90%E1%BA%B7ng+V%C4%83n+Ng%E1%BB%AF+H%C3%A0+N%E1%BB%99i",
           },
         ],
       },
