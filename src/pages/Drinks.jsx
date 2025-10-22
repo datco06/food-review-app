@@ -314,7 +314,7 @@ export const DRINKS_COPY = {
           title: "BIA HƠI HÀ NỘI",
           description:
             "Bia hơi Hà Nội là biểu tượng bình dị mà tự hào của người Tràng An. Buổi chiều ngồi bên vỉa hè, ly bia vàng óng sủi bọt mát lạnh, tiếng cụng ly rộn ràng hòa cùng câu chuyện bạn bè – đó là khoảnh khắc khó quên. Bia nhẹ độ nhưng thơm, uống ậm ự mà vẫn thanh, đã khát mà không nặng đầu. Một đĩa lạc rang, nem chua, đôi ba món nhậu là đủ để kéo nhau ngồi lâu, cảm nhận nhịp sống phố phường.",
-          image: "/assets/biahoi/Bia hơi.jpg",
+          image: "/assets/biahoi/biahoi.jpg",
           imageAlt: "Ly bia hơi Hà Nội vàng óng trên bàn vỉa hè",
           cta: "Nâng ly bia hơi",
         },
@@ -682,7 +682,7 @@ export const DRINKS_COPY = {
           title: "HANOI DRAUGHT BEER",
           description:
             "Bia hoi—Hanoi’s fresh draught beer—captures the city’s easy-going evenings. As twilight falls, friends gather on low stools, clinking frothy golden glasses while sharing stories. Light, crisp, and endlessly refreshing, it pairs perfectly with simple drinking snacks.",
-          image: "/assets/biahoi/Bia hơi.jpg",
+          image: "/assets/biahoi/biahoi.jpg",
           imageAlt: "Glasses of Hanoi bia hoi on a sidewalk table",
           cta: "Raise a glass",
         },

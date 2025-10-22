@@ -1536,7 +1536,7 @@ export const FOODS_COPY = {
           title: "MÌ VẰN THẮN HÀ NỘI",
           description:
             "Giữa nhịp sống tấp nập của Hà Nội, một bát mì vằn thắn nóng hổi là điểm dừng hoàn hảo để tìm lại sự ấm áp. Nước dùng trong mà đậm, ngọt từ xương heo hầm, thoang thoảng mùi tôm khô. Sợi mì vàng dai mềm ôm lấy thịt xá xíu, hoành thánh tôm căng tròn và trứng luộc dẻo bùi. Mỗi muỗng là sự hòa quyện của vị ngọt, béo, thanh, làm ấm cả tâm hồn. Mì vằn thắn không chỉ ngon mà còn lưu giữ nét duyên ẩm thực Hà thành – thử rồi sẽ nhớ không quên.",
-          image: "/assets/myvanthan/mỳ văn thằn.jpg",
+          image: "/assets/myvanthan/myvanthan.jpg",
           imageAlt: "Bát mì vằn thắn Hà Nội với hoành thánh và xá xíu",
           cta: "Thưởng thức mì vằn thắn",
         },
@@ -3106,7 +3106,7 @@ export const FOODS_COPY = {
           title: "HANOI MI VAN THAN",
           description:
             "Mi van than—wonton noodle soup—offers pure comfort in the heart of Hanoi. Clear pork-bone broth carries a gentle sweetness, wrapping around springy egg noodles, slices of char siu, plump shrimp dumplings, and tender boiled egg. Each spoonful delivers balance, warmth, and nostalgia—the kind of bowl that makes you linger for a second serving.",
-          image: "/assets/myvanthan/mỳ văn thằn.jpg",
+          image: "/assets/myvanthan/myvanthan.jpg",
           imageAlt: "Bowl of Hanoi mi van than with dumplings and char siu",
           cta: "Slurp mi van than",
         },
